@@ -23,6 +23,8 @@ public class PlayerMoveLRState : PlayerState
     private bool isMove = false;
     private GameObject playerModel = null;
 
+    // パリィ先行フラグ
+    private bool isInputParryButton = false;
 
     private void Awake()
     {
@@ -50,6 +52,8 @@ public class PlayerMoveLRState : PlayerState
 
         isMove = ChangeMove();
 
+        isInputParryButton = false;
+
     }
 
     // 実行処理
@@ -59,24 +63,32 @@ public class PlayerMoveLRState : PlayerState
 
         this.moveTimer += Time.deltaTime;
         if(moveTimer>= this.playerStatus.moveTime)
-            state = PlayerStateController.PlayerStateEnum.Idle;
+        {
+            // 先行入力が行われていたらパリィ状態に遷移
+            if (this.isInputParryButton)
+                this.state = PlayerStateController.PlayerStateEnum.Parry;
+            else
+                state = PlayerStateController.PlayerStateEnum.Idle;
+        }
 
-        //if (moveTimer >= moveTimerMax*0.8f && Input.GetKeyDown(KeyCode.Space))
-        //    this.state = PlayerStateController.PlayerStateEnum.Parry;
+        if (Input.GetKeyDown(KeyCode.Space))
+            isInputParryButton = true;
 
-        if(this.isMove)
+        if (this.isMove)
         {
             // TODO : 仮の状態 移動方向に応じて回転方向を変更する
             float dir = 1.0f;
             if (moveDir == PlayerMoveData.MoveDir.Right)
                 dir = -1.0f;
 
-            this.transform.position = Vector3.Lerp(this.transform.position, nextPosObj.transform.position, moveTimer *(1- this.playerStatus.moveTime));
+            this.transform.position = Vector3.Lerp(this.transform.position, nextPosObj.transform.position, moveTimer * (1 - this.playerStatus.moveTime));
             float rate = 360.0f / this.playerStatus.moveTime;
-            playerModel.transform.rotation = Quaternion.Euler(new Vector3(moveTimer * rate * dir - 90.0f, -90.0f,90.0f));
+            playerModel.transform.rotation = Quaternion.Euler(new Vector3(moveTimer * rate * dir - 90.0f, -90.0f, 90.0f));
         }
         else
             state = PlayerStateController.PlayerStateEnum.Idle;
+        
+
 
     }
 
@@ -134,7 +146,6 @@ public class PlayerMoveLRState : PlayerState
 
                 // 移動を開始
                 ChangeMovePath(data.changePath, changePos);
-                Debug.Log(data.changePath.name);
                 return true;
 
                 //break;

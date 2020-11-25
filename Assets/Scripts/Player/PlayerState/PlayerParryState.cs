@@ -23,9 +23,6 @@ public class PlayerParryState : PlayerState
 
     private GameObject playerModel=null;
 
-    // パリィ先行フラグ
-    private bool isInputParryButton = false;
-
     private void Awake()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
@@ -61,7 +58,6 @@ public class PlayerParryState : PlayerState
         // 判定用のタイマーをリセット
         parryJudgeTime = 0.0f;
 
-        isInputParryButton = false;
     }
 
     // 実行処理
@@ -71,12 +67,6 @@ public class PlayerParryState : PlayerState
 
         // パリィを発生していなかったら発生させる
             ParryAction();
-
-       if(Input.GetKeyDown(KeyCode.Space))
-        {
-            isInputParryButton = true;
-            Debug.Log("Space");
-        }
 
         // パリィを行っていたら判定用タイマーを増加
             parryJudgeTime += Time.deltaTime;
@@ -89,7 +79,7 @@ public class PlayerParryState : PlayerState
         // 一定時間経過後パリィ判定用オブジェクトを非アクティブにする
         parryObj.SetActive(false);
 
-        GameObject obj = this.transform.GetChild(3).gameObject;
+        GameObject obj =  this.transform.GetChild(3).gameObject;
         obj.transform.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
     }
 
@@ -103,12 +93,6 @@ public class PlayerParryState : PlayerState
         // 生成してから一定時間経過していたらアイドル状態に遷移
         if (this.playerStatus.parryActiveTime <= parryJudgeTime)
         {
-            // 先行入力が行われていたらパリィ状態に遷移
-            if (this.isInputParryButton)
-            {
-                this.state = PlayerStateController.PlayerStateEnum.Parry;
-            }
-            else
                 this.state = PlayerStateController.PlayerStateEnum.Idle;
         }
     }
