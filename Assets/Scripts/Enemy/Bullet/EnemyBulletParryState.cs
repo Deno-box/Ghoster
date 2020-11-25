@@ -15,7 +15,7 @@ public class EnemyBulletParryState : BulletState
 
     private void Awake()
     {
-        this.damageFX = Resources.Load("FX/BossBulletCollision") as GameObject;
+        this.damageFX = Resources.Load("Effect/Enemy/Bullet/BossBulletCollision") as GameObject;
     }
 
     // 初期化処理
