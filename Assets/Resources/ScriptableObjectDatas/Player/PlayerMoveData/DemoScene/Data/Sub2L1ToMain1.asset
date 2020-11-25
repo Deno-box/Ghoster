@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04561386a642c84281e21cba44dd90a, type: 3}
+  m_Name: Sub2L1ToMain1
+  m_EditorClassIdentifier: 
+  moveDir: 1
+  nowPath: {fileID: 5452832806643824667, guid: 5d364155976e1b94ab85acf4b4757d67, type: 3}
+  nowPosMin: 0
+  nowPosMax: 1094
+  changePath: {fileID: 1733525548512887676, guid: 0e932cf18051b1846a0aa987103c88ce,
+    type: 3}
+  changePosMin: 1200
+  changePosMax: 2292.8
