@@ -18,14 +18,14 @@ public class PlayerReceiveDamageState : PlayerState
     private GameObject playerModel;
     private GameObject parrysuccessFx;
 
-    private GameObject damageCridder;
+    private GameObject damageCollider;
 
     private void Start()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
         this.parrysuccessFx = Resources.Load("Effect/Player/PlayerReceiveDamage") as GameObject;
         playerModel = this.transform.GetChild(3).gameObject;
-        damageCridder = this.transform.GetChild(2).gameObject;
+        damageCollider = this.transform.GetChild(5).gameObject;
     }
 
     // 初期化処理
@@ -38,7 +38,7 @@ public class PlayerReceiveDamageState : PlayerState
         GameObject obj = Instantiate(parrysuccessFx, this.transform);
         StartCoroutine("BlinkRenderer");
 
-        damageCridder.SetActive(false);
+        damageCollider.SetActive(false);
     }
 
     // 実行処理
@@ -73,7 +73,7 @@ public class PlayerReceiveDamageState : PlayerState
     public override void Exit()
     {
         playerModel.SetActive(true);
-        damageCridder.SetActive(true);
+        damageCollider.SetActive(true);
         this.isBlink = false;
 
     }
