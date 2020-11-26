@@ -5,8 +5,8 @@ using UnityEngine;
 public class BulletState : MonoBehaviour
 {
     // 実行したいステート
-    protected BossEnemyBullet.BulletStateEnum state;
-    public BossEnemyBullet.BulletStateEnum State { get { return state; } }
+    protected EnemyBulletStateController.BulletStateEnum state;
+    public EnemyBulletStateController.BulletStateEnum State { get { return state; } }
 
     // 初期化処理
     public virtual void StateInitialize() { }

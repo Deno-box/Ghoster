@@ -29,13 +29,13 @@ public class EnemyBulletParryState : BulletState
         if (GameObject.FindWithTag("BossEnemy"))
             bossTrs = GameObject.FindWithTag("BossEnemy").transform;
 
-        state = BossEnemyBullet.BulletStateEnum.Parry;
+        state = EnemyBulletStateController.BulletStateEnum.Parry;
     }
 
     // 更新処理
     public override void Execute()
     {
-        state = BossEnemyBullet.BulletStateEnum.Parry;
+        state = EnemyBulletStateController.BulletStateEnum.Parry;
         // TOdo:: 絶対やめたほうがいい
         if (!GameObject.FindWithTag("BossEnemy"))
             Destroy(this.gameObject);

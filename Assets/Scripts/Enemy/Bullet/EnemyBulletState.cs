@@ -17,7 +17,7 @@ public class EnemyBulletState : BulletState
     // 初期化処理
     public override void StateInitialize()
     {
-        state = BossEnemyBullet.BulletStateEnum.EnemyBullet;
+        state = EnemyBulletStateController.BulletStateEnum.EnemyBullet;
     }
 
     // 更新処理
@@ -36,7 +36,7 @@ public class EnemyBulletState : BulletState
         if (_other.tag == "PlayerParry")
         {
             //Instantiate(damageFX, this.transform.position, Quaternion.identity);
-            state = BossEnemyBullet.BulletStateEnum.Parry;
+            state = EnemyBulletStateController.BulletStateEnum.Parry;
         }
         else if(_other.tag == "PlayerBody")
         {
