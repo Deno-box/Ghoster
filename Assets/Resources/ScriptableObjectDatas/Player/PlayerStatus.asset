@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41072429aa695ee4e8194209b2914b6b, type: 3}
   m_Name: PlayerStatus
   m_EditorClassIdentifier: 
-  moveTime: 0.3
+  moveTime: 0.35
   parryActiveTime: 0.3
   goodJudgeDistance: 0.3
   greatJudgeDistance: 0

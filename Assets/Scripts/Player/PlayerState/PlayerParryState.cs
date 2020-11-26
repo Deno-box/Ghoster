@@ -22,11 +22,9 @@ public class PlayerParryState : PlayerState
     private int rotDir = 1;
 
     private GameObject playerModel=null;
+    private bool isInputMoveButton = false;
 
-    // パリィ先行フラグ
-    private bool isInputParryButton = false;
-
-    private void Awake()
+    private void Start()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
         this.parrysuccessFx = Resources.Load("Effect/Player/ParrySuccess") as GameObject;
@@ -61,25 +59,34 @@ public class PlayerParryState : PlayerState
         // 判定用のタイマーをリセット
         parryJudgeTime = 0.0f;
 
-        isInputParryButton = false;
+        isInputMoveButton = false;
     }
 
     // 実行処理
     public override void Execute()
     {
-        //Debug.Log("Parry");
-
         // パリィを発生していなかったら発生させる
-            ParryAction();
-
-       if(Input.GetKeyDown(KeyCode.Space))
-        {
-            isInputParryButton = true;
-            Debug.Log("Space");
-        }
+        ParryAction();
 
         // パリィを行っていたら判定用タイマーを増加
-            parryJudgeTime += Time.deltaTime;
+        parryJudgeTime += Time.deltaTime;
+
+
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            // 左入力キーを設定
+            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Left;
+            isInputMoveButton = true;
+        }
+        // Dキーで左のパスに移動
+        else
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            // 右入力キーを設定
+            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Right;
+            isInputMoveButton = true;
+        }
 
         PlayerRotation();
     }
@@ -89,7 +96,7 @@ public class PlayerParryState : PlayerState
         // 一定時間経過後パリィ判定用オブジェクトを非アクティブにする
         parryObj.SetActive(false);
 
-        GameObject obj = this.transform.GetChild(3).gameObject;
+        GameObject obj =  this.transform.GetChild(3).gameObject;
         obj.transform.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
     }
 
@@ -97,17 +104,11 @@ public class PlayerParryState : PlayerState
     // パリィを発生させるコルーチン
     private void ParryAction()
     {
-        //// parryActimeTimeの間処理を停止する
-        //yield return new WaitForSeconds(this.playerStatus.parryActiveTime);
-
         // 生成してから一定時間経過していたらアイドル状態に遷移
         if (this.playerStatus.parryActiveTime <= parryJudgeTime)
         {
-            // 先行入力が行われていたらパリィ状態に遷移
-            if (this.isInputParryButton)
-            {
-                this.state = PlayerStateController.PlayerStateEnum.Parry;
-            }
+            if (isInputMoveButton)
+                this.state = PlayerStateController.PlayerStateEnum.MoveLR;
             else
                 this.state = PlayerStateController.PlayerStateEnum.Idle;
         }
