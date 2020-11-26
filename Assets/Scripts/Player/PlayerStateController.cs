@@ -22,7 +22,7 @@ public class PlayerStateController : MonoBehaviour
     private PlayerState[] stateList = new PlayerState[(int)PlayerStateEnum.None];
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // 全てのステートを登録
         this.gameObject.AddComponent<PlayerIdleState>();
