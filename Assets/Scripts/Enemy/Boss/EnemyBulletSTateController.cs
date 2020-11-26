@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossEnemyBullet : MonoBehaviour
+public class EnemyBulletStateController : MonoBehaviour
 {
     public enum BulletStateEnum
     {
