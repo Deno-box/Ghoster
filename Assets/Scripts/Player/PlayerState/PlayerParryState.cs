@@ -24,7 +24,7 @@ public class PlayerParryState : PlayerState
     private GameObject playerModel=null;
     private bool isInputMoveButton = false;
 
-    private void Awake()
+    private void Start()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
         this.parrysuccessFx = Resources.Load("Effect/Player/ParrySuccess") as GameObject;

@@ -26,7 +26,7 @@ public class PlayerMoveLRState : PlayerState
     // パリィ先行フラグ
     private bool isInputParryButton = false;
 
-    private void Awake()
+    private void Start()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
         playerMoveData = Resources.Load("ScriptableObjectDatas/Player/PlayerMoveData/DemoScene/TestStagePlayerMoveData") as PlayerMoveDataList;

@@ -18,7 +18,7 @@ public class PlayerReceiveDamageState : PlayerState
     private GameObject playerModel;
     private GameObject parrysuccessFx;
 
-    private void Awake()
+    private void Start()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
         this.parrysuccessFx = Resources.Load("Effect/Player/PlayerReceiveDamage") as GameObject;

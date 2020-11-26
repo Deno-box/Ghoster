@@ -20,7 +20,7 @@ public class PlayerIdleState : PlayerState
 
     private Image alertImage;
 
-    private void Awake()
+    private void Start()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
 
