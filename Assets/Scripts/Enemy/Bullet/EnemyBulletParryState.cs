@@ -30,6 +30,10 @@ public class EnemyBulletParryState : BulletState
             bossTrs = GameObject.FindWithTag("BossEnemy").transform;
 
         state = EnemyBulletStateController.BulletStateEnum.Parry;
+
+       this.GetComponent<TrailRenderer>();
+        this.gameObject.SetActive(true);
+
     }
 
     // 更新処理
