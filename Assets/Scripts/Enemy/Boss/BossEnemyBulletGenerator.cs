@@ -87,6 +87,7 @@ public class BossEnemyBulletGenerator : MonoBehaviour
 
         // 弾を生成
         GameObject obj = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
+        obj.transform.parent = this.transform;
         obj.GetComponent<CinemachineDollyCart>().m_Path = this.pathList[laneNum].path;
         obj.GetComponent<CinemachineDollyCart>().m_Position = pathPos;
 

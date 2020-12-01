@@ -38,6 +38,7 @@ public class PlayerMoveLRState : PlayerState
         this.nextPosObj = new GameObject();
         this.nextPosObj.AddComponent<CinemachineDollyCart>();
         this.nextPosObj.transform.parent = this.transform;
+        this.nextPosObj.name = "NextPointObj";
     }
 
     // 初期化処理
