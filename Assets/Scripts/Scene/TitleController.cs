@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Common;
 
 // タイトルコントローラ
 public class TitleController : MonoBehaviour
@@ -33,13 +34,13 @@ public class TitleController : MonoBehaviour
     [SerializeField]
     Canvas canvas = null;
 
-    private Fadecontroller fadeController = null;
+    private Fadecontroller fadeScript = null;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        this.fadeController = this.canvas.GetComponent<Fadecontroller>();
+        this.fadeScript = this.canvas.GetComponent<Fadecontroller>();
     }
 
     // Update is called once per frame
@@ -102,8 +103,8 @@ public class TitleController : MonoBehaviour
                 // ゲームスタート
                 case (int)TextType.NEW_GAME:
                     // プレイシーンへ遷移
-                    //fadeController.fadeOutStart(0, 0, 0, 0, "DemoPlayScene");
-                    //break;
+                    fadeScript.fadeOutStart(Common.Scene.STAGE_SELECT_SCENE);
+                    break;
                 // 続きから
                 case (int)TextType.CONTINUE:
                     break;

@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class ResultController : MonoBehaviour
 {
+    // フェード用キャンバス
     GameObject fadeCanvas;
-    Fadecontroller fadecontroller;
+
+    // フェード用スクリプト
+    Fadecontroller fadeScript;
+
     // Start is called before the first frame update
     void Start()
     {
         fadeCanvas = GameObject.Find("FadeCanvas");
-        fadecontroller = fadeCanvas.GetComponent<Fadecontroller>();
+        fadeScript = fadeCanvas.GetComponent<Fadecontroller>();
     }
 
     // Update is called once per frame
