@@ -9,12 +9,14 @@ public class EnemyBulletParryState : BulletState
     private Transform bossTrs = null;
     // 跳ね返るときの弾の速度
     private float moveSpeed = 150.0f;
+    private TrailRenderer trailRenderer = null;
 
     // ボスにダメージを与えたときのFX
     private GameObject damageFX;
 
     private void Awake()
     {
+        trailRenderer = this.GetComponent<TrailRenderer>();
         this.damageFX = Resources.Load("Effect/Enemy/Bullet/BossBulletCollision") as GameObject;
     }
 
@@ -30,6 +32,9 @@ public class EnemyBulletParryState : BulletState
             bossTrs = GameObject.FindWithTag("BossEnemy").transform;
 
         state = EnemyBulletStateController.BulletStateEnum.Parry;
+
+        trailRenderer.emitting = true;
+
     }
 
     // 更新処理

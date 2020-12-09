@@ -98,7 +98,11 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
+<<<<<<< HEAD
   m_UseShadowmask: 1
+=======
+  m_UseShadowmask: 0
+>>>>>>> AddTrajectoryEffct
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -37647,6 +37651,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainPath1
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 1733525548512887648, guid: 0e932cf18051b1846a0aa987103c88ce,
         type: 3}
       propertyPath: m_IsActive
@@ -37656,6 +37661,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+=======
+    - target: {fileID: 1733525548512887677, guid: 0e932cf18051b1846a0aa987103c88ce,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+>>>>>>> AddTrajectoryEffct
       objectReference: {fileID: 0}
     - target: {fileID: 1733525548512887677, guid: 0e932cf18051b1846a0aa987103c88ce,
         type: 3}
@@ -55227,12 +55238,15 @@ Transform:
   m_Father: {fileID: 448177772}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!4 &1080097894 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6766290402141761775, guid: 56e58d2c383c6744886a604a84e931f8,
     type: 3}
   m_PrefabInstance: {fileID: 1214384709}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> AddTrajectoryEffct
 --- !u!1 &1087209774
 GameObject:
   m_ObjectHideFlags: 0
@@ -81880,6 +81894,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736484820}
   m_Mesh: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &1740482779
 GameObject:
   m_ObjectHideFlags: 0
@@ -86647,6 +86662,8 @@ Halo:
     serializedVersion: 2
     rgba: 4283367399
   m_Size: 1
+=======
+>>>>>>> AddTrajectoryEffct
 --- !u!1 &1741589000
 GameObject:
   m_ObjectHideFlags: 0
