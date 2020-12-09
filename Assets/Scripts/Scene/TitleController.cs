@@ -36,6 +36,9 @@ public class TitleController : MonoBehaviour
 
     private Fadecontroller fadeScript = null;
 
+    private float beforeStick = 0.0f;
+    private float beforeCross = 0.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,24 +68,33 @@ public class TitleController : MonoBehaviour
     // モードの選択
     private void ChoiceMode(ref RectTransform _rect, float _offsetX)
     {
-        // ←キー（Aキー）を押下
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        float stickHori = Input.GetAxisRaw("Horizontal");
+        float crossHori = Input.GetAxisRaw("CrossHorizontal");
+
+        if (beforeStick == 0.0f && beforeCross == 0.0f)
         {
-            if (this.selecting < (int)TextType.ALL_TYPE - 1)
+            // 右キーを押下
+            if (Input.GetKeyDown(KeyCode.RightArrow) || stickHori > 0 || crossHori > 0)
             {
-                this.selecting++;
+                if (this.selecting < (int)TextType.ALL_TYPE - 1)
+                {
+                    this.selecting++;
+                }
+                ChangeImagePos(ref _rect, _offsetX);
             }
-            ChangeImagePos(ref _rect, _offsetX);
-        }
-        // →キー（Dキー）を押下
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-        {
-            if (this.selecting > 0)
+            // 左キーを押下
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 || crossHori < 0)
             {
-                this.selecting--;
+                if (this.selecting > 0)
+                {
+                    this.selecting--;
+                }
+                ChangeImagePos(ref _rect, _offsetX);
             }
-            ChangeImagePos(ref _rect, _offsetX);
         }
+
+        beforeStick = stickHori;
+        beforeCross = crossHori;
     }
 
     // 画像位置変更
@@ -96,7 +108,7 @@ public class TitleController : MonoBehaviour
     private void ModeSelect()
     {
         //　Enterキー（SPACEキー）を押下
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown("joystick button 0"))
         {
             switch (this.selecting)
             {

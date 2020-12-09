@@ -17,6 +17,9 @@ public class PlayerIdleState : PlayerState
     private CinemachineDollyCart myCart = null;
     private float pathLength = 0.0f;
 
+    private float beforeStick = 0.0f;
+    private float beforeCross = 0.0f;
+    private float beforeTrigger = 0.0f;
 
     private Image alertImage;
 
@@ -48,14 +51,17 @@ public class PlayerIdleState : PlayerState
     // 実行処理
     public override void Execute()
     {
+        float stickHori = Input.GetAxisRaw("Horizontal");
+        float crossHori = Input.GetAxisRaw("CrossHorizontal");
+        float trigger = Input.GetAxis("LRTrigger");
         // TODO : 左右キー判定やマウスの左右判定はこのクラスで判定しているため、後で変更しておく
         //Alert
         // スペースキーでパリィ状態に遷移
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || trigger != 0 && this.beforeTrigger == 0)
             this.state = PlayerStateController.PlayerStateEnum.Parry;
         // Aキーで左のパスに移動
         else
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 && this.beforeStick == 0 || crossHori < 0 && this.beforeCross == 0)
         {
             // 左入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Left;
@@ -63,7 +69,7 @@ public class PlayerIdleState : PlayerState
         }
         // Dキーで左のパスに移動
         else
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || stickHori > 0 && this.beforeStick == 0 || crossHori > 0 && this.beforeCross == 0)
         {
             // 右入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Right;
@@ -80,6 +86,10 @@ public class PlayerIdleState : PlayerState
         }
         else
             alertImage.enabled = false;
+
+        this.beforeStick = stickHori;
+        this.beforeCross = crossHori;
+        this.beforeTrigger = trigger;
     }
     // 終了処理
     public override void Exit()

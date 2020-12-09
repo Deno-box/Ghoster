@@ -20,6 +20,10 @@ public class PlayerReceiveDamageState : PlayerState
 
     private GameObject damageCollider;
 
+    private float beforeStick = 0.0f;
+    private float beforeCross = 0.0f;
+    private float beforeTrigger = 0.0f;
+
     private void Start()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
@@ -44,16 +48,20 @@ public class PlayerReceiveDamageState : PlayerState
     // 実行処理
     public override void Execute()
     {
+        float stickHori = Input.GetAxisRaw("Horizontal");
+        float crossHori = Input.GetAxisRaw("CrossHorizontal");
+        float trigger = Input.GetAxis("LRTrigger");
+
         this.damageTimer += Time.deltaTime;
         if (this.damageTimer >= playerStatus.damageInvincibleTime)
             this.state = PlayerStateController.PlayerStateEnum.Idle;
 
         // スペースキーでパリィ状態に遷移
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || trigger != 0 && this.beforeTrigger == 0)
             this.state = PlayerStateController.PlayerStateEnum.Parry;
         // Aキーで左のパスに移動
         else
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 && this.beforeStick == 0 || crossHori < 0 && this.beforeCross == 0)
         {
             // 左入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Left;
@@ -61,7 +69,7 @@ public class PlayerReceiveDamageState : PlayerState
         }
         // Dキーで左のパスに移動
         else
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || stickHori > 0 && this.beforeStick == 0 || crossHori > 0 && this.beforeCross == 0)
         {
             // 右入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Right;
