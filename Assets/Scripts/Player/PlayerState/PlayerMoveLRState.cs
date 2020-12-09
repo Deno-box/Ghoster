@@ -26,6 +26,8 @@ public class PlayerMoveLRState : PlayerState
     // パリィ先行フラグ
     private bool isInputParryButton = false;
 
+    float beforeTrigger = 0.0f;
+
     private void Start()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
@@ -61,6 +63,7 @@ public class PlayerMoveLRState : PlayerState
     public override void Execute()
     {
         ////Debug.Log("MoveLR");
+        float trigger = Input.GetAxis("LRTrigger");
 
         this.moveTimer += Time.deltaTime;
         if(moveTimer>= this.playerStatus.moveTime)
@@ -72,7 +75,7 @@ public class PlayerMoveLRState : PlayerState
                 state = PlayerStateController.PlayerStateEnum.Idle;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || trigger != 0 && this.beforeTrigger == 0)
             isInputParryButton = true;
 
         if (this.isMove)
@@ -88,9 +91,8 @@ public class PlayerMoveLRState : PlayerState
         }
         else
             state = PlayerStateController.PlayerStateEnum.Idle;
-        
 
-
+        this.beforeTrigger = trigger;
     }
 
     // 終了処理
