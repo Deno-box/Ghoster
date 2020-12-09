@@ -29,4 +29,7 @@ public class PlayerMoveData : ScriptableObject
     public float changePosMin;
     // 移動先パスの移動可能範囲のPosの最大値
     public float changePosMax;
+
+    // ジャンプ先のパス
+    public CinemachinePathBase jumpPath;
 }
