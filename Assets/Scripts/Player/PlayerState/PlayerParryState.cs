@@ -24,6 +24,9 @@ public class PlayerParryState : PlayerState
     private GameObject playerModel=null;
     private bool isInputMoveButton = false;
 
+    private float beforeStick = 0.0f;
+    private float beforeCross = 0.0f;
+
     private void Start()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
@@ -71,9 +74,10 @@ public class PlayerParryState : PlayerState
         // パリィを行っていたら判定用タイマーを増加
         parryJudgeTime += Time.deltaTime;
 
+        float stickHori = Input.GetAxisRaw("Horizontal");
+        float crossHori = Input.GetAxisRaw("CrossHorizontal");
 
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 && this.beforeStick == 0 || crossHori < 0 && this.beforeCross == 0)
         {
             // 左入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Left;
@@ -81,7 +85,7 @@ public class PlayerParryState : PlayerState
         }
         // Dキーで左のパスに移動
         else
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || stickHori > 0 && this.beforeStick == 0 || crossHori > 0 && this.beforeCross == 0)
         {
             // 右入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Right;
@@ -89,6 +93,9 @@ public class PlayerParryState : PlayerState
         }
 
         PlayerRotation();
+
+        beforeStick = stickHori;
+        beforeCross = crossHori;
     }
     // 終了処理
     public override void Exit()

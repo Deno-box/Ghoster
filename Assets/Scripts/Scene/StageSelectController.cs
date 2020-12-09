@@ -33,6 +33,9 @@ public class StageSelectController : MonoBehaviour
     // 選択中
     private int selecting = 0;
 
+    private float beforeStick = 0.0f;
+    private float beforeCross = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,8 +53,11 @@ public class StageSelectController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float stickHori = Input.GetAxisRaw("Horizontal");
+        float crossHori = Input.GetAxisRaw("CrossHorizontal");
+
         // ←キーが押されたら
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 && this.beforeStick == 0 || crossHori < 0 && this.beforeCross == 0)
         {
             this.selecting += 1;
             if(this.selecting==3)
@@ -59,7 +65,7 @@ public class StageSelectController : MonoBehaviour
             MoveStageImage();
         }
         // →キーが押されたら
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || stickHori > 0 && this.beforeStick == 0 || crossHori > 0 && this.beforeCross == 0)
         {
             this.selecting -= 1;
             if (this.selecting == -1)
