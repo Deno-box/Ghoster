@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3861935787863878853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 3861935788498136830}
@@ -89,9 +89,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3861935788498136830}
   - component: {fileID: 3861935788498136825}
-  - component: {fileID: 2825657519650269637}
   - component: {fileID: 5978770667287624151}
   - component: {fileID: 8497496486153335568}
+  - component: {fileID: 4973133815506390905}
   - component: {fileID: -5456149325764268097}
   m_Layer: 0
   m_Name: EnemyBullet
@@ -132,19 +132,6 @@ MonoBehaviour:
   m_PositionUnits: 1
   m_Speed: -20
   m_Position: 0
---- !u!114 &2825657519650269637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3861935788498136824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fdd3c84f2fb2d8428c8f0ee008c6cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeState: {fileID: 0}
 --- !u!135 &5978770667287624151
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -174,6 +161,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4973133815506390905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3861935788498136824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fdd3c84f2fb2d8428c8f0ee008c6cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeState: {fileID: 0}
 --- !u!96 &-5456149325764268097
 TrailRenderer:
   serializedVersion: 2
