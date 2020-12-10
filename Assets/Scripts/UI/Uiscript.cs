@@ -21,7 +21,7 @@ public class Uiscript : MonoBehaviour
     private int[] decisionNum = new int[(int)GameDataManager.SCORE_TYPE.ALL_TYPE];
 
     //トータルスコア
-    private int totalScore = 0;
+    private static int totalScore = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -54,9 +54,9 @@ public class Uiscript : MonoBehaviour
             temp += this.scorePoint[i] * this.decisionNum[i];
 
             // スコアがマイナスにならないように
-            if (this.totalScore < 0)
+            if (totalScore < 0)
             {
-                this.totalScore = 0;
+                totalScore = 0;
             }
         }
     }
@@ -68,6 +68,6 @@ public class Uiscript : MonoBehaviour
         {
             this.decisionCountTexts[i].text = this.decisionNum[i].ToString() + "回";
         }
-        this.scoreCountText.text = this.totalScore.ToString() + "pt";
+        this.scoreCountText.text = totalScore.ToString() + "pt";
     }
 }
