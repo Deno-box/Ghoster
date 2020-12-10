@@ -12,6 +12,9 @@ public class Score : MonoBehaviour
     // スコア
     private int score = 0;
 
+    //トータルスコア
+    private static int total = 0;
+
     // テキスト変動速度
     private const int FLUC_SPEED = 10;
 
@@ -31,7 +34,7 @@ public class Score : MonoBehaviour
     // スコアの計算
     public void CalcScore(int[] _score, int[] _decisionNum)
     {
-        int total = 0;
+
 
         for (int i = 0; i < (int)GameDataManager.SCORE_TYPE.ALL_TYPE; i++)
         {
@@ -61,4 +64,11 @@ public class Score : MonoBehaviour
             this.score -= FLUC_SPEED;
         }
     }
+
+    public static int GetTotalScore()
+    {
+        return total;
+    }
+        
+
 }
