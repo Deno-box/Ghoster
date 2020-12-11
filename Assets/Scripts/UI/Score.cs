@@ -48,20 +48,25 @@ public class Score : MonoBehaviour
 
         // テキストの変動
         FluctuationText(total);
+
+        total = 0;
     }
 
     // テキストを変動させる
     private void FluctuationText(int _total)
     {
-        // スコア増加
-        if (this.score < _total)
+        if(this.score != _total)
         {
-            this.score += FLUC_SPEED;
-        }
-        // スコア減少
-        else if (this.score > _total && this.score != 0)
-        {
-            this.score -= FLUC_SPEED;
+            // スコア増加
+            if (this.score < _total)
+            {
+                this.score += FLUC_SPEED;
+            }
+            // スコア減少
+            else if (this.score > _total && this.score != 0)
+            {
+                this.score -= FLUC_SPEED;
+            }
         }
     }
 

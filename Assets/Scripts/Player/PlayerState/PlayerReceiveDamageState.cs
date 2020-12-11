@@ -38,6 +38,8 @@ public class PlayerReceiveDamageState : PlayerState
         this.state = PlayerStateController.PlayerStateEnum.ReceiveDamage;
         damageTimer = 0.0f;
         this.isBlink = true;
+        GameDataManager.AddDecisionNum((int)GameDataManager.SCORE_TYPE.MISS);
+
 
         GameObject obj = Instantiate(parrysuccessFx, this.transform);
         StartCoroutine("BlinkRenderer");
