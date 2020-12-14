@@ -10,9 +10,9 @@ public class Score : MonoBehaviour
     Text scoreText = null;
 
     // スコア
-    private int score = 0;
-
-    //トータルスコア
+    private int score = 0;
+
+    //トータルスコア
     private static int total = 0;
 
     // テキスト変動速度
@@ -33,19 +33,18 @@ public class Score : MonoBehaviour
 
     // スコアの計算
     public void CalcScore(int[] _score, int[] _decisionNum)
-    {
-
-
-        for (int i = 0; i < (int)GameDataManager.SCORE_TYPE.ALL_TYPE; i++)
-        {
-            total += _score[i] * _decisionNum[i];
-
-            if (total < 0)
-            {
-                total = 0;
-            }
+    {
+
+
+        for (int i = 0; i < (int)GameDataManager.SCORE_TYPE.ALL_TYPE; i++)
+        {
+            total += _score[i] * _decisionNum[i];
+
+            if (total < 0)
+            {
+                total = 0;
+            }
         }
-
         // テキストの変動
         FluctuationText(total);
 
@@ -53,26 +52,26 @@ public class Score : MonoBehaviour
     }
 
     // テキストを変動させる
-    private void FluctuationText(int _total)
-    {
-        if(this.score != _total)
-        {
-            // スコア増加
-            if (this.score < _total)
-            {
-                this.score += FLUC_SPEED;
-            }
-            // スコア減少
-            else if (this.score > _total && this.score != 0)
-            {
-                this.score -= FLUC_SPEED;
-            }
-        }
+    private void FluctuationText(int _total)
+    {
+        if(this.score != _total)
+        {
+            // スコア増加
+            if (this.score < _total)
+            {
+                this.score += FLUC_SPEED;
+            }
+            // スコア減少
+            else if (this.score > _total && this.score != 0)
+            {
+                this.score -= FLUC_SPEED;
+            }
+        }
     }
 
-    public static int GetTotalScore()
-    {
-        return total;
+    public static int GetTotalScore()
+    {
+        return total;
     }
         
 
