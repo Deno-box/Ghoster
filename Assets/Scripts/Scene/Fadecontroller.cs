@@ -11,6 +11,13 @@ public class Fadecontroller : MonoBehaviour
 
     //フェードイン処理の開始、完了を管理するフラグ
     private bool isFadeIn = true;
+    public bool IsFadeIn
+    {
+        get
+        {
+            return isFadeIn;
+        }
+    }
 
     //透明度が変わるスピード
     [SerializeField]
