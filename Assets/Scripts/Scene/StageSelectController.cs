@@ -18,10 +18,10 @@ public class StageSelectController : MonoBehaviour
     private const int STAGE_NUM = 3;
 
     // フェード用キャンバス
-    private GameObject fadeCanvas;
+    private GameObject fadeCanvas = null;
 
     // フェード用スクリプト
-    private Fadecontroller fadeScript;
+    private Fadecontroller fadeScript = null;
 
     // ステージ画像
     [SerializeField]
