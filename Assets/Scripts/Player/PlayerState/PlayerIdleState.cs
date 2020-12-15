@@ -21,14 +21,9 @@ public class PlayerIdleState : PlayerState
     private float beforeCross = 0.0f;
     private float beforeTrigger = 0.0f;
 
-    private Image alertImage;
-
     private void Start()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
-
-        alertImage = GameObject.Find("Alert").GetComponent<Image>();
-        alertImage.enabled = false;
     }
 
     // 初期化処理
@@ -79,13 +74,6 @@ public class PlayerIdleState : PlayerState
         // レーンの端まで到着すると落下状態に遷移
         if (this.pathLength * this.playerStatus.fallJudgeRate <= this.myCart.m_Position)
             this.state = PlayerStateController.PlayerStateEnum.Fall;
-        // 警告ゾーンに入るとUIを有効化
-        if (this.pathLength - this.playerStatus.alertDistance <= this.myCart.m_Position)
-        {
-            alertImage.enabled = true;
-        }
-        else
-            alertImage.enabled = false;
 
         this.beforeStick = stickHori;
         this.beforeCross = crossHori;
@@ -95,7 +83,6 @@ public class PlayerIdleState : PlayerState
     public override void Exit()
     {
         this.damageObj.SetActive(false);
-        alertImage.enabled = false;
     }
 
     // 被ダメージ状態に遷移
