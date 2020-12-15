@@ -9,6 +9,9 @@ TagManager:
   - EnemyBullet
   - PlayerBody
   - BossEnemy
+  - BGMStopTrigger
+  - BossBattleBGMTrigger
+  - NormalBGMTrigger
   layers:
   - Default
   - TransparentFX
