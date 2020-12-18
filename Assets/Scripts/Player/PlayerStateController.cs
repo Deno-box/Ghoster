@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
+[RequireComponent(typeof(PlayerIdleState))]
+[RequireComponent(typeof(PlayerMoveLRState))]
+[RequireComponent(typeof(PlayerParryState))]
+[RequireComponent(typeof(PlayerReceiveDamageState))]
+[RequireComponent(typeof(PlayerFallState))]
+[RequireComponent(typeof(PlayerJumpState))]
+
 public class PlayerStateController : MonoBehaviour
 {
     // プレイヤーのステート
@@ -12,7 +20,7 @@ public class PlayerStateController : MonoBehaviour
         Parry,          // パリィ状態
         ReceiveDamage,  // 非ダメージ状態
         Fall,           // 落下状態
-        Comeback,       // 復帰状態
+        Jump,           // ジャンプ状態
         None            // 初期状態
     }
 
@@ -25,16 +33,12 @@ public class PlayerStateController : MonoBehaviour
     void Awake()
     {
         // 全てのステートを登録
-        this.gameObject.AddComponent<PlayerIdleState>();
-        this.gameObject.AddComponent<PlayerMoveLRState>();
-        this.gameObject.AddComponent<PlayerParryState>();
-        this.gameObject.AddComponent<PlayerReceiveDamageState>();
-        this.gameObject.AddComponent<PlayerFallState>();
         stateList[(int)PlayerStateEnum.Idle]    = this.GetComponent<PlayerIdleState>();
         stateList[(int)PlayerStateEnum.MoveLR]  = this.GetComponent<PlayerMoveLRState>();
         stateList[(int)PlayerStateEnum.Parry]   = this.GetComponent<PlayerParryState>();
         stateList[(int)PlayerStateEnum.ReceiveDamage]   = this.GetComponent<PlayerReceiveDamageState>();
         stateList[(int)PlayerStateEnum.Fall]   = this.GetComponent<PlayerFallState>();
+        stateList[(int)PlayerStateEnum.Jump]   = this.GetComponent<PlayerJumpState>();
 
         // アクティブステートをアイドル状態に初期化
         activeState = stateList[(int)PlayerStateEnum.Idle];
@@ -45,7 +49,7 @@ public class PlayerStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        activeState.Execute();
+        this.activeState.Execute();
 
         // ステートが変更されていたら
         if (lastActiveStateEum != activeState.State)

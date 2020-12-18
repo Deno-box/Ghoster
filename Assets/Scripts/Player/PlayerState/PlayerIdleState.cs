@@ -90,6 +90,12 @@ public class PlayerIdleState : PlayerState
         this.beforeStick = stickHori;
         this.beforeCross = crossHori;
         this.beforeTrigger = trigger;
+
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            this.state = PlayerStateController.PlayerStateEnum.Jump;
+        }
     }
     // 終了処理
     public override void Exit()
