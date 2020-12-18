@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 32558034}
   m_Layer: 5
   m_Name: Stage3Button
-  m_TagString: Untagged
+  m_TagString: Stage3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9622642, g: 0.009617904, b: 0, a: 0.68235296}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -962,23 +962,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5bec13ecc932642be31733f391d958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeInSeconds: 1.5
+  alpha: 0
   stageImage:
   - {fileID: 1915490181}
   - {fileID: 1535411239}
   - {fileID: 175359361}
-  button:
-  - {fileID: 1903853155}
-  - {fileID: 1305350435}
-  - {fileID: 32558031}
   scoreText:
   - {fileID: 2075252930}
   - {fileID: 656811288}
   - {fileID: 360533272}
-  alpha: 0
   informationPanel: {fileID: 655561859}
   symbol: {fileID: 252857899}
   rankingPanel: {fileID: 135128237}
-  selecting: 0
+  eventSystem: {fileID: 1248590016}
+  selectedObject: {fileID: 1903853153}
 --- !u!4 &378879598
 Transform:
   m_ObjectHideFlags: 0
@@ -1456,7 +1454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1903853153}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1248590017
@@ -1488,7 +1486,7 @@ GameObject:
   - component: {fileID: 1305350438}
   m_Layer: 5
   m_Name: Stage2Button
-  m_TagString: Untagged
+  m_TagString: Stage2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1536,7 +1534,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9622642, g: 0.009617904, b: 0, a: 0.68235296}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2069,7 +2067,7 @@ GameObject:
   - component: {fileID: 1903853158}
   m_Layer: 5
   m_Name: Stage1Button
-  m_TagString: Untagged
+  m_TagString: Stage1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2117,7 +2115,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9622642, g: 0.009617904, b: 0, a: 0.68235296}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
