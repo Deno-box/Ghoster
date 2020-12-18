@@ -38,7 +38,7 @@ public class PlayerParryState : PlayerState
         this.parryObj.transform.localPosition = parryObjOffset;
 
 
-        playerModel = this.transform.GetChild(3).gameObject;
+        playerModel = this.transform.GetChild(4).gameObject;
     }
 
     // 初期化処理

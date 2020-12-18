@@ -28,8 +28,8 @@ public class PlayerReceiveDamageState : PlayerState
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
         this.parrysuccessFx = Resources.Load("Effect/Player/PlayerReceiveDamage") as GameObject;
-        playerModel = this.transform.GetChild(3).gameObject;
-        damageCollider = this.transform.GetChild(5).gameObject;
+        playerModel = this.transform.GetChild(5).gameObject;
+        damageCollider = this.transform.GetChild(6).gameObject;
     }
 
     // 初期化処理

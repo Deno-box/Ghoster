@@ -33,7 +33,7 @@ public class PlayerMoveLRState : PlayerState
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
         playerMoveData = Resources.Load("ScriptableObjectDatas/Player/PlayerMoveData/DemoScene/TestStagePlayerMoveData") as PlayerMoveDataList;
 
-        playerModel = this.transform.GetChild(3).gameObject;
+        playerModel = this.transform.GetChild(4).gameObject;
 
         myCart = this.GetComponent<CinemachineDollyCart>();
 
