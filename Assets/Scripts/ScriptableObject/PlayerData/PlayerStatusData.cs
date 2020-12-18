@@ -20,4 +20,8 @@ public class PlayerStatusData : ScriptableObject
     public float fallJudgeRate;
     // 警告を出すパスの長さの割合
     public float alertDistance;
+    // ジャンプの滞空時間
+    public float gravity;
+    // ジャンプの高さ
+    public float jumpVelMax;
 }
