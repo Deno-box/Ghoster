@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Common;
+using UnityEngine.Video;
 
 // タイトルコントローラ
 public class TitleController : MonoBehaviour

@@ -18,10 +18,10 @@ public class StageSelectController : MonoBehaviour
     private const int STAGE_NUM = 3;
 
     // フェード用キャンバス
-    private GameObject fadeCanvas;
+    private GameObject fadeCanvas = null;
 
     // フェード用スクリプト
-    private Fadecontroller fadeScript;
+    private Fadecontroller fadeScript = null;
 
     // ステージ画像
     [SerializeField]
@@ -53,16 +53,17 @@ public class StageSelectController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float stickHori = Input.GetAxisRaw("Horizontal");
+        float stickHori = Input.GetAxisRaw("StickHorizontal");
         float crossHori = Input.GetAxisRaw("CrossHorizontal");
 
         // ←キーが押されたら
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 && this.beforeStick == 0 || crossHori < 0 && this.beforeCross == 0)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || (stickHori < 0 && this.beforeStick == 0) || (crossHori < 0 && this.beforeCross == 0))
         {
             this.selecting += 1;
-            if(this.selecting==3)
-            this.selecting = 0;
+            if (this.selecting == 3)
+                this.selecting = 0;
             MoveStageImage();
+            Debug.Log(stickHori + "+" + crossHori);
         }
         // →キーが押されたら
         if (Input.GetKeyDown(KeyCode.RightArrow) || stickHori > 0 && this.beforeStick == 0 || crossHori > 0 && this.beforeCross == 0)
