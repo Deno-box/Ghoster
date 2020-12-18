@@ -10,7 +10,7 @@ public class PlayerIdleState : PlayerState
 {
     // プレイヤーのステータスデータ
     private PlayerStatusData playerStatus = null;
-
+    [SerializeField]
     private GameObject damageObj = null;
     private Vector3 parryObjOffset = new Vector3(0.0f, 1.0f, -3.0f);
 
@@ -29,13 +29,6 @@ public class PlayerIdleState : PlayerState
     // 初期化処理
     public override void Initialize()
     {
-        // パリィ用オブジェクトを生成
-        if (this.damageObj == null)
-        {
-            this.damageObj = Instantiate(Resources.Load("Prefabs/Player/PlayerDamageJudgement") as GameObject, this.transform);
-            this.damageObj.transform.localPosition = parryObjOffset;
-        }
-        this.damageObj.SetActive(true);
 
         this.myCart = this.GetComponent<CinemachineDollyCart>();
         this.pathLength = this.myCart.m_Path.PathLength;
@@ -88,7 +81,7 @@ public class PlayerIdleState : PlayerState
     // 終了処理
     public override void Exit()
     {
-        this.damageObj.SetActive(false);
+        //this.damageObj.SetActive(false);
     }
 
     // 被ダメージ状態に遷移

@@ -48,12 +48,19 @@ public class PlayerJumpState : PlayerState
     // 終了処理
     public override void Exit()
     {
-        this.playerModel.transform.localPosition = new Vector3(0.0f,1.0f,0.0f);
+        this.playerModel.transform.localPosition = new Vector3(0.0f, this.offsetPosY, 0.0f);
     }
 
     // ジャンプ移動
     public void JumpMove()
     {
         this.playerModel.transform.position += new Vector3(0.0f, jumpVel * Time.deltaTime, 0.0f);
+    }
+
+    // 被ダメージ状態に遷移
+    public void ReceiveDamage()
+    {
+        // 被ダメージ状態に遷移
+        this.state = PlayerStateController.PlayerStateEnum.ReceiveDamage;
     }
 }

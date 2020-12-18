@@ -21,6 +21,7 @@ public class PlayerMoveLRState : PlayerState
 
     private GameObject nextPosObj = null;
     private bool isMove = false;
+    [SerializeField]
     private GameObject playerModel = null;
 
     // パリィ先行フラグ
@@ -62,7 +63,6 @@ public class PlayerMoveLRState : PlayerState
     // 実行処理
     public override void Execute()
     {
-        ////Debug.Log("MoveLR");
         float trigger = Input.GetAxis("LRTrigger");
 
         this.moveTimer += Time.deltaTime;
@@ -87,7 +87,7 @@ public class PlayerMoveLRState : PlayerState
 
             this.transform.position = Vector3.Lerp(this.transform.position, nextPosObj.transform.position, moveTimer * (1 - this.playerStatus.moveTime));
             float rate = 360.0f / this.playerStatus.moveTime;
-            playerModel.transform.rotation = Quaternion.Euler(new Vector3(moveTimer * rate * dir - 90.0f, -90.0f, 90.0f));
+            //playerModel.transform.rotation = Quaternion.Euler(new Vector3(moveTimer * rate * dir - 90.0f, -90.0f, 90.0f));
         }
         else
             state = PlayerStateController.PlayerStateEnum.Idle;
@@ -104,7 +104,7 @@ public class PlayerMoveLRState : PlayerState
             myCart.m_Path = nextPosObj.GetComponent<CinemachineDollyCart>().m_Path;
             myCart.m_Position = nextPosObj.GetComponent<CinemachineDollyCart>().m_Position;
             myCart.enabled = true;
-            playerModel.transform.rotation = Quaternion.Euler(new Vector3(-90.0f, 0.0f, 0.0f));
+            //playerModel.transform.rotation = Quaternion.Euler(new Vector3(-90.0f, 0.0f, 0.0f));
         }
     }
 

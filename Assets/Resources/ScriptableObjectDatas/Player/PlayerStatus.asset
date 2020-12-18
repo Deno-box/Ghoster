@@ -20,4 +20,4 @@ MonoBehaviour:
   fallJudgeRate: 0.99
   alertDistance: 200
   gravity: 1.3
-  jumpVelMax: 20
+  jumpVelMax: 25

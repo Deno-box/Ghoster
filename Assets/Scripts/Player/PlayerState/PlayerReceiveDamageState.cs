@@ -14,10 +14,10 @@ public class PlayerReceiveDamageState : PlayerState
     // 点滅状態か
     private bool isBlink = false;
     
-
+    [SerializeField]
     private GameObject playerModel;
     private GameObject parrysuccessFx;
-
+    [SerializeField]
     private GameObject damageCollider;
 
     private float beforeStick = 0.0f;
@@ -28,8 +28,6 @@ public class PlayerReceiveDamageState : PlayerState
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
         this.parrysuccessFx = Resources.Load("Effect/Player/PlayerReceiveDamage") as GameObject;
-        playerModel = this.transform.GetChild(5).gameObject;
-        damageCollider = this.transform.GetChild(6).gameObject;
     }
 
     // 初期化処理
@@ -76,6 +74,11 @@ public class PlayerReceiveDamageState : PlayerState
             // 右入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Right;
             this.state = PlayerStateController.PlayerStateEnum.MoveLR;
+        }
+        // Qキーでジャンプ
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            this.state = PlayerStateController.PlayerStateEnum.Jump;
         }
     }
 

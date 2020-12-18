@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class PlayerReceiveDamageObj : MonoBehaviour
 {
-    private PlayerIdleState idlestate;
+    private PlayerStateController stateController;
+    private PlayerIdleState idleState;
+    private PlayerJumpState jumpState;
 
     private void Start()
     {
-        idlestate = this.transform.parent.GetComponent<PlayerIdleState>();
+        idleState = this.transform.parent.parent.GetComponent<PlayerIdleState>();
+        jumpState = this.transform.parent.parent.GetComponent<PlayerJumpState>();
+        stateController = this.transform.parent.parent.GetComponent<PlayerStateController>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "EnemyBullet")
         {
-            idlestate.ReceiveDamage();
+            // アイドル状態なら
+            if (stateController.ActiveState.State == PlayerStateController.PlayerStateEnum.Idle)
+                idleState.ReceiveDamage();
+            // ジャンプ状態なら
+            else
+            if (stateController.ActiveState.State == PlayerStateController.PlayerStateEnum.Jump)
+                jumpState.ReceiveDamage();
         }
     }
 }

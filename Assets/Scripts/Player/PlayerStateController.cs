@@ -29,6 +29,8 @@ public class PlayerStateController : MonoBehaviour
     private PlayerStateEnum lastActiveStateEum = PlayerStateEnum.None;
     private PlayerState[] stateList = new PlayerState[(int)PlayerStateEnum.None];
 
+    public PlayerState ActiveState { get { return activeState; } }
+
     // Start is called before the first frame update
     void Awake()
     {

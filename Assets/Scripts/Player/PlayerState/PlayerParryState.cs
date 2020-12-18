@@ -8,7 +8,10 @@ public class PlayerParryState : PlayerState
     private PlayerStatusData playerStatus = null;
 
     // パリィ判定を行うオブジェクト
+    [SerializeField]
     private GameObject parryObj = null;
+    [SerializeField]
+    private GameObject damageObj = null;
     private Vector3 parryObjOffset = new Vector3(0.0f,0.8f,1.0f);
 
     // パリィを発生させてから実際に敵が当たるまでの時間
@@ -21,6 +24,7 @@ public class PlayerParryState : PlayerState
     private float aniamtionTimer;
     private int rotDir = 1;
 
+    [SerializeField]
     private GameObject playerModel=null;
     private bool isInputMoveButton = false;
 
@@ -32,19 +36,17 @@ public class PlayerParryState : PlayerState
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
         this.parrysuccessFx = Resources.Load("Effect/Player/ParrySuccess") as GameObject;
 
-        this.parryObj = Instantiate(Resources.Load("Prefabs/Player/PlayerParryJudgement") as GameObject, this.transform);
+        //this.parryObj = Instantiate(Resources.Load("Prefabs/Player/PlayerParryJudgement") as GameObject, this.transform);
         parryObj.SetActive(false);
 
-        this.parryObj.transform.localPosition = parryObjOffset;
+        //this.parryObj.transform.localPosition = parryObjOffset;
 
-
-        playerModel = this.transform.GetChild(4).gameObject;
     }
 
     // 初期化処理
     public override void Initialize()
     {
-        parryObj.SetActive(false);
+        damageObj.SetActive(false);
 
         parryJudgeTime = 0.0f;
         this.state = PlayerStateController.PlayerStateEnum.Parry;
@@ -102,9 +104,10 @@ public class PlayerParryState : PlayerState
     {
         // 一定時間経過後パリィ判定用オブジェクトを非アクティブにする
         parryObj.SetActive(false);
+        damageObj.SetActive(true);
 
-        GameObject obj =  this.transform.GetChild(3).gameObject;
-        obj.transform.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
+        //GameObject obj =  this.transform.GetChild(3).gameObject;
+        //obj.transform.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
     }
 
 
@@ -125,8 +128,6 @@ public class PlayerParryState : PlayerState
     public void ParryJudge()
     {
         // アイドル状態に遷移
-        //this.state = PlayerStateController.PlayerStateEnum.Idle;
-
         GameObject obj = Instantiate(parrysuccessFx, this.transform);
         obj.transform.localPosition = new Vector3(0.0f, 0.0f, 4.0f);
         ParryJudgement();
@@ -147,6 +148,6 @@ public class PlayerParryState : PlayerState
     {
         float rate = 360.0f / this.playerStatus.parryActiveTime;
         aniamtionTimer += Time.deltaTime;
-        playerModel.transform.localRotation = Quaternion.Euler(-90.0f, 0.0f, aniamtionTimer * rate * rotDir);
+        //playerModel.transform.localRotation = Quaternion.Euler(-90.0f, 0.0f, aniamtionTimer * rate * rotDir);
     }
 }
