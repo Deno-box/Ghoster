@@ -60,8 +60,8 @@ public class StageSelectController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 && this.beforeStick == 0 || crossHori < 0 && this.beforeCross == 0)
         {
             this.selecting += 1;
-            if(this.selecting==3)
-            this.selecting = 0;
+            if (this.selecting == 3)
+                this.selecting = 0;
             MoveStageImage();
         }
         // →キーが押されたら
