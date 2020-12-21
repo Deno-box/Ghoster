@@ -9,6 +9,7 @@ TagManager:
   - EnemyBullet
   - PlayerBody
   - BossEnemy
+  - Queue
   layers:
   - Default
   - TransparentFX
