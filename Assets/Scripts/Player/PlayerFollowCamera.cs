@@ -31,7 +31,7 @@ public class PlayerFollowCamera : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // ゴムひもカメラ
         this.transform.position = Vector3.Lerp(this.transform.position, oldPos, moveSpeed * Time.deltaTime);

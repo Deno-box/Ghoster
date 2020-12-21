@@ -18,6 +18,12 @@ public class PlayerJumpState : PlayerState
     // 着地時の座標修正
     private float offsetPosY = 0.0f;
 
+    // 現在のステートがアクティブかどうか
+    private bool isChangeState;
+
+    // 先行入力したステート
+    private PlayerStateController.PlayerStateEnum typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Idle;
+
     private void Start()
     {
         // プレイヤーのステータスデータ
@@ -25,7 +31,7 @@ public class PlayerJumpState : PlayerState
         this.jumpVelMax = playerStatus.jumpVelMax;
         this.gravity = playerStatus.gravity;
 
-        this.offsetPosY = this.playerModel.transform.localPosition.y;
+        this.offsetPosY = this.playerModel.transform.localPosition.y; 
     }
 
     // 初期化処理
@@ -33,17 +39,65 @@ public class PlayerJumpState : PlayerState
     {
         this.jumpVel = this.jumpVelMax;
         this.state = PlayerStateController.PlayerStateEnum.Jump;
+        typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Idle;
+
+        isChangeState = false;
     }
 
     // 実行処理
     public override void Execute()
     {
-        jumpVel -= gravity;
+        if (isChangeState)
+        {
+            // 先行入力に応じて次のステートを変更
+            switch (typeAheadNextStatus)
+            {
+                case PlayerStateController.PlayerStateEnum.Idle:
+                    this.state = PlayerStateController.PlayerStateEnum.Idle;
+                    break;
 
+                case PlayerStateController.PlayerStateEnum.Parry:
+                    this.state = PlayerStateController.PlayerStateEnum.Parry;
+                    break;
+
+                case PlayerStateController.PlayerStateEnum.MoveLR:
+                    this.state = PlayerStateController.PlayerStateEnum.MoveLR;
+                    break;
+
+                default:
+                    this.state = PlayerStateController.PlayerStateEnum.Idle;
+                    break;
+            }
+        }
+        // 弾きの先行入力
+        if (Input.GetKeyDown(KeyCode.Space))
+            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Parry;
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            // 左入力キーを設定
+            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Left;
+            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.MoveLR;
+        }
+        // Dキーで左のパスに移動
+        else
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            // 右入力キーを設定
+            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Right;
+            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.MoveLR;
+        }
+
+    }
+
+    // 移動実行処理
+    public override void ExecuteMove()
+    {
+        jumpVel -= gravity;
         JumpMove();
         if (this.playerModel.transform.localPosition.y <= offsetPosY)
-            this.state = PlayerStateController.PlayerStateEnum.Idle;
+            isChangeState = true;
     }
+
 
     // 終了処理
     public override void Exit()
@@ -55,12 +109,5 @@ public class PlayerJumpState : PlayerState
     public void JumpMove()
     {
         this.playerModel.transform.position += new Vector3(0.0f, jumpVel * Time.deltaTime, 0.0f);
-    }
-
-    // 被ダメージ状態に遷移
-    public void ReceiveDamage()
-    {
-        // 被ダメージ状態に遷移
-        this.state = PlayerStateController.PlayerStateEnum.ReceiveDamage;
     }
 }

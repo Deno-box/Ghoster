@@ -24,8 +24,8 @@ public class PlayerParryState : PlayerState
     private float aniamtionTimer;
     private int rotDir = 1;
 
-    [SerializeField]
-    private GameObject playerModel=null;
+    //[SerializeField]
+    //private GameObject playerModel = null;
     private bool isInputMoveButton = false;
 
     private float beforeStick = 0.0f;
@@ -99,6 +99,13 @@ public class PlayerParryState : PlayerState
         beforeStick = stickHori;
         beforeCross = crossHori;
     }
+
+    // 移動実行処理
+    public override void ExecuteMove()
+    {
+    }
+
+
     // 終了処理
     public override void Exit()
     {

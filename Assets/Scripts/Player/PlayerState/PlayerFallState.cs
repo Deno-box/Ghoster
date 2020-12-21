@@ -30,6 +30,11 @@ public class PlayerFallState : PlayerState
     public override void Execute()
     {
     }
+        
+    // 移動実行処理
+    public override void ExecuteMove()
+    {
+    }
 
     // 終了処理
     public override void Exit()

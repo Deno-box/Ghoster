@@ -10,9 +10,6 @@ public class PlayerIdleState : PlayerState
 {
     // プレイヤーのステータスデータ
     private PlayerStatusData playerStatus = null;
-    [SerializeField]
-    private GameObject damageObj = null;
-    private Vector3 parryObjOffset = new Vector3(0.0f, 1.0f, -3.0f);
 
     private CinemachineDollyCart myCart = null;
     private float pathLength = 0.0f;
@@ -29,7 +26,6 @@ public class PlayerIdleState : PlayerState
     // 初期化処理
     public override void Initialize()
     {
-
         this.myCart = this.GetComponent<CinemachineDollyCart>();
         this.pathLength = this.myCart.m_Path.PathLength;
 
@@ -43,7 +39,6 @@ public class PlayerIdleState : PlayerState
         float crossHori = Input.GetAxisRaw("CrossHorizontal");
         float trigger = Input.GetAxis("LRTrigger");
         // TODO : 左右キー判定やマウスの左右判定はこのクラスで判定しているため、後で変更しておく
-        //Alert
         // スペースキーでパリィ状態に遷移
         if (Input.GetKeyDown(KeyCode.Space) || trigger != 0 && this.beforeTrigger == 0)
             this.state = PlayerStateController.PlayerStateEnum.Parry;
@@ -63,8 +58,13 @@ public class PlayerIdleState : PlayerState
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Right;
             this.state = PlayerStateController.PlayerStateEnum.MoveLR;
         }
+        // Qキーでジャンプ
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            this.state = PlayerStateController.PlayerStateEnum.Jump;
+        }
 
-        // レーンの端まで到着すると落下状態に遷移
+        // レーンの端まで到着すると状態を遷移
         if (this.pathLength * this.playerStatus.fallJudgeRate <= this.myCart.m_Position)
             this.state = PlayerStateController.PlayerStateEnum.Fall;
 
@@ -72,22 +72,14 @@ public class PlayerIdleState : PlayerState
         this.beforeCross = crossHori;
         this.beforeTrigger = trigger;
 
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            this.state = PlayerStateController.PlayerStateEnum.Jump;
-        }
     }
+    // 移動実行処理
+    public override void ExecuteMove()
+    {
+    }
+
     // 終了処理
     public override void Exit()
     {
-        //this.damageObj.SetActive(false);
-    }
-
-    // 被ダメージ状態に遷移
-    public void ReceiveDamage()
-    {
-        // 被ダメージ状態に遷移
-        this.state = PlayerStateController.PlayerStateEnum.ReceiveDamage;
     }
 }

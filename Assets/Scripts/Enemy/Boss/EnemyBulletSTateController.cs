@@ -13,7 +13,6 @@ public class EnemyBulletStateController : MonoBehaviour
 
     // 自身のステート
     private BulletStateEnum lastStateEnum = BulletStateEnum.EnemyBullet;
-    [SerializeField]
     private BulletState activeState;
     private BulletState[] stateList = new BulletState[2];
 
@@ -30,7 +29,7 @@ public class EnemyBulletStateController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // 実行されるステートが変更されていたら変更を行う
         if (lastStateEnum != activeState.State)
