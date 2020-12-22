@@ -17,7 +17,7 @@ public class StageSelectController : MonoBehaviour
     // 選択中
     private int selecting;
     // ひとつ前の選択
-    private int last_select;
+    private int lastSelect;
     // フェード経過時間
     float fadeDeltaTime = 0.0f;
     // フェードインに掛かる時間
@@ -95,7 +95,7 @@ public class StageSelectController : MonoBehaviour
             // selectingの値を変える
             ChangeSelecting();
             // 1フレーム前と選択しているボタンが違ったら
-            if (selecting != last_select)
+            if (selecting != lastSelect)
             {
                 // いらない画像は透過する
                 ImageInvisible();
@@ -104,7 +104,7 @@ public class StageSelectController : MonoBehaviour
             }
         }
         //1フレーム前の選択されていたボタン
-        last_select = selecting;
+        lastSelect = selecting;
 
         // Escキーが押されたら
         if (Input.GetKeyDown(KeyCode.Escape))
