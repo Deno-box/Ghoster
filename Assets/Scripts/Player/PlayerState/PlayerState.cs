@@ -17,6 +17,8 @@ public abstract class PlayerState : MonoBehaviour
 
     // 実行処理
     public abstract void Execute();
+    // 移動実行処理
+    public abstract void ExecuteMove();
 
     // 終了処理
     public abstract void Exit();

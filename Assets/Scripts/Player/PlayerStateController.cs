@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerIdleState))]
 [RequireComponent(typeof(PlayerMoveLRState))]
 [RequireComponent(typeof(PlayerParryState))]
-[RequireComponent(typeof(PlayerReceiveDamageState))]
+//[RequireComponent(typeof(PlayerReceiveDamageState))]
 [RequireComponent(typeof(PlayerFallState))]
 [RequireComponent(typeof(PlayerJumpState))]
 
@@ -18,7 +18,6 @@ public class PlayerStateController : MonoBehaviour
         Idle,           // アイドル状態
         MoveLR,         // 左右移動状態
         Parry,          // パリィ状態
-        ReceiveDamage,  // 非ダメージ状態
         Fall,           // 落下状態
         Jump,           // ジャンプ状態
         None            // 初期状態
@@ -38,7 +37,6 @@ public class PlayerStateController : MonoBehaviour
         stateList[(int)PlayerStateEnum.Idle]    = this.GetComponent<PlayerIdleState>();
         stateList[(int)PlayerStateEnum.MoveLR]  = this.GetComponent<PlayerMoveLRState>();
         stateList[(int)PlayerStateEnum.Parry]   = this.GetComponent<PlayerParryState>();
-        stateList[(int)PlayerStateEnum.ReceiveDamage]   = this.GetComponent<PlayerReceiveDamageState>();
         stateList[(int)PlayerStateEnum.Fall]   = this.GetComponent<PlayerFallState>();
         stateList[(int)PlayerStateEnum.Jump]   = this.GetComponent<PlayerJumpState>();
 
@@ -61,6 +59,11 @@ public class PlayerStateController : MonoBehaviour
             activeState.Initialize();
             lastActiveStateEum = activeState.State;
         }
+    }
 
+    private void FixedUpdate()
+    {
+        // 移動処理を実行
+        this.activeState.ExecuteMove();
     }
 }

@@ -24,8 +24,9 @@ public class PlayerMoveLRState : PlayerState
     [SerializeField]
     private GameObject playerModel = null;
 
-    // パリィ先行フラグ
-    private bool isInputParryButton = false;
+
+    // 先行入力したステート
+    private PlayerStateController.PlayerStateEnum typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Idle;
 
     float beforeTrigger = 0.0f;
 
@@ -34,30 +35,29 @@ public class PlayerMoveLRState : PlayerState
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
         playerMoveData = Resources.Load("ScriptableObjectDatas/Player/PlayerMoveData/DemoScene/TestStagePlayerMoveData") as PlayerMoveDataList;
 
-        playerModel = this.transform.GetChild(4).gameObject;
-
         myCart = this.GetComponent<CinemachineDollyCart>();
 
         this.nextPosObj = new GameObject();
         this.nextPosObj.AddComponent<CinemachineDollyCart>();
+        this.nextPosObj.GetComponent<CinemachineDollyCart>().m_UpdateMethod = CinemachineDollyCart.UpdateMethod.FixedUpdate;
         this.nextPosObj.transform.parent = this.transform;
+        this.nextPosObj.transform.localPosition = Vector3.zero;
         this.nextPosObj.name = "NextPointObj";
+
     }
 
     // 初期化処理
     public override void Initialize()
     {
-        this.state = PlayerStateController.PlayerStateEnum.MoveLR;
-        // TODO : このデータの読み込みを変更する(Stage1,Stage2のようなデータをどこかに保管しておく)
-        if (!this.playerMoveData)
+        // 先行入力の状態をリセット
+        typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Idle;
 
-        isMove = false;
+        this.state = PlayerStateController.PlayerStateEnum.MoveLR;
+        this.nextPosObj.transform.localPosition = Vector3.zero;
+
         this.moveTimer = 0.0f;
 
         isMove = ChangeMove();
-
-        isInputParryButton = false;
-
     }
 
     // 実行処理
@@ -65,35 +65,57 @@ public class PlayerMoveLRState : PlayerState
     {
         float trigger = Input.GetAxis("LRTrigger");
 
-        this.moveTimer += Time.deltaTime;
-        if(moveTimer>= this.playerStatus.moveTime)
+        // 一定時間経過後状態を遷移
+        if (moveTimer >= this.playerStatus.moveTime)
         {
-            // 先行入力が行われていたらパリィ状態に遷移
-            if (this.isInputParryButton)
-                this.state = PlayerStateController.PlayerStateEnum.Parry;
-            else
-                state = PlayerStateController.PlayerStateEnum.Idle;
+            // 先行入力に応じて次のステートを変更
+            switch(typeAheadNextStatus)
+            {
+                case PlayerStateController.PlayerStateEnum.Idle:
+                    this.state = PlayerStateController.PlayerStateEnum.Idle;
+                    break;
+
+                case PlayerStateController.PlayerStateEnum.Jump:
+                    this.state = PlayerStateController.PlayerStateEnum.Jump;
+                    break;
+
+                case PlayerStateController.PlayerStateEnum.Parry:
+                    this.state = PlayerStateController.PlayerStateEnum.Parry;
+                    break;
+
+                default:
+                    this.state = PlayerStateController.PlayerStateEnum.Idle;
+                    break;
+            }
         }
-
+        // 弾きの先行入力
         if (Input.GetKeyDown(KeyCode.Space) || trigger != 0 && this.beforeTrigger == 0)
-            isInputParryButton = true;
+            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Parry;
+        // ジャンプの先行入力
+        if(Input.GetKeyDown(KeyCode.Q))
+            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Jump;
 
+        this.beforeTrigger = trigger;
+    }   
+    
+    // 移動実行処理
+    public override void ExecuteMove()
+    {
         if (this.isMove)
         {
             // TODO : 仮の状態 移動方向に応じて回転方向を変更する
-            float dir = 1.0f;
-            if (moveDir == PlayerMoveData.MoveDir.Right)
-                dir = -1.0f;
+            //float dir = 1.0f;
+            //if (moveDir == PlayerMoveData.MoveDir.Right)
+            //    dir = -1.0f;
+            // 
 
-            this.transform.position = Vector3.Lerp(this.transform.position, nextPosObj.transform.position, moveTimer * (1 - this.playerStatus.moveTime));
-            float rate = 360.0f / this.playerStatus.moveTime;
+            this.moveTimer += Time.deltaTime;
+            this.transform.position = Vector3.Lerp(this.transform.position, nextPosObj.transform.position, Time.deltaTime * 8.0f);// (this.playerStatus.moveTime));
+            //float rate = 360.0f / this.playerStatus.moveTime;
             //playerModel.transform.rotation = Quaternion.Euler(new Vector3(moveTimer * rate * dir - 90.0f, -90.0f, 90.0f));
         }
-        else
-            state = PlayerStateController.PlayerStateEnum.Idle;
-
-        this.beforeTrigger = trigger;
     }
+
 
     // 終了処理
     public override void Exit()
@@ -144,7 +166,7 @@ public class PlayerMoveLRState : PlayerState
 
                 float speed = this.GetComponent<CinemachineDollyCart>().m_Speed;
                 // TODO : 誤差をマジックナンバーで修正している
-                changePos += this.playerStatus.moveTime * speed + 0.9f;
+                changePos += this.playerStatus.moveTime * speed + 0.5f;
 
 
                 // 移動を開始
@@ -154,9 +176,6 @@ public class PlayerMoveLRState : PlayerState
                 //break;
             }
         }
-
-        // 移動キーをリセット
-        //moveDir = PlayerMoveData.MoveDir.None;
 
         return false;
     }

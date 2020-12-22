@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Stage3Button : MonoBehaviour
 {
+    [SerializeField]
+    private Fadecontroller fadeScript;
+
     // ボタンをクリックした時の処理
     public void OnClick()
     {
-        // シーンを呼び出す
-        Debug.Log("Button3 click!");
-        SceneManager.LoadScene("DemoPlayScene");
+        // とりあえずタイトルシーン
+        this.fadeScript.fadeOutStart(Common.Scene.TITLE_SCENE);
     }
 }
