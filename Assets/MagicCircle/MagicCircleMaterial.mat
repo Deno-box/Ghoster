@@ -8,10 +8,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MagicCircleMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: e5693e0f5a38d1346bae5011602ed341,
+  m_Shader: {fileID: -6465566751694194690, guid: 49040e7d127ace245a36cd9c0f1afc2b,
     type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -57,6 +57,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_AD600EDB_Out_0:
+        m_Texture: {fileID: 2800000, guid: 7575c007245a07f4fb4419284cc94a85, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_DF1215FD_Out_0:
         m_Texture: {fileID: 2800000, guid: 7575c007245a07f4fb4419284cc94a85, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
