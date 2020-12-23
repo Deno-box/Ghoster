@@ -19,7 +19,10 @@ public class PlayerReceiveDamage : MonoBehaviour
     private GameObject reciveDamageFX;
     [SerializeField]
     private GameObject damageCollider;
-
+    [SerializeField]
+    private PlayerHitStop player;
+    [SerializeField]
+    private CameraShake shakeCamera;
     private void Start()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
@@ -38,6 +41,9 @@ public class PlayerReceiveDamage : MonoBehaviour
         StartCoroutine("BlinkRenderer");
 
         damageCollider.SetActive(false);
+        
+        player.SlowDown(0.2f, 0.1f);
+        shakeCamera.Shake(0.2f, 0.1f);
     }
 
     // 実行処理
