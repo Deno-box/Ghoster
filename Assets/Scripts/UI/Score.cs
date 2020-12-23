@@ -10,10 +10,19 @@ public class Score : MonoBehaviour
     Text scoreText = null;
 
     // スコア
-    private int score = 0;
-
-    //トータルスコア
-    private static int total = 0;
+    private static int score = 0;
+    public static int GetScore
+    {
+        get
+        {
+            return score;
+        }
+    }
+
+
+    //トータルスコア
+    private int total = 0;
+
 
     // テキスト変動速度
     private const int FLUC_SPEED = 10;
@@ -28,7 +37,7 @@ public class Score : MonoBehaviour
     void Update()
     {
         // テキスト更新(7桁で表示)
-        this.scoreText.text = this.score.ToString("D7");
+        this.scoreText.text = score.ToString("D7");
     }
 
     // スコアの計算
@@ -48,31 +57,27 @@ public class Score : MonoBehaviour
         // テキストの変動
         FluctuationText(total);
 
-        total = 0;
+       total = 0;
     }
 
     // テキストを変動させる
     private void FluctuationText(int _total)
     {
-        if(this.score != _total)
+        if(score != _total)
         {
             // スコア増加
-            if (this.score < _total)
+            if (score < _total)
             {
-                this.score += FLUC_SPEED;
+                score += FLUC_SPEED;
             }
             // スコア減少
-            else if (this.score > _total && this.score != 0)
+            else if (score > _total && score != 0)
             {
-                this.score -= FLUC_SPEED;
+                score -= FLUC_SPEED;
             }
         }
     }
 
-    public static int GetTotalScore()
-    {
-        return total;
-    }
         
 
 }

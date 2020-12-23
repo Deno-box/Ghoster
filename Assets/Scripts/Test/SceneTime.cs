@@ -7,6 +7,8 @@ public class SceneTime : MonoBehaviour
 {
     private float step_time;    // 経過時間カウント用
 
+
+
     // Start is called before the first frame update
     void Start()
     {

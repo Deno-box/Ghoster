@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Common;
 
 public class PlayerFallState : PlayerState
 {
@@ -23,7 +24,7 @@ public class PlayerFallState : PlayerState
         this.rb.AddForce(torqueVec,ForceMode.Impulse);
 
         Fadecontroller fadeController = GameObject.Find("FadeCanvas").GetComponent<Fadecontroller>();
-        //fadeController.fadeOutStart(0, 0, 0, 0, "DemoResultScene");
+        fadeController.fadeOutStart(0);
     }
 
     // 実行処理
