@@ -15,6 +15,7 @@ TagManager:
   - Stage1
   - Stage2
   - Stage3
+  - MagicCircle
   layers:
   - Default
   - TransparentFX

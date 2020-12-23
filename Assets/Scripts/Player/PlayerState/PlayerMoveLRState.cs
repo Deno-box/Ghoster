@@ -50,7 +50,7 @@ public class PlayerMoveLRState : PlayerState
     public override void Initialize()
     {
         // 先行入力の状態をリセット
-        typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Idle;
+        typeAheadNextStatus = PlayerStateController.PlayerStateEnum.MoveLR;
 
         this.state = PlayerStateController.PlayerStateEnum.MoveLR;
         this.nextPosObj.transform.localPosition = Vector3.zero;
@@ -96,6 +96,10 @@ public class PlayerMoveLRState : PlayerState
             typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Jump;
 
         this.beforeTrigger = trigger;
+
+
+        if (!this.isMove)
+            this.state = PlayerStateController.PlayerStateEnum.Idle;
     }   
     
     // 移動実行処理
