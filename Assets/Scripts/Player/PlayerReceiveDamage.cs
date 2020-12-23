@@ -6,6 +6,7 @@ public class PlayerReceiveDamage : MonoBehaviour
 {
     // プレイヤーのステータスデータ
     private PlayerStatusData playerStatus = null;
+    PlayerData playerData;
 
     // 被ダメージ状態での経過時間
     private float damageTimer;
@@ -22,9 +23,11 @@ public class PlayerReceiveDamage : MonoBehaviour
     private PlayerHitStop player;
     [SerializeField]
     private CameraShake shakeCamera = null;
+
     private void Start()
     {
-        this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
+        this.playerData = this.transform.GetComponentInParent<PlayerData>();
+        this.playerStatus = playerData.PlayerStatus;
         this.reciveDamageFX = Resources.Load("Effect/Player/PlayerReceiveDamage") as GameObject;
 
         player = this.GetComponent<PlayerHitStop>();
@@ -45,6 +48,8 @@ public class PlayerReceiveDamage : MonoBehaviour
         
         player.SlowDown(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
         shakeCamera.Shake(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
+
+        playerData.AudioSource.PlayOneShot(playerStatus.receiveDamageSE);
     }
 
     // 実行処理

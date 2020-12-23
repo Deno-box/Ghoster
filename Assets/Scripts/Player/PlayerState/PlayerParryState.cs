@@ -6,6 +6,7 @@ public class PlayerParryState : PlayerState
 {
     // プレイヤーのステータスデータ
     private PlayerStatusData playerStatus = null;
+    PlayerData playerData;
 
     // パリィ判定を行うオブジェクト
     [SerializeField]
@@ -38,7 +39,8 @@ public class PlayerParryState : PlayerState
 
     private void Start()
     {
-        this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
+        playerData = this.GetComponent<PlayerData>();
+        this.playerStatus = playerData.PlayerStatus;
         this.parrysuccessFx = Resources.Load("Effect/Player/ParrySuccess") as GameObject;
 
         //this.parryObj = Instantiate(Resources.Load("Prefabs/Player/PlayerParryJudgement") as GameObject, this.transform);
@@ -149,6 +151,8 @@ public class PlayerParryState : PlayerState
 
         player.SlowDown(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
         shakeCamera.Shake(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
+
+        playerData.AudioSource.PlayOneShot(playerStatus.parrySE);
     }
 
     // great,good判定を取る

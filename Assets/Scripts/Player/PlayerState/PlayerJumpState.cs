@@ -21,13 +21,17 @@ public class PlayerJumpState : PlayerState
     // 現在のステートがアクティブかどうか
     private bool isChangeState;
 
+    PlayerStatusData playerStatus;
+    PlayerData playerData;
+
     // 先行入力したステート
     private PlayerStateController.PlayerStateEnum typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Idle;
 
     private void Start()
     {
+        playerData = this.GetComponent<PlayerData>();
         // プレイヤーのステータスデータ
-        PlayerStatusData playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
+        playerStatus = playerData.PlayerStatus;
         this.jumpVelMax = playerStatus.jumpVelMax;
         this.gravity = playerStatus.gravity;
 
@@ -42,6 +46,9 @@ public class PlayerJumpState : PlayerState
         typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Idle;
 
         isChangeState = false;
+
+
+        playerData.AudioSource.PlayOneShot(playerStatus.jumpSE);
     }
 
     // 実行処理

@@ -7,6 +7,7 @@ public class PlayerMoveLRState : PlayerState
 {
     // プレイヤーのステータスデータ
     private PlayerStatusData playerStatus = null;
+    PlayerData playerData;
 
     // 追従するオブジェクト
     private CinemachineDollyCart myCart = null;
@@ -32,7 +33,8 @@ public class PlayerMoveLRState : PlayerState
 
     private void Start()
     {
-        this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
+        playerData = this.GetComponent<PlayerData>();
+        this.playerStatus = playerData.PlayerStatus;
         playerMoveData = Resources.Load("ScriptableObjectDatas/Player/PlayerMoveData/DemoScene/TestStagePlayerMoveData") as PlayerMoveDataList;
 
         myCart = this.GetComponent<CinemachineDollyCart>();
@@ -58,6 +60,9 @@ public class PlayerMoveLRState : PlayerState
         this.moveTimer = 0.0f;
 
         isMove = ChangeMove();
+
+        if (isMove)
+            playerData.AudioSource.PlayOneShot(playerStatus.moveSE);
     }
 
     // 実行処理

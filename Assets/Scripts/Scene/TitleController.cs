@@ -128,8 +128,8 @@ public class TitleController : MonoBehaviour
                     break;
                 // オプション
                 case (int)TextType.OPTIONS:
-                    // プレイシーンへ遷移
-                    fadeScript.fadeOutStart(Common.Scene.STAGE_SELECT_SCENE);
+                    // Quitの代わりにしておく
+                    Application.Quit();
                     break;
             }
         }

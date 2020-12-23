@@ -20,7 +20,7 @@ public class PlayerIdleState : PlayerState
 
     private void Start()
     {
-        this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
+        this.playerStatus = this.GetComponent<PlayerData>().PlayerStatus;//Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
     }
 
     // 初期化処理

@@ -14,10 +14,18 @@ public class EnemyBulletParryState : BulletState
     // ボスにダメージを与えたときのFX
     private GameObject damageFX;
 
+    // SEを再生するオーディオソース
+    private AudioSource audioSource = null;
+    [SerializeField]
+    private AudioClip SE = null;
+
     private void Awake()
     {
         trailRenderer = this.GetComponent<TrailRenderer>();
         this.damageFX = Resources.Load("Effect/Enemy/Bullet/BossBulletCollision") as GameObject;
+
+        // TODO : 変更しておく
+        audioSource = GameObject.Find("SE").GetComponent<AudioSource>();
     }
 
     // 初期化処理
@@ -58,6 +66,8 @@ public class EnemyBulletParryState : BulletState
             Vector3 offset = _other.transform.position - this.transform.position;
             GameObject obj = Instantiate(damageFX, _other.transform);
             obj.transform.localPosition = offset;
+
+            audioSource.PlayOneShot(SE);
 
             this.transform.GetChild(1).transform.parent = null;
             //UnityEditor.EditorApplication.isPaused = true;

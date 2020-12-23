@@ -9,6 +9,7 @@ using UnityEngine;
 //[RequireComponent(typeof(PlayerReceiveDamageState))]
 [RequireComponent(typeof(PlayerFallState))]
 [RequireComponent(typeof(PlayerJumpState))]
+[RequireComponent(typeof(PlayerData))]
 
 public class PlayerStateController : MonoBehaviour
 {

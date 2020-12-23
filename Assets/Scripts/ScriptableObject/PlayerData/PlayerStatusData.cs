@@ -28,4 +28,13 @@ public class PlayerStatusData : ScriptableObject
     public float cameraShakeTime;
     // カメラの揺れの範囲
     public float cameraShakeMagnitude;
+
+    // パリィ時のSE
+    public AudioClip parrySE;
+    // ジャンプ時のSE
+    public AudioClip jumpSE;
+    // 移動時のSE
+    public AudioClip moveSE;
+    // 被ダメージ時のSE
+    public AudioClip receiveDamageSE;
 }

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
+[RequireComponent(typeof(EnemyBulletState))]
+[RequireComponent(typeof(EnemyBulletParryState))]
 public class EnemyBulletStateController : MonoBehaviour
 {
     public enum BulletStateEnum
@@ -20,8 +23,6 @@ public class EnemyBulletStateController : MonoBehaviour
     private void Start()
     {
         // ステートを初期化
-        this.gameObject.AddComponent<EnemyBulletState>();
-        this.gameObject.AddComponent<EnemyBulletParryState>();
         stateList[(int)BulletStateEnum.EnemyBullet] = GetComponent<EnemyBulletState>();
         stateList[(int)BulletStateEnum.Parry] = GetComponent<EnemyBulletParryState>();
 
