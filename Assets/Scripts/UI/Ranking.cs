@@ -5,107 +5,93 @@ using UnityEngine.UI;
 
 public class Ranking : MonoBehaviour
 {
-
-    [SerializeField, Header("数値")]
-
-    int point;
-
-    int i;
-
-    public InputField text;
-
-
-
-    string[] ranking = { "ランキング1位", "ランキング2位", "ランキング3位", "ランキング4位", "ランキング5位" };
-    int[] rankingValue = new int[5];
-
-
+    [SerializeField, Header("登録ボタン")]
+    private Button subscribe = null;
+    [SerializeField, Header("ハイスコア")]
+    private int score = 0;
+    [SerializeField, Header("名前親")]
+    private Text[] namesText = new Text[5];
     [SerializeField, Header("表示させるテキスト")]
-    Text[] rankingText = new Text[5];
+    private Text[] rankingText = new Text[5];
+    [SerializeField, Header("Field")]
+    private InputField inputField = null;
 
+    private int highScore = 0;
+    private string[] ranking = { "ランキング1位", "ランキング2位", "ランキング3位", "ランキング4位", "ランキング5位" };
 
     // Start is called before the first frame update
     void Start()
     {
-        GetRanking();
+        //スコアを入れる
+        score = Score.GetScore;
+        
+        highScore = PlayerPrefs.GetInt(ranking[0]);
 
-        SetRanking(point);
+        Show();
 
-        text.text = PlayerPrefs.GetString("NAME", "Player");
+        subscribe.onClick.AddListener(() => 
+        {
+            int j = 0;
+            for (int i = 0; i < ranking.Length; i++)
+            {
+                if (score > PlayerPrefs.GetInt(ranking[i]))
+                {
+                    j = i;
+                    SwapScore(score, ref i);
+                    break;
+                }
+            }
+            Show();
+            PlayerPrefs.Save();
 
+        });
+    }
 
-        rankingValue[i] = Score.GetTotalScore();
-
+    private void Show()
+    {
         for (int i = 0; i < rankingText.Length; i++)
         {
-            rankingText[i].text = rankingValue[i].ToString();
+            namesText[i].text = PlayerPrefs.GetString(ranking[i],"not player");
+            rankingText[i].text = PlayerPrefs.GetInt(ranking[i], 0).ToString();
         }
-        //test
-        //string uName = "k";
-        //int score = 000;
-        //string str;
+
         
-        //str = uName + ":" + score.ToString() + ",";
-
-    }
-    public void InputName()
-    {
-        PlayerPrefs.SetString("NAME", text.text);
-        PlayerPrefs.Save();
     }
 
-    /// <summary>
-    /// ランキング呼び出し
-    /// </summary>
-    void GetRanking()
+    private void SwapName(string name, ref int index)
     {
-        //ランキング呼び出し
-        for (int i = 0; i < ranking.Length; i++)
+        var temp = PlayerPrefs.GetString(PlayerPrefs.GetInt(ranking[index]).ToString(), "not player");
+        PlayerPrefs.SetString(PlayerPrefs.GetInt(ranking[index]).ToString(), name);
+        if (index < ranking.Length - 1)
         {
-            rankingValue[i] = PlayerPrefs.GetInt(ranking[i]);
+            index++;
+            SwapName(temp, ref index);
         }
     }
 
-
-    /// <summary>
-    /// ランキング書き込み
-    /// </summary>
-    void SetRanking(int _value)
+    private void SwapScore(int score, ref int index)
     {
-        //書き込み用
-        for (int i = 0; i < ranking.Length; i++)
+        var temp = PlayerPrefs.GetInt(ranking[index]);
+        PlayerPrefs.SetInt(ranking[index], score);
+        if (index < ranking.Length - 1)
         {
-            //取得した値とRankingの値を比較して入れ替え
-            if (_value > rankingValue[i])
-            {
-                var change = rankingValue[i];
-                rankingValue[i] = _value;
-                _value = change;
-            }
-        }
-
-
-
-        //入れ替えた値を保存
-        for (int i = 0; i < ranking.Length; i++)
-        {
-            PlayerPrefs.SetInt(ranking[i], rankingValue[i]);
-
-            //スコアをすべて0にする
-            //PlayerPrefs.SetInt(ranking[i], rankingValue[i]=0);
+            index++;
+            SwapScore(temp, ref index);
         }
     }
+
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     void Save()
     {
-        // PlayerPrefs.SetInt("SCORE", score_num);
         PlayerPrefs.Save();
-
     }
+
+
 }
+
