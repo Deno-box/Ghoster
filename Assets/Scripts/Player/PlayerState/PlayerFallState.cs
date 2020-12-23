@@ -23,8 +23,8 @@ public class PlayerFallState : PlayerState
         Vector3 torqueVec = this.transform.forward * 40.0f;
         this.rb.AddForce(torqueVec,ForceMode.Impulse);
 
-        Fadecontroller fadeController = GameObject.Find("FadeCanvas").GetComponent<Fadecontroller>();
-        fadeController.fadeOutStart(0);
+        FadeController fadeController = GameObject.Find("FadeCanvas").GetComponent<FadeController>();
+        fadeController.fadeOutStart(Common.Scene.RESULT_SCENE);
     }
 
     // 実行処理

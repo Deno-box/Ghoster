@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerReceiveDamageObj : MonoBehaviour
 {
     [SerializeField]
-    private PlayerReceiveDamage receiveDamage;
+    private PlayerReceiveDamage receiveDamage = null;
 
     private void OnTriggerEnter(Collider other)
     {

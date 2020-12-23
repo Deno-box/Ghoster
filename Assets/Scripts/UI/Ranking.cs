@@ -13,8 +13,8 @@ public class Ranking : MonoBehaviour
     private Text[] namesText = new Text[5];
     [SerializeField, Header("表示させるテキスト")]
     private Text[] rankingText = new Text[5];
-    [SerializeField, Header("Field")]
-    private InputField inputField = null;
+    //[SerializeField, Header("Field")]
+    //private InputField inputField = null;
 
     private int highScore = 0;
     private string[] ranking = { "ランキング1位", "ランキング2位", "ランキング3位", "ランキング4位", "ランキング5位" };

@@ -11,8 +11,8 @@ public class StageSelectController : MonoBehaviour
     // ステージの数
     private const int STAGE_NUM = 3;
 
-    private float beforeStick = 0.0f;
-    private float beforeCross = 0.0f;
+    //private float beforeStick = 0.0f;
+    //private float beforeCross = 0.0f;
 
     // 選択中
     private int selecting;
@@ -24,15 +24,12 @@ public class StageSelectController : MonoBehaviour
     [SerializeField]
     float fadeInSeconds = 1.0f;
 
-    // スピード
-    float speed = 0.01f;
-
     // 透明度
     float alpha = 0;
 
     // フェード用スクリプト
     [SerializeField]
-    private Fadecontroller fadeScript;
+    private FadeController fadeScript = null;
 
     // ステージ画像
     [SerializeField]
@@ -44,23 +41,23 @@ public class StageSelectController : MonoBehaviour
 
     // インフォメーションパネル
     [SerializeField]
-    private Image informationPanel;
+    private Image informationPanel = null;
 
     // シンボル
     [SerializeField]
-    private Image symbol;
+    private Image symbol = null;
 
     // ランキング
     [SerializeField]
-    private Image rankingPanel;
+    private Image rankingPanel = null;
 
     // イベントシステム
     [SerializeField]
-    private EventSystem eventSystem;
+    private EventSystem eventSystem = null;
 
     // 選択中のボタン
     [SerializeField]
-    private GameObject selectedObject;
+    private GameObject selectedObject = null;
 
     // Start is called before the first frame update
     void Start()

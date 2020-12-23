@@ -13,7 +13,7 @@ public class Alert : MonoBehaviour
     private float alertDistance = 0.0f;
 
     [SerializeField]
-    private GameObject player;
+    private GameObject player = null;
 
     private CinemachineDollyCart myCart = null;
     private float pathLength = 0.0f;

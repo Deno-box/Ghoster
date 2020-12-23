@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TestTitleSceneController : MonoBehaviour
 {
-    Fadecontroller fadeController = null;
+    FadeController fadeController = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.fadeController = GameObject.Find("FadeCanvas").GetComponent<Fadecontroller>();
+        this.fadeController = GameObject.Find("FadeCanvas").GetComponent<FadeController>();
         Cursor.visible = false;
     }
 

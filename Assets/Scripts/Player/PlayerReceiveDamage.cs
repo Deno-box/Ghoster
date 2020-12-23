@@ -15,18 +15,19 @@ public class PlayerReceiveDamage : MonoBehaviour
     private bool isBlink = false;
     
     [SerializeField]
-    private GameObject playerModel;
+    private GameObject playerModel = null;
     private GameObject reciveDamageFX;
     [SerializeField]
-    private GameObject damageCollider;
-    [SerializeField]
+    private GameObject damageCollider = null;
     private PlayerHitStop player;
     [SerializeField]
-    private CameraShake shakeCamera;
+    private CameraShake shakeCamera = null;
     private void Start()
     {
         this.playerStatus = Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
         this.reciveDamageFX = Resources.Load("Effect/Player/PlayerReceiveDamage") as GameObject;
+
+        player = this.GetComponent<PlayerHitStop>();
     }
 
     // 初期化処理
@@ -42,8 +43,8 @@ public class PlayerReceiveDamage : MonoBehaviour
 
         damageCollider.SetActive(false);
         
-        player.SlowDown(0.2f, 0.1f);
-        shakeCamera.Shake(0.2f, 0.1f);
+        player.SlowDown(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
+        shakeCamera.Shake(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
     }
 
     // 実行処理

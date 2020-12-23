@@ -14,6 +14,11 @@ public class PlayerParryState : PlayerState
     private GameObject damageObj = null;
     private Vector3 parryObjOffset = new Vector3(0.0f,0.8f,1.0f);
 
+    private PlayerHitStop player = null;
+    [SerializeField]
+    private CameraShake shakeCamera = null;
+
+
     // パリィを発生させてから実際に敵が当たるまでの時間
     private float parryJudgeTime = 0.0f;
     // パリィ成功時のエフェクト
@@ -40,6 +45,8 @@ public class PlayerParryState : PlayerState
         parryObj.SetActive(false);
 
         //this.parryObj.transform.localPosition = parryObjOffset;
+
+        player = this.GetComponent<PlayerHitStop>();
 
     }
 
@@ -118,7 +125,7 @@ public class PlayerParryState : PlayerState
     }
 
 
-    // パリィを発生させるコルーチン
+    // パリィを発生させる
     private void ParryAction()
     {
         // 生成してから一定時間経過していたらアイドル状態に遷移
@@ -138,6 +145,10 @@ public class PlayerParryState : PlayerState
         GameObject obj = Instantiate(parrysuccessFx, this.transform);
         obj.transform.localPosition = new Vector3(0.0f, 0.0f, 4.0f);
         ParryJudgement();
+
+
+        player.SlowDown(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
+        shakeCamera.Shake(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
     }
 
     // great,good判定を取る

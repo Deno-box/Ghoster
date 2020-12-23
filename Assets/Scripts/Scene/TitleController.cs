@@ -32,10 +32,13 @@ public class TitleController : MonoBehaviour
     // 選択中
     private int selecting = (int)TextType.NEW_GAME;
 
+    // セレクトガイドのX座標を調整
+    private float selectGuideOffsetXRate = 0.3f;
+
     [SerializeField]
     Canvas canvas = null;
 
-    private Fadecontroller fadeScript = null;
+    private FadeController fadeScript = null;
 
     private float beforeStick = 0.0f;
     private float beforeCross = 0.0f;
@@ -44,7 +47,7 @@ public class TitleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.fadeScript = this.canvas.GetComponent<Fadecontroller>();
+        this.fadeScript = this.canvas.GetComponent<FadeController>();
     }
 
     // Update is called once per frame
@@ -54,7 +57,7 @@ public class TitleController : MonoBehaviour
         RectTransform temp = this.textType[this.selecting].rectTransform;
 
         // 画像オフセット値設定
-        float offsetX = temp.sizeDelta.x / 1.2f;
+        float offsetX = temp.sizeDelta.x + (temp.sizeDelta.x * selectGuideOffsetXRate);
 
         // モードの選択
         ChoiceMode(ref temp, offsetX);
@@ -120,9 +123,13 @@ public class TitleController : MonoBehaviour
                     break;
                 // 続きから
                 case (int)TextType.CONTINUE:
+                    // プレイシーンへ遷移
+                    fadeScript.fadeOutStart(Common.Scene.STAGE_SELECT_SCENE);
                     break;
                 // オプション
                 case (int)TextType.OPTIONS:
+                    // プレイシーンへ遷移
+                    fadeScript.fadeOutStart(Common.Scene.STAGE_SELECT_SCENE);
                     break;
             }
         }

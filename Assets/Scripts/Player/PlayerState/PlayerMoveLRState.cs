@@ -21,8 +21,8 @@ public class PlayerMoveLRState : PlayerState
 
     private GameObject nextPosObj = null;
     private bool isMove = false;
-    [SerializeField]
-    private GameObject playerModel = null;
+    //[SerializeField]
+    //private GameObject playerModel = null;
 
 
     // 先行入力したステート

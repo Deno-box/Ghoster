@@ -8,13 +8,13 @@ public class ResultController : MonoBehaviour
     GameObject fadeCanvas;
 
     // フェード用スクリプト
-    Fadecontroller fadeScript;
+    FadeController fadeScript;
 
     // Start is called before the first frame update
     void Start()
     {
         fadeCanvas = GameObject.Find("FadeCanvas");
-        fadeScript = fadeCanvas.GetComponent<Fadecontroller>();
+        fadeScript = fadeCanvas.GetComponent<FadeController>();
     }
 
     // Update is called once per frame

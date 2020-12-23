@@ -16,7 +16,7 @@ public class BGMController : MonoBehaviour
     float fadeOutSeconds = 1.0f;
     // 操作するオーディオソース
     [SerializeField]
-    private AudioSource audio;
+    private AudioSource audio = null;
     // オーディオクリップのリスト
     [SerializeField]
     private List<AudioClip> audioClipList = new List<AudioClip>();

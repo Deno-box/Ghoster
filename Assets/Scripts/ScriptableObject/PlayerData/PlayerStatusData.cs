@@ -24,4 +24,8 @@ public class PlayerStatusData : ScriptableObject
     public float gravity;
     // ジャンプの高さ
     public float jumpVelMax;
+    // カメラが揺れる時間
+    public float cameraShakeTime;
+    // カメラの揺れの範囲
+    public float cameraShakeMagnitude;
 }

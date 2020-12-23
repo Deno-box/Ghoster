@@ -21,3 +21,5 @@ MonoBehaviour:
   alertDistance: 200
   gravity: 2.5
   jumpVelMax: 28
+  cameraShakeTime: 0.08
+  cameraShakeMagnitude: 0.4

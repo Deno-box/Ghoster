@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI; //パネルのイメージを操作するのに必要
 using UnityEngine.SceneManagement;
 
-public class Fadecontroller : MonoBehaviour
+public class FadeController : MonoBehaviour
 {
     //フェードアウト処理の開始、完了を管理するフラグ
     private bool isFadeOut = false;
@@ -28,7 +28,7 @@ public class Fadecontroller : MonoBehaviour
     private Image fadeImage = null;
 
     //シーン遷移のための型
-    private int afterScene;
+    private int nextScene;
 
     // Alpha(透明度)付きのカラーピッカー
     [ColorUsage(true, true), SerializeField]
@@ -37,6 +37,8 @@ public class Fadecontroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.color.a = 1.0f;
+
         DontDestroyOnLoad(this);
         this.SetColor();
 
@@ -55,7 +57,7 @@ public class Fadecontroller : MonoBehaviour
     {
         this.SetColor();
         this.isFadeOut = true;
-        this.afterScene = _nextScene;
+        this.nextScene = _nextScene;
     }
 
     // Update is called once per frame
@@ -82,7 +84,7 @@ public class Fadecontroller : MonoBehaviour
             if (this.color.a >= 1)
             {
                 this.isFadeOut = false;
-                SceneManager.LoadScene(this.afterScene);
+                SceneManager.LoadScene(this.nextScene);
             }
         }
     }
