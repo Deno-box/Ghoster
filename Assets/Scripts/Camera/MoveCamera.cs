@@ -6,9 +6,9 @@ using UnityEngine;
 public class MoveCamera : MonoBehaviour
 {
     [SerializeField]
-    private CinemachineVirtualCamera _virtualCamera;
+    private CinemachineVirtualCamera _virtualCamera = null;
     [SerializeField]
-    private float _position;
+    private float _position = 0.0f;
 
     private CinemachineTrackedDolly _dolly;
 
