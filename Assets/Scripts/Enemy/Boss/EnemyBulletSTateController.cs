@@ -43,7 +43,7 @@ public class EnemyBulletStateController : MonoBehaviour
         // 現在アクティブなステートを更新
         this.activeState.Execute();
     }
-    
+
     private void OnTriggerEnter(Collider _other)
     {
         this.activeState.StateOnTriggerEnter(_other);

@@ -91,9 +91,9 @@ GameObject:
   - component: {fileID: 3861935788498136825}
   - component: {fileID: 5978770667287624151}
   - component: {fileID: 8497496486153335568}
+  - component: {fileID: 742759653405184033}
   - component: {fileID: 2571260105721568397}
   - component: {fileID: 2893229106692170488}
-  - component: {fileID: 8274352991401053271}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: EnemyBullet
@@ -163,6 +163,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &742759653405184033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3861935788498136824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90509dca7e54f4e4ab8e7b8390928aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2571260105721568397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,20 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3702336c6d0df7048909294df49af1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
   SE: {fileID: 8300000, guid: 797f0ce483d8daa48a9375dc0c889e04, type: 3}
---- !u!114 &8274352991401053271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3861935788498136824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fdd3c84f2fb2d8428c8f0ee008c6cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &75019471820724720
 PrefabInstance:
   m_ObjectHideFlags: 0
