@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 483f6a2cb6d7b664c898260ad52d6c1d
+=======
+guid: 02787bb329fd40444850624d7008024c
+>>>>>>> StartCamera
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
