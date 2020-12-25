@@ -27,10 +27,6 @@ public class StageSelectController : MonoBehaviour
     // 透明度
     float alpha = 0;
 
-    // フェード用スクリプト
-    [SerializeField]
-    private FadeController fadeScript = null;
-
     // ステージ画像
     [SerializeField]
     private Image[] stageImage = new Image[STAGE_NUM];
@@ -106,7 +102,7 @@ public class StageSelectController : MonoBehaviour
         // Escキーが押されたら
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            this.fadeScript.fadeOutStart(Common.Scene.TITLE_SCENE);
+            FadeController.Instance.fadeOutStart(Common.Scene.TITLE_SCENE);
         }
     }
 

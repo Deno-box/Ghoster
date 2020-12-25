@@ -24,10 +24,7 @@ public class FadeController : Singleton<FadeController>
     private float fadeSpeed = 0.75f;
 
     private GameObject fadeCanvas = null;
-
-    //画面をフェードさせるための画像をパブリックで取得
-    [SerializeField]
-    private Image fadeImage = null;
+    private GameObject fadeImage = null;
 
     //シーン遷移のための型
     private int nextScene;
@@ -39,12 +36,21 @@ public class FadeController : Singleton<FadeController>
     // Start is called before the first frame update
     void Start()
     {
-        this.fadeCanvas = new GameObject("FadeCanvas");
-        this.fadeCanvas.AddComponent<Canvas>();
+        GameObject obj = GameObject.Find("FadeCanvas");
+
+        if (obj == null)
+        {
+            CreateFadeCanvas();
+            DontDestroyOnLoad(this.fadeCanvas);
+        }
+        else
+        {
+            this.fadeCanvas = obj;
+            this.fadeImage = GameObject.Find("FadeImage");
+        }
 
         this.color.a = 1.0f;
 
-        DontDestroyOnLoad(this);
         this.SetColor();
 
         //シーン遷移が完了した際にフェードインを開始するように設定
@@ -60,9 +66,16 @@ public class FadeController : Singleton<FadeController>
     // フェードアウトスタート
     public void fadeOutStart(int _nextScene)
     {
-        this.SetColor();
-        this.isFadeOut = true;
-        this.nextScene = _nextScene;
+        if (this.isFadeIn)
+        {
+            return;
+        }
+        else
+        {
+            this.SetColor();
+            this.isFadeOut = true;
+            this.nextScene = _nextScene;
+        }
     }
 
     // Update is called once per frame
@@ -96,6 +109,52 @@ public class FadeController : Singleton<FadeController>
     //画像に色を代入する関数
     void SetColor()
     {
-        this.fadeImage.color = this.color;
+        Image image = this.fadeImage.GetComponent<Image>();
+        image.color = this.color;
+    }
+
+    // FadeCanvas作成
+    private void CreateFadeCanvas()
+    {
+        // Canvas作成
+        this.fadeCanvas = new GameObject("FadeCanvas");
+        // コンポーネント追加
+        this.fadeCanvas.AddComponent<Canvas>();
+        this.fadeCanvas.AddComponent<CanvasScaler>();
+
+        Canvas canvas = this.fadeCanvas.GetComponent<Canvas>();
+        CanvasScaler canvasScaler = this.fadeCanvas.GetComponent<CanvasScaler>();
+
+        // canvas設定
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.pixelPerfect = false;
+        canvas.sortingOrder = 1;
+        canvas.targetDisplay = 0;
+
+        // CanvasScaler設定
+        canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        canvasScaler.referenceResolution = new Vector2(1920, 1080);
+        canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+        canvasScaler.matchWidthOrHeight = 0f;
+        canvasScaler.referencePixelsPerUnit = 100.0f;
+
+        // Image作成
+        this.fadeImage = new GameObject("FadeImage");
+        // Canvasの子に設定
+        this.fadeImage.transform.parent = this.fadeCanvas.transform;
+        // コンポーネント追加
+        this.fadeImage.AddComponent<Image>();
+
+        Image image = this.fadeImage.GetComponent<Image>();
+
+        // RectTransform設定
+        RectTransform transform = this.fadeImage.GetComponent<RectTransform>();
+        transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+        transform.sizeDelta = new Vector2(1920.0f, 1080.0f);
+        transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f));
+        transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
+        // Image設定
+        image.color = new Vector4(0.0f, 0.0f, 0.0f, 1.0f);
     }
 }
