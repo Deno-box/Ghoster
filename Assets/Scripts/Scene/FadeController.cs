@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI; //パネルのイメージを操作するのに必要
 using UnityEngine.SceneManagement;
 
-public class FadeController : MonoBehaviour
+public class FadeController : Singleton<FadeController>
 {
     //フェードアウト処理の開始、完了を管理するフラグ
     private bool isFadeOut = false;
@@ -23,6 +23,8 @@ public class FadeController : MonoBehaviour
     [SerializeField]
     private float fadeSpeed = 0.75f;
 
+    private GameObject fadeCanvas = null;
+
     //画面をフェードさせるための画像をパブリックで取得
     [SerializeField]
     private Image fadeImage = null;
@@ -37,6 +39,9 @@ public class FadeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.fadeCanvas = new GameObject("FadeCanvas");
+        this.fadeCanvas.AddComponent<Canvas>();
+
         this.color.a = 1.0f;
 
         DontDestroyOnLoad(this);

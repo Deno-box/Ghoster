@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -232,7 +232,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -250, y: 0}
-  m_SizeDelta: {x: 198.89503, y: 45.303867}
+  m_SizeDelta: {x: 201.3459, y: 44.14536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205042949
 MonoBehaviour:
@@ -578,7 +578,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 250, y: 0}
-  m_SizeDelta: {x: 72.92818, y: 45.303867}
+  m_SizeDelta: {x: 73.21669, y: 44.14536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &611138654
 MonoBehaviour:
@@ -1065,7 +1065,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2.7, y: 1.8}
-  m_SizeDelta: {x: 72.92818, y: 45.303867}
+  m_SizeDelta: {x: 73.21669, y: 44.14536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &986613421
 MonoBehaviour:
@@ -1308,7 +1308,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2.7, y: 1.8}
-  m_SizeDelta: {x: 198.89503, y: 45.303867}
+  m_SizeDelta: {x: 201.3459, y: 44.14536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1310644850
 MonoBehaviour:
@@ -1470,7 +1470,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2.7, y: 1.8}
-  m_SizeDelta: {x: 159.11603, y: 45.303867}
+  m_SizeDelta: {x: 161.5074, y: 44.14536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1663386774
 MonoBehaviour:
@@ -1689,7 +1689,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 21.000002, y: 0}
-  m_SizeDelta: {x: 159.11603, y: 45.303867}
+  m_SizeDelta: {x: 161.5074, y: 44.14536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705516933
 MonoBehaviour:
