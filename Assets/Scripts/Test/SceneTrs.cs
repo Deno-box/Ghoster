@@ -8,8 +8,7 @@ public class SceneTrs : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            FadeController fadeController = GameObject.Find("FadeCanvas").GetComponent<FadeController>();
-            fadeController.fadeOutStart(Common.Scene.RESULT_SCENE);
+            FadeController.Instance.fadeOutStart(Common.Scene.RESULT_SCENE);
         }
     }
 }
