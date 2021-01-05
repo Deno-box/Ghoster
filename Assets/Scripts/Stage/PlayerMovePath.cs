@@ -27,8 +27,9 @@ public class PlayerMoveData2
     // 移動元の移動可能範囲のPosの最小値
     public float nowPosMax;
 
-    [SerializeField,]
+    [SerializeField]
     List<ChangeNextPathData> changeNextPathDataList = new List<ChangeNextPathData>();
+    public List<ChangeNextPathData> changeNextDataList { get { return changeNextPathDataList; } }
 }
 
 
@@ -43,6 +44,7 @@ public class PlayerMovePath : MonoBehaviour
     }
     [SerializeField]
     List<PlayerMoveData2> playerMoveData2s = new List<PlayerMoveData2>();
+    public List<PlayerMoveData2> PlayerMoveData2s { get { return playerMoveData2s;} }
 
     // Start is called before the first frame update
     void Start()

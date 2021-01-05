@@ -91,7 +91,7 @@ public class PlayerParryState : PlayerState
         if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 && this.beforeStick == 0 || crossHori < 0 && this.beforeCross == 0)
         {
             // 左入力キーを設定
-            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Left;
+            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Left;
             isInputMoveButton = true;
         }
         // Dキーで左のパスに移動
@@ -99,7 +99,7 @@ public class PlayerParryState : PlayerState
         if (Input.GetKeyDown(KeyCode.RightArrow) || stickHori > 0 && this.beforeStick == 0 || crossHori > 0 && this.beforeCross == 0)
         {
             // 右入力キーを設定
-            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Right;
+            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Right;
             isInputMoveButton = true;
         }
 
@@ -152,7 +152,7 @@ public class PlayerParryState : PlayerState
         player.SlowDown(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
         shakeCamera.Shake(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
 
-        playerData.AudioSource.PlayOneShot(playerStatus.parrySE);
+        //playerData.AudioSource.PlayOneShot(playerStatus.parrySE);
     }
 
     // great,good判定を取る

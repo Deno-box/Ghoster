@@ -48,7 +48,7 @@ public class PlayerJumpState : PlayerState
         isChangeState = false;
 
 
-        playerData.AudioSource.PlayOneShot(playerStatus.jumpSE);
+        //playerData.AudioSource.PlayOneShot(playerStatus.jumpSE);
     }
 
     // 実行処理
@@ -82,7 +82,7 @@ public class PlayerJumpState : PlayerState
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             // 左入力キーを設定
-            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Left;
+            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Left;
             typeAheadNextStatus = PlayerStateController.PlayerStateEnum.MoveLR;
         }
         // Dキーで左のパスに移動
@@ -90,7 +90,7 @@ public class PlayerJumpState : PlayerState
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             // 右入力キーを設定
-            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Right;
+            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Right;
             typeAheadNextStatus = PlayerStateController.PlayerStateEnum.MoveLR;
         }
 

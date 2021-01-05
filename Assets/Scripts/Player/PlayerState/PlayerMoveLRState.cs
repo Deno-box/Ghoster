@@ -13,7 +13,7 @@ public class PlayerMoveLRState : PlayerState
     private CinemachineDollyCart myCart = null;
     // TODO : publicになってしまっている　要変更
     // 左右どちらのキーが押されたか
-    public PlayerMoveData.MoveDir moveDir = PlayerMoveData.MoveDir.None;
+    public PlayerMovePath.MoveDir moveDir = PlayerMovePath.MoveDir.None;
     // 移動時間
     private float moveTimer    = 0.0f;
 
@@ -25,11 +25,17 @@ public class PlayerMoveLRState : PlayerState
     //[SerializeField]
     //private GameObject playerModel = null;
 
+    private int changeNextPathNum = 0;
 
     // 先行入力したステート
     private PlayerStateController.PlayerStateEnum typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Idle;
 
     float beforeTrigger = 0.0f;
+
+
+    [SerializeField]
+    PlayerMovePath playerMovePath = null;
+
 
     private void Start()
     {
@@ -61,8 +67,8 @@ public class PlayerMoveLRState : PlayerState
 
         isMove = ChangeMove();
 
-        if (isMove)
-            playerData.AudioSource.PlayOneShot(playerStatus.moveSE);
+        //if (isMove)
+        //    playerData.AudioSource.PlayOneShot(playerStatus.moveSE);
     }
 
     // 実行処理
@@ -153,10 +159,46 @@ public class PlayerMoveLRState : PlayerState
     }
 
     // キャラクターを移動させる
+    //private bool ChangeMove()
+    //{
+    //    // 移動データを参照
+    //    foreach (PlayerMoveData data in playerMoveData.moveDataList)
+    //    {
+    //        // 移動可能範囲内か
+    //        if (CheckMovePossible(data))
+    //        {
+    //            // ポジションを修正
+    //            float pos = myCart.m_Position - data.nowPosMin;
+    //            float maxPos = data.nowPosMax - data.nowPosMin;
+
+    //            // 現在のパスで割合を計算
+    //            float nowPosPer = pos / maxPos;
+    //            nowPosPer = Mathf.Clamp(nowPosPer, 0.0f, 1.0f);
+
+    //            // 移動先のPositionを計算
+    //            float changePosMax = data.changePosMax - data.changePosMin;
+    //            float changePos = changePosMax * nowPosPer + data.changePosMin;
+
+    //            float speed = this.GetComponent<CinemachineDollyCart>().m_Speed;
+    //            // TODO : 誤差をマジックナンバーで修正している
+    //            changePos += this.playerStatus.moveTime * speed + 0.5f;
+
+
+    //            // 移動を開始
+    //            ChangeMovePath(data.changePath, changePos);
+    //            return true;
+
+    //            //break;
+    //        }
+    //        }
+    //    }
+
+    //    return false;
+    //}
     private bool ChangeMove()
     {
         // 移動データを参照
-        foreach (PlayerMoveData data in playerMoveData.moveDataList)
+        foreach (PlayerMoveData2 data in playerMovePath.PlayerMoveData2s)
         {
             // 移動可能範囲内か
             if (CheckMovePossible(data))
@@ -170,8 +212,8 @@ public class PlayerMoveLRState : PlayerState
                 nowPosPer = Mathf.Clamp(nowPosPer, 0.0f, 1.0f);
 
                 // 移動先のPositionを計算
-                float changePosMax = data.changePosMax - data.changePosMin;
-                float changePos = changePosMax * nowPosPer + data.changePosMin;
+                float changePosMax = data.changeNextDataList[changeNextPathNum].changePosMax - data.changeNextDataList[changeNextPathNum].changePosMin;
+                float changePos = changePosMax * nowPosPer + data.changeNextDataList[changeNextPathNum].changePosMin;
 
                 float speed = this.GetComponent<CinemachineDollyCart>().m_Speed;
                 // TODO : 誤差をマジックナンバーで修正している
@@ -179,7 +221,7 @@ public class PlayerMoveLRState : PlayerState
 
 
                 // 移動を開始
-                ChangeMovePath(data.changePath, changePos);
+                ChangeMovePath(data.changeNextDataList[changeNextPathNum].changePath, changePos);
                 return true;
 
                 //break;
@@ -189,17 +231,39 @@ public class PlayerMoveLRState : PlayerState
         return false;
     }
 
+    //// 移動可能なのかを判定
+    //private bool CheckMovePossible(PlayerMoveData _data)
+    //{
+    //    // 現在のPosition
+    //    float position = myCart.m_Position;
+
+    //    // パスの名前は一致しているか / 移動可能範囲内か / 入力されたキーは一致しているか
+    //    if (myCart.m_Path.name == _data.nowPath.name
+    //        && GhosterUtility.CalculationUtility.IsWithinRange(position, _data.nowPosMin, _data.nowPosMax)
+    //        && moveDir == _data.moveDir)
+    //        return true;
+
+    //    return false;
+    //}    
     // 移動可能なのかを判定
-    private bool CheckMovePossible(PlayerMoveData _data)
+    private bool CheckMovePossible(PlayerMoveData2 _data)
     {
         // 現在のPosition
         float position = myCart.m_Position;
 
         // パスの名前は一致しているか / 移動可能範囲内か / 入力されたキーは一致しているか
         if (myCart.m_Path.name == _data.nowPath.name
-            && GhosterUtility.CalculationUtility.IsWithinRange(position, _data.nowPosMin, _data.nowPosMax)
-            && moveDir == _data.moveDir)
-            return true;
+            && GhosterUtility.CalculationUtility.IsWithinRange(position, _data.nowPosMin, _data.nowPosMax))
+        {
+            for(int i=0;i<_data.changeNextDataList.Count;i++)
+            {
+                if (moveDir == _data.changeNextDataList[i].moveDir)
+                {
+                    changeNextPathNum = i;
+                    return true;
+                }
+            }
+        }
 
         return false;
     }

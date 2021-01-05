@@ -49,7 +49,7 @@ public class PlayerReceiveDamage : MonoBehaviour
         player.SlowDown(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
         shakeCamera.Shake(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
 
-        playerData.AudioSource.PlayOneShot(playerStatus.receiveDamageSE);
+        //playerData.AudioSource.PlayOneShot(playerStatus.receiveDamageSE);
     }
 
     // 実行処理

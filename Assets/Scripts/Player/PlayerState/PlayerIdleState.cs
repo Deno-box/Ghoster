@@ -47,7 +47,7 @@ public class PlayerIdleState : PlayerState
         if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 && this.beforeStick == 0 || crossHori < 0 && this.beforeCross == 0)
         {
             // 左入力キーを設定
-            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Left;
+            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Left;
             this.state = PlayerStateController.PlayerStateEnum.MoveLR;
         }
         // Dキーで左のパスに移動
@@ -55,7 +55,7 @@ public class PlayerIdleState : PlayerState
         if (Input.GetKeyDown(KeyCode.RightArrow) || stickHori > 0 && this.beforeStick == 0 || crossHori > 0 && this.beforeCross == 0)
         {
             // 右入力キーを設定
-            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMoveData.MoveDir.Right;
+            this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Right;
             this.state = PlayerStateController.PlayerStateEnum.MoveLR;
         }
         // Qキーでジャンプ
