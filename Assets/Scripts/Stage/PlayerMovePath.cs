@@ -18,7 +18,7 @@ public class ChangeNextPathData
 }
 
 [System.Serializable]
-public class PlayerMoveData2
+public class PlayerMoveData
 {
     // 移動元のパス
     public CinemachinePathBase nowPath;
@@ -43,8 +43,8 @@ public class PlayerMovePath : MonoBehaviour
         Left
     }
     [SerializeField]
-    List<PlayerMoveData2> playerMoveData2s = new List<PlayerMoveData2>();
-    public List<PlayerMoveData2> PlayerMoveData2s { get { return playerMoveData2s;} }
+    List<PlayerMoveData> playerMoveDataList = new List<PlayerMoveData>();
+    public List<PlayerMoveData> PlayerMoveDataList { get { return playerMoveDataList; } }
 
     // Start is called before the first frame update
     void Start()

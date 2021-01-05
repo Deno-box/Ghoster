@@ -17,9 +17,6 @@ public class PlayerMoveLRState : PlayerState
     // 移動時間
     private float moveTimer    = 0.0f;
 
-    // 移動可能範囲のリスト
-    private PlayerMoveDataList playerMoveData;
-
     private GameObject nextPosObj = null;
     private bool isMove = false;
     //[SerializeField]
@@ -41,7 +38,6 @@ public class PlayerMoveLRState : PlayerState
     {
         playerData = this.GetComponent<PlayerData>();
         this.playerStatus = playerData.PlayerStatus;
-        playerMoveData = Resources.Load("ScriptableObjectDatas/Player/PlayerMoveData/DemoScene/TestStagePlayerMoveData") as PlayerMoveDataList;
 
         myCart = this.GetComponent<CinemachineDollyCart>();
 
@@ -198,7 +194,7 @@ public class PlayerMoveLRState : PlayerState
     private bool ChangeMove()
     {
         // 移動データを参照
-        foreach (PlayerMoveData2 data in playerMovePath.PlayerMoveData2s)
+        foreach (PlayerMoveData data in playerMovePath.PlayerMoveDataList)
         {
             // 移動可能範囲内か
             if (CheckMovePossible(data))
@@ -246,7 +242,7 @@ public class PlayerMoveLRState : PlayerState
     //    return false;
     //}    
     // 移動可能なのかを判定
-    private bool CheckMovePossible(PlayerMoveData2 _data)
+    private bool CheckMovePossible(PlayerMoveData _data)
     {
         // 現在のPosition
         float position = myCart.m_Position;
