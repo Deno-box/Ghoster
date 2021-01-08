@@ -24,7 +24,7 @@ public class PlayerMoveData
     public CinemachinePathBase nowPath;
     // 移動元の移動可能範囲のPosの最小値
     public float nowPosMin;
-    // 移動元の移動可能範囲のPosの最小値
+    // 移動元の移動可能範囲のPosの最大値
     public float nowPosMax;
 
     [SerializeField]
