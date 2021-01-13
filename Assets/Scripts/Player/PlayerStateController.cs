@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerIdleState))]
 [RequireComponent(typeof(PlayerMoveLRState))]
 [RequireComponent(typeof(PlayerParryState))]
-//[RequireComponent(typeof(PlayerReceiveDamageState))]
 [RequireComponent(typeof(PlayerFallState))]
 [RequireComponent(typeof(PlayerJumpState))]
 [RequireComponent(typeof(PlayerData))]

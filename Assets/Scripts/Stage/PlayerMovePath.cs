@@ -60,7 +60,7 @@ public class PlayerMovePath : MonoBehaviour
         Right,
         Left
     }
-    [SerializeField]
+    [SerializeField,Header("移動データのリスト")]
     List<PlayerMoveData> playerMoveDataList = new List<PlayerMoveData>();
     public List<PlayerMoveData> PlayerMoveDataList { get { return playerMoveDataList; } }
 }

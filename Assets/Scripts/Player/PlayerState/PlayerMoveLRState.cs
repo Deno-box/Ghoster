@@ -19,8 +19,6 @@ public class PlayerMoveLRState : PlayerState
 
     private GameObject nextPosObj = null;
     private bool isMove = false;
-    //[SerializeField]
-    //private GameObject playerModel = null;
 
     private int changeNextPathNum = 0;
 
@@ -31,7 +29,7 @@ public class PlayerMoveLRState : PlayerState
 
 
     [SerializeField]
-    PlayerMovePath playerMovePath = null;
+    PlayerMovePath playerMovePathData = null;
 
 
     private void Start()
@@ -194,7 +192,7 @@ public class PlayerMoveLRState : PlayerState
     private bool ChangeMove()
     {
         // 移動データを参照
-        foreach (PlayerMoveData data in playerMovePath.PlayerMoveDataList)
+        foreach (PlayerMoveData data in playerMovePathData.PlayerMoveDataList)
         {
             // 移動可能範囲内か
             if (CheckMovePossible(data))
