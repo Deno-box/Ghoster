@@ -15,7 +15,8 @@ public class EnemyBulletStateController : MonoBehaviour
     }
 
     // 自身のステート
-    public BulletStateEnum lastStateEnum = BulletStateEnum.EnemyBullet;
+    private BulletStateEnum lastStateEnum = BulletStateEnum.EnemyBullet;
+    public BulletStateEnum LastStateEnum { get { return lastStateEnum; } }
     private BulletState activeState;
     private BulletState[] stateList = new BulletState[2];
 
