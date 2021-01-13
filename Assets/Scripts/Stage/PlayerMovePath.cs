@@ -37,7 +37,7 @@ public class PlayerMoveData
     public CinemachinePathBase NowPath
     {
         get { return nowPath; }
-        set {nowPath = value; nowPosMax = nowPath.PathLength;}
+        set {nowPath = value; }
     }
 
     // 移動元の移動可能範囲のPosの最小値
@@ -57,10 +57,8 @@ public class PlayerMovePath : MonoBehaviour
     public enum MoveDir
     {
         None,
-        Right,
-        Left
+        Right = -1,
+        Left = 1
     }
-    [SerializeField,Header("移動データのリスト")]
-    List<PlayerMoveData> playerMoveDataList = new List<PlayerMoveData>();
-    public List<PlayerMoveData> PlayerMoveDataList { get { return playerMoveDataList; } }
+    public List<PlayerMoveData> PlayerMoveDataList = new List<PlayerMoveData>();
 }
