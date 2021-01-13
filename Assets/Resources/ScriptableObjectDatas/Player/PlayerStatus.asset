@@ -23,6 +23,7 @@ MonoBehaviour:
   jumpVelMax: 28
   cameraShakeTime: 0.08
   cameraShakeMagnitude: 0.4
+  vignetteValue: 0.5
   parrySE: {fileID: 8300000, guid: 7c2cd5e697d23074ca4a7e3613ae54e6, type: 3}
   jumpSE: {fileID: 8300000, guid: 1b943bdc16b51a54195354129bffc21d, type: 3}
   moveSE: {fileID: 8300000, guid: 863ac13e23bd8fd4daedc893c9778be3, type: 3}

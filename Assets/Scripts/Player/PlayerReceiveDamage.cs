@@ -23,6 +23,8 @@ public class PlayerReceiveDamage : MonoBehaviour
     private PlayerHitStop player;
     [SerializeField]
     private CameraShake shakeCamera = null;
+    [SerializeField]
+    private GlobalVolumeController volumeController;
 
     private void Start()
     {
@@ -31,6 +33,7 @@ public class PlayerReceiveDamage : MonoBehaviour
         this.reciveDamageFX = Resources.Load("Effect/Player/PlayerReceiveDamage") as GameObject;
 
         player = this.GetComponent<PlayerHitStop>();
+
     }
 
     // 初期化処理
@@ -48,6 +51,9 @@ public class PlayerReceiveDamage : MonoBehaviour
         
         player.SlowDown(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
         shakeCamera.Shake(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
+
+        //画面の回りを赤くする
+        volumeController.ChangeVignette(playerStatus.vignetteValue);
 
         playerData.AudioSource.PlayOneShot(playerStatus.receiveDamageSE);
     }
