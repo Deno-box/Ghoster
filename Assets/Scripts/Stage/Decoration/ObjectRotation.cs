@@ -5,6 +5,9 @@ using UnityEngine;
 // オブジェクトを回転させる
 public class ObjectRotation : MonoBehaviour
 {
+    // 逆回転させるか
+    [SerializeField, Header("逆回転させるか")]
+    private bool isReverse = false;
     // 回転速度
     [SerializeField,Range(0.0f,20.0f),Header("回転速度")]
     private float rotSpeed = 0.0f;
@@ -30,6 +33,9 @@ public class ObjectRotation : MonoBehaviour
     // 回転軸
     private Vector3 rotAxis = Vector3.zero;
 
+    // 反転時の掛け算
+    private float reverse = 1.0f;
+
     private void Start()
     {
         // 回転軸を設定
@@ -39,6 +45,9 @@ public class ObjectRotation : MonoBehaviour
             this.rotAxis.y = 1.0f;
         if (this.axisZ)
             this.rotAxis.z = 1.0f;
+
+        if (this.isReverse)
+            this.reverse *= -1;
     }
 
     // Update is called once per frame
@@ -47,9 +56,9 @@ public class ObjectRotation : MonoBehaviour
         // TODO:: あえてTime.deltaTimeを掛けていない
         // Sin波の影響を受けながらオブジェクトを回転
         if (this.isSinCurve)
-            this.transform.Rotate(this.rotAxis * this.rotSpeed * Mathf.Sin(Time.time*this.thetaRate) * this.amplitude);
+            this.transform.Rotate(this.rotAxis * this.rotSpeed * Mathf.Sin(Time.time*this.thetaRate) * this.amplitude * reverse);
         // 等速でオブジェクトを回転
         else
-            this.transform.Rotate(this.rotAxis * this.rotSpeed);
+            this.transform.Rotate(this.rotAxis * this.rotSpeed * reverse);
     }
 }

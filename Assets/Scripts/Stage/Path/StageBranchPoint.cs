@@ -7,17 +7,16 @@ using Cinemachine;
 public class StageBranchPoint : MonoBehaviour
 {
     // 分岐前のパスを設定
-    [SerializeField, Header("分岐前のパス"), PropertyBackingField("BeforeBranchPath")]
+    [SerializeField, Header("分岐元のパス"), PropertyBackingField("BeforeBranchPath")]
     private CinemachinePathBase beforeBranchPath;
 
     // パスのリスト
-    [SerializeField, Header("分岐後のパス")]
+    [SerializeField, Header("分岐先のパス")]
     public List<PathData> pathList = new List<PathData>();
     public IReadOnlyList<PathData> PathList{ get { return pathList; } }
 
     // 分岐点のプレハブ
-    //[SerializeField]
-    private GameObject branchPointPrefab = null;
+
     // 一つ前の段階のパスリストの数
     private int listLastSize = 0;
 
