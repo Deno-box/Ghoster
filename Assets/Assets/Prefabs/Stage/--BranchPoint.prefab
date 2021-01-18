@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261590926374931666}
-  m_LocalRotation: {x: -0.002718334, y: -0, z: -0, w: 0.9999963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -97,17 +97,27 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -3, y: -0.02718324, z: -0.00007387705}
-  - {x: -3, y: -0.02718324, z: 0.99991703}
-  - {x: -3, y: -0.02718324, z: 1.9999068}
-  - {x: -3, y: -0.027183242, z: 2.999899}
-  - {x: -3, y: -0.02718324, z: 3.9998925}
-  - {x: -3, y: -0.027183242, z: 4.999889}
-  - {x: -3, y: -0.027183244, z: 5.999888}
-  - {x: -3, y: -0.027183242, z: 6.9998903}
-  - {x: -3, y: -0.027183244, z: 7.9998975}
-  - {x: -3, y: -0.027183238, z: 8.999909}
-  - {x: -3, y: -0.02718324, z: 9.999926}
+  - {x: -3, y: 0, z: 0}
+  - {x: -3, y: -0.0027183008, z: 0.49998832}
+  - {x: -3, y: -0.005436599, z: 0.99997616}
+  - {x: -3, y: -0.0081548905, z: 1.4999628}
+  - {x: -3, y: -0.010873191, z: 1.9999511}
+  - {x: -3, y: -0.0135914935, z: 2.4999397}
+  - {x: -3, y: -0.016309796, z: 2.9999285}
+  - {x: -3, y: -0.019028103, z: 3.4999177}
+  - {x: -3, y: -0.02174641, z: 3.9999073}
+  - {x: -3, y: -0.024464725, z: 4.4998984}
+  - {x: -3, y: -0.02718304, z: 4.999889}
+  - {x: -3, y: -0.029901357, z: 5.499881}
+  - {x: -3, y: -0.03261968, z: 5.999873}
+  - {x: -3, y: -0.03533801, z: 6.499867}
+  - {x: -3, y: -0.038056344, z: 6.999861}
+  - {x: -3, y: -0.040774684, z: 7.499857}
+  - {x: -3, y: -0.04349303, z: 7.999853}
+  - {x: -3, y: -0.046211384, z: 8.499851}
+  - {x: -3, y: -0.04892974, z: 8.99985}
+  - {x: -3, y: -0.051648106, z: 9.49985}
+  - {x: -3, y: -0.05436648, z: 9.999852}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -175,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee682a16ba78d4ea8ed42cb2127f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tessellation: 10
+  tessellation: 20
 --- !u!1 &1082857128649508113
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082857128649508113}
   m_LocalRotation: {x: -0.002718334, y: -0, z: -0, w: 0.9999963}
-  m_LocalPosition: {x: -1.92, y: 0.057183243, z: 9.999926}
+  m_LocalPosition: {x: -1.92, y: 0.057183247, z: 9.999927}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7252556340642250646}
@@ -607,7 +617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8467031184802181316}
   m_LocalRotation: {x: -0.002718334, y: -0, z: -0, w: 0.9999963}
-  m_LocalPosition: {x: -1.92, y: 0.0028167607, z: 0.0000738559}
+  m_LocalPosition: {x: -1.92, y: 0.0028167588, z: 0.00007385592}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7252556340642250646}

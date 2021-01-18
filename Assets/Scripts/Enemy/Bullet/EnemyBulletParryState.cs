@@ -52,10 +52,11 @@ public class EnemyBulletParryState : BulletState
         // TOdo:: 絶対やめたほうがいい
         if (!GameObject.FindWithTag("BossEnemy"))
             Destroy(this.gameObject);
-
-        // 移動先を計算
-        Vector3 movePos = Vector3.MoveTowards(this.transform.position, this.bossTrs.position, this.moveSpeed *  Time.deltaTime);
-        this.transform.position = movePos;
+        else{
+            // 移動先を計算
+            Vector3 movePos = Vector3.MoveTowards(this.transform.position, this.bossTrs.position, this.moveSpeed * Time.deltaTime);
+            this.transform.position = movePos;
+        }
     }
 
     // OnTrigger時の処理
