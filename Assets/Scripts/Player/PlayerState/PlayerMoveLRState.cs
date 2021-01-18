@@ -25,21 +25,15 @@ public class PlayerMoveLRState : PlayerState
     // 先行入力したステート
     private PlayerStateController.PlayerStateEnum typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Idle;
 
-    float beforeTrigger = 0.0f;
-
+    // パスのデータコレクション
+    public PathDataCollection pathDataCollection = null;
 
     [SerializeField]
-    PathDataCollection pathDataCollection = null;
-
-    PlayerMovePath playerMovePathData = null;
+    PlayerMovePath playerMovePathData;
 
 
     private void Start()
     {
-        this.gameObject.AddComponent<PlayerMovePath>();
-        playerMovePathData = this.GetComponent<PlayerMovePath>();
-        playerMovePathData.PlayerMoveDataList = pathDataCollection.playerMoveDatas;
-
         playerData = this.GetComponent<PlayerData>();
         this.playerStatus = playerData.PlayerStatus;
 
@@ -52,6 +46,9 @@ public class PlayerMoveLRState : PlayerState
         this.nextPosObj.transform.localPosition = Vector3.zero;
         this.nextPosObj.name = "NextPointObj";
 
+        this.gameObject.AddComponent<PlayerMovePath>();
+        playerMovePathData = this.GetComponent<PlayerMovePath>();
+        playerMovePathData.PlayerMoveDataList = pathDataCollection.playerMoveDatas;
     }
 
     // 初期化処理
@@ -67,6 +64,7 @@ public class PlayerMoveLRState : PlayerState
 
         isMove = ChangeMove();
 
+
         //if (isMove)
         //    playerData.AudioSource.PlayOneShot(playerStatus.moveSE);
     }
@@ -74,8 +72,6 @@ public class PlayerMoveLRState : PlayerState
     // 実行処理
     public override void Execute()
     {
-        float trigger = Input.GetAxis("LRTrigger");
-
         // 一定時間経過後状態を遷移
         if (moveTimer >= this.playerStatus.moveTime)
         {
@@ -100,13 +96,11 @@ public class PlayerMoveLRState : PlayerState
             }
         }
         // 弾きの先行入力
-        if (Input.GetKeyDown(KeyCode.Space) || trigger != 0 && this.beforeTrigger == 0)
+        if (Input.GetKeyDown(KeyCode.Space))
             typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Parry;
         // ジャンプの先行入力
         if(Input.GetKeyDown(KeyCode.Q))
             typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Jump;
-
-        this.beforeTrigger = trigger;
 
 
         if (!this.isMove)

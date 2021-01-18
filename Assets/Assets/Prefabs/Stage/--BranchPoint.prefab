@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2822583591919359358}
   - component: {fileID: 8090511074311388082}
   - component: {fileID: 1352609665161891985}
-  - component: {fileID: 4149656899586677341}
+  - component: {fileID: 3100856916322357469}
   m_Layer: 0
   m_Name: Path
   m_TagString: Untagged
@@ -98,6 +98,15 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: -3, y: -0.02718324, z: -0.00007387705}
+  - {x: -3, y: -0.02718324, z: 0.99991703}
+  - {x: -3, y: -0.02718324, z: 1.9999068}
+  - {x: -3, y: -0.027183242, z: 2.999899}
+  - {x: -3, y: -0.02718324, z: 3.9998925}
+  - {x: -3, y: -0.027183242, z: 4.999889}
+  - {x: -3, y: -0.027183244, z: 5.999888}
+  - {x: -3, y: -0.027183242, z: 6.9998903}
+  - {x: -3, y: -0.027183244, z: 7.9998975}
+  - {x: -3, y: -0.027183238, z: 8.999909}
   - {x: -3, y: -0.02718324, z: 9.999926}
   m_Parameters:
     serializedVersion: 3
@@ -154,7 +163,7 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &4149656899586677341
+--- !u!114 &3100856916322357469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee682a16ba78d4ea8ed42cb2127f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tessellation: 1
+  tessellation: 10
 --- !u!1 &1082857128649508113
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,10 +408,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2615449335152042334}
-  - component: {fileID: 2615449335152042306}
-  - component: {fileID: 2615449335152042333}
   - component: {fileID: 2615449335152042332}
   - component: {fileID: 2615449335152042335}
+  - component: {fileID: 2615449335152042306}
+  - component: {fileID: 2615449335152042333}
   m_Layer: 0
   m_Name: --BranchPoint
   m_TagString: Untagged
@@ -426,6 +435,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2615449335152042332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615449335152042329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ab56c5034ab934987797cef97244bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beforeBranchPath: {fileID: 0}
+  pathList:
+  - path: {fileID: 261590926374931666}
+    moveDir: -1
+  position: 0
+  endPoint: {fileID: 2615449334940156825}
+--- !u!114 &2615449335152042335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615449335152042329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a9c787e5d1bbf48a389834c4a9641c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Path: {fileID: 0}
+  m_UpdateMethod: 0
+  m_PositionUnits: 1
+  m_Speed: 0
+  m_Position: 8.86
 --- !u!33 &2615449335152042306
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -473,41 +517,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &2615449335152042332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615449335152042329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75ab56c5034ab934987797cef97244bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beforeBranchPath: {fileID: 0}
-  pathList:
-  - path: {fileID: 261590926374931666}
-    moveDir: -1
-  position: 0
-  endPoint: {fileID: 2615449334940156825}
---- !u!114 &2615449335152042335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615449335152042329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a9c787e5d1bbf48a389834c4a9641c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Path: {fileID: 0}
-  m_UpdateMethod: 0
-  m_PositionUnits: 1
-  m_Speed: 0
-  m_Position: 8.86
 --- !u!1 &2615449335924329053
 GameObject:
   m_ObjectHideFlags: 0
