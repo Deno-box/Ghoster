@@ -9,8 +9,7 @@ public class PathDataCollection : MonoBehaviour
     // プレイヤーの移動可能データ
     public List<PlayerMoveData> playerMoveDatas = new List<PlayerMoveData>();
 
-    [SerializeField]
-    private GameObject rootStagePath = null;
+    public GameObject rootStagePath = null;
 
     // 移動元のmin,max,名前 移動先のmin,max
     void Awake()

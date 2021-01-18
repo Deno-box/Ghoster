@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1086568299825236225}
   - component: {fileID: 1086568299825236226}
   - component: {fileID: 1086568299825236227}
-  - component: {fileID: 1086568299825237756}
+  - component: {fileID: 1501550882690558959}
   m_Layer: 0
   m_Name: MovePath
   m_TagString: Untagged
@@ -162,7 +162,7 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &1086568299825237756
+--- !u!114 &1501550882690558959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1086568299825237757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1250e870b45730045b380648d35c1487, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cee682a16ba78d4ea8ed42cb2127f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tessellation: 10

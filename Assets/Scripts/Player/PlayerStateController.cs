@@ -42,13 +42,16 @@ public class PlayerStateController : MonoBehaviour
 
         // アクティブステートをアイドル状態に初期化
         activeState = stateList[(int)PlayerStateEnum.Idle];
-        activeState.Initialize();
         lastActiveStateEum = activeState.State;
+
+        activeState.Initialize();
     }
+
 
     // Update is called once per frame
     void Update()
     {
+
         this.activeState.Execute();
 
         // ステートが変更されていたら

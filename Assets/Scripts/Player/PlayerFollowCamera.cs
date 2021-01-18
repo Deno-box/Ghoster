@@ -5,11 +5,9 @@ using UnityEngine;
 public class PlayerFollowCamera : MonoBehaviour
 {
     // 追跡するターゲット
-    [SerializeField]
-    private GameObject target = null;
+    public GameObject target = null;
     // カメラ位置となるオブジェクト
-    [SerializeField]
-    private GameObject offsetObj = null;
+    public GameObject offsetObj = null;
     // 移動速度
     [SerializeField]
     private float moveSpeed = 0.0f;
