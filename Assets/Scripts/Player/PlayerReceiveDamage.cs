@@ -23,6 +23,8 @@ public class PlayerReceiveDamage : MonoBehaviour
     private PlayerHitStop player;
     [SerializeField]
     private CameraShake shakeCamera = null;
+    [SerializeField]
+    private PostEffectVolumeController volumeController = null;
 
     private void Start()
     {
@@ -48,6 +50,8 @@ public class PlayerReceiveDamage : MonoBehaviour
         
         player.SlowDown(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
         shakeCamera.Shake(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
+        // vignetteの値を変更
+        volumeController.SetIntensity(0.5f);
 
         //playerData.AudioSource.PlayOneShot(playerStatus.receiveDamageSE);
     }
