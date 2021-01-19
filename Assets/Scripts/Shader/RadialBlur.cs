@@ -9,7 +9,7 @@ public sealed class RadialBlur : CustomPostProcessVolumeComponent, IPostProcessC
     [Tooltip("Controls the intensity of the effect.")]
     public ClampedFloatParameter blurIntensity = new ClampedFloatParameter(0f, 0f, 1f);
     [Tooltip("Controls the sampleCount of the effect.")]
-    public ClampedFloatParameter sampleCount = new ClampedFloatParameter(1f, 1f, 8f);
+    public ClampedFloatParameter sampleCount = new ClampedFloatParameter(1.0f, 1.0f, 8.0f);
 
     Material m_Material;
 
@@ -32,11 +32,15 @@ public sealed class RadialBlur : CustomPostProcessVolumeComponent, IPostProcessC
     {
         if (m_Material == null)
             return;
-
+        //ブラーの強さ
         m_Material.SetFloat("_Intensity", blurIntensity.value);
+        //サンプルカウント
+        m_Material.SetFloat("_Samplecount", sampleCount.value);
+        //テクスチャ
         m_Material.SetTexture("_InputTexture", source);
 
-        HDUtils.DrawFullScreen(cmd, m_Material, destination);
+        //HDUtils.DrawFullScreen(cmd, m_Material, destination);
+        Graphics.Blit(source, destination, m_Material);
     }
 
     public override void Cleanup()

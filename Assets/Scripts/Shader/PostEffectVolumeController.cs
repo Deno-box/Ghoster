@@ -24,11 +24,9 @@ public class PostEffectVolumeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(vignette.intensity.value >= 0.0f)
-        {
-            vignette.intensity.value -= Time.deltaTime * fadeScale;
-        }
+        vignette.intensity.value -= Time.deltaTime * fadeScale;
     }
+
     //vignetteの値変更
     public void SetIntensity(float intens)
     {
