@@ -11,6 +11,8 @@ public class PlayerIdleState : PlayerState
     // プレイヤーのステータスデータ
     private PlayerStatusData playerStatus = null;
 
+    private PlayerData playerData;
+
     private CinemachineDollyCart myCart = null;
     private float pathLength = 0.0f;
 
@@ -21,6 +23,9 @@ public class PlayerIdleState : PlayerState
     private void Start()
     {
         this.playerStatus = this.GetComponent<PlayerData>().PlayerStatus;//Resources.Load("ScriptableObjectDatas/Player/PlayerStatus") as PlayerStatusData;
+
+        playerData = this.GetComponent<PlayerData>();
+        this.playerStatus = playerData.PlayerStatus;
     }
 
     // 初期化処理
@@ -41,7 +46,10 @@ public class PlayerIdleState : PlayerState
         // TODO : 左右キー判定やマウスの左右判定はこのクラスで判定しているため、後で変更しておく
         // スペースキーでパリィ状態に遷移
         if (Input.GetKeyDown(KeyCode.Space) || trigger != 0 && this.beforeTrigger == 0)
+        {
             this.state = PlayerStateController.PlayerStateEnum.Parry;
+            playerData.GetComponent<Animator>().Play("Attack");
+        }
         // Aキーで左のパスに移動
         else
         if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 && this.beforeStick == 0 || crossHori < 0 && this.beforeCross == 0)
@@ -49,6 +57,7 @@ public class PlayerIdleState : PlayerState
             // 左入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Left;
             this.state = PlayerStateController.PlayerStateEnum.MoveLR;
+            playerData.GetComponent<Animator>().Play("Left_Jump");
         }
         // Dキーで左のパスに移動
         else
@@ -57,11 +66,13 @@ public class PlayerIdleState : PlayerState
             // 右入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Right;
             this.state = PlayerStateController.PlayerStateEnum.MoveLR;
+            playerData.GetComponent<Animator>().Play("Right_Jump");
         }
         // Qキーでジャンプ
         if (Input.GetKeyDown(KeyCode.Q))
         {
             this.state = PlayerStateController.PlayerStateEnum.Jump;
+            playerData.GetComponent<Animator>().Play("Jump");
         }
 
         // レーンの端まで到着すると状態を遷移

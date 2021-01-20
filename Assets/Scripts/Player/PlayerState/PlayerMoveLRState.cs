@@ -100,12 +100,13 @@ public class PlayerMoveLRState : PlayerState
         {
             typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Parry;
             playerData.GetComponent<Animator>().Play("Attack");
-            playerData.GetComponent<Animator>().SetBool("Attack", true);
         }
         // ジャンプの先行入力
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
             typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Jump;
-
+            playerData.GetComponent<Animator>().Play("Jump");
+        }
 
         if (!this.isMove)
             this.state = PlayerStateController.PlayerStateEnum.Idle;
