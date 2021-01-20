@@ -283,7 +283,7 @@ MonoBehaviour:
   m_UpdateMethod: 0
   m_PositionUnits: 1
   m_Speed: 0
-  m_Position: 9.999999
+  m_Position: 10
 --- !u!114 &7027803867037083270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +460,7 @@ MonoBehaviour:
   beforeBranchPath: {fileID: 0}
   pathList:
   - path: {fileID: 261590926374931666}
-    moveDir: -1
+    moveDir: 1
   position: 0
   endPoint: {fileID: 2615449334940156825}
 --- !u!114 &2615449335152042335

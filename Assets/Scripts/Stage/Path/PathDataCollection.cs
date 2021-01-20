@@ -11,28 +11,31 @@ public class PathDataCollection : MonoBehaviour
 
     public GameObject rootStagePath = null;
 
+    private int pathCount = 0;
+
     // 移動元のmin,max,名前 移動先のmin,max
     void Awake()
     {
-        int count = 0;
+        pathCount = 0;
         // 分岐点を全て取得
         StageBranchPoint[] stageBranchPointList = rootStagePath.transform.GetComponentsInChildren<StageBranchPoint>();
         foreach (StageBranchPoint branchPT in stageBranchPointList)
         {
             // 移動パスデータを取得
-            playerMoveDatas.Add(CollectPlayerData(branchPT, count));
+            playerMoveDatas.Add(CollectPlayerData(branchPT));
             // 復帰パスデータを取得
             foreach (PathData pathData in branchPT.PathList)
                 playerMoveDatas.Add(ComeBackPlayerData(branchPT, pathData));
-            count++;
+            pathCount++;
         }
     }
     // 移動パスのデータを取得
-    private PlayerMoveData CollectPlayerData(StageBranchPoint _branchPT,int _count)
+    private PlayerMoveData CollectPlayerData(StageBranchPoint _branchPT)
     {
         PlayerMoveData retData = new PlayerMoveData();
         // 移動元の情報を設定
-        _branchPT.BeforeBranchPath.name = "Path"+ _count.ToString();
+        if (_branchPT.BeforeBranchPath.name != "MovePath")
+            _branchPT.BeforeBranchPath.name = "Path" + this.pathCount.ToString();
         retData.NowPath   = _branchPT.BeforeBranchPath;
         retData.nowPosMin = _branchPT.gameObject.GetComponent<CinemachineDollyCart>().m_Position;
         retData.nowPosMax = _branchPT.EndPoint.GetComponent<CinemachineDollyCart>().m_Position;
@@ -45,8 +48,11 @@ public class PathDataCollection : MonoBehaviour
             data.changePosMin = 0.0f;
             data.changePosMax = changePathData.Path.GetComponent<CinemachinePathBase>().PathLength;
             data.moveDir = changePathData.MoveDir;
+            pathCount++;
+            changePathData.Path.name = "Path" + this.pathCount.ToString();
 
             retData.changeNextDataList.Add(data);
+
         }
 
         return retData;
