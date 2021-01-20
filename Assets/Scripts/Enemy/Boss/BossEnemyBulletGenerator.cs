@@ -18,11 +18,12 @@ public class BossEnemyBulletGenerator : MonoBehaviour
 {
     [SerializeField, Header("ボスのメインパス")]
     private CinemachinePathBase bossMainPass = null;
+
     [SerializeField, Header("ステージのメインパス")]
     private CinemachinePathBase stageMainPass = null;
-    // 生成するパスのリスト
+
     [SerializeField, Header("弾を乗せるパスのリスト")]
-    private List<CinemachinePathBase> subPathList = new List<CinemachinePathBase>();
+    private List<CinemachinePathBase> attackPathList = new List<CinemachinePathBase>();
 
     [SerializeField, Header("弾を生成する範囲,開始地点"), PropertyBackingField("StartPos")]
     private float startPos = 0.0f;
@@ -30,9 +31,15 @@ public class BossEnemyBulletGenerator : MonoBehaviour
     [SerializeField, Header("弾を生成する範囲,終了地点"), PropertyBackingField("EndPos")]
     private float endPos = 0.0f;
 
+    [SerializeField, Header("弾の発射開始座標"), PropertyBackingField("ShootStartPos")]
+    private float shootStartPos = 0.0f;
 
+    [SerializeField,Header("ボスの攻撃パターン")]
+    private List<BossAttackPattern> bossAttackPT = new List<BossAttackPattern>();
 
     [Header("※ここから下は編集しない※")]
+    [SerializeField]
+    private float bossSpeed = 0.0f;
     // 生成する際のオフセット
     [SerializeField]
     private float instanceOffset = 0.0f;
@@ -51,12 +58,20 @@ public class BossEnemyBulletGenerator : MonoBehaviour
     private float shootInterval = 0.0f;
     // 弾を格納するオブジェクト
     private Transform shootBullrtsListTrs = null;
+    // 自身のカート
+    private CinemachineDollyCart myCart = null;
+    // 1フレーム前のボスの攻撃パターン
+    private BossAttackPattern.BossAttackPatternEnum lastAttackPattern = BossAttackPattern.BossAttackPatternEnum.None;
+    // 弾を発射するパスの番号
+    private int shootPathNum = 0;
 
     // 弾の生成範囲
     [SerializeField]
     private GameObject startPosObj = null;
     [SerializeField]
     private GameObject endPosObj   = null;
+    [SerializeField]
+    private GameObject shootStartPosObj = null;
 
 
     public float StartPos
@@ -77,10 +92,22 @@ public class BossEnemyBulletGenerator : MonoBehaviour
             this.endPosObj.GetComponent<CinemachineDollyCart>().m_Position = this.endPos;
         }
     }
+    public float ShootStartPos
+    {
+        get { return shootStartPos; }
+        set {
+            shootStartPos = value;
+            this.shootStartPosObj.GetComponent<CinemachineDollyCart>().m_Path = this.bossMainPass;
+            this.shootStartPosObj.GetComponent<CinemachineDollyCart>().m_Position = this.shootStartPos;
+        }
+    }
 
     private void Start()
     {
         this.shootBullrtsListTrs = GameObject.Find("BossBullets").transform;
+        this.GetComponent<CinemachineDollyCart>().m_Speed = bossSpeed;
+
+        myCart = this.GetComponent<CinemachineDollyCart>();
     }
 
     // Update is called once per frame
@@ -90,26 +117,12 @@ public class BossEnemyBulletGenerator : MonoBehaviour
         positionCounter++;
         // 発射インターバルを加算
         shootInterval += Time.deltaTime;
-        // インターバルを超えたら弾を生成
-        if (shootInterval >= shootIntervalMax)
+        // インターバルを超えたら && 発射可能範囲を超えたら 弾を生成
+        if (shootInterval >= shootIntervalMax && myCart.m_Position >= shootStartPos)
         {
-            // 弾を生成したパスの番号
-            //int instancePathNum = -1;
-            // 指定の個数弾を生成
-            for (int i = 0; i < instanceBulletNum; i++)
-            {
-                // 密度はいい感じ
-                // ランダムすぎる。面白さが平均化されない
-                // パターン化する
+            // 弾を発射
+            ShootBullet();
 
-                // 弾を生成して移動レーンを制限する
-                ShootBullet();
-                // 同時に同じパスに生成しないようにする
-                //while(instancePathNum == ShootBullet(instancePathNum))
-                //{
-                //    break;
-                //}
-            }
             // 発射インターバルをリセット
             shootInterval = 0.0f;
         }
@@ -122,14 +135,11 @@ public class BossEnemyBulletGenerator : MonoBehaviour
 
     // 弾を生成
     // 生成したパスの番号を返す
-    private void ShootBullet(int _lastInstancePathNum = 0)
+    private void InstanceBullet(int _pathNum)
     {
-        // 生成するレーンの番号を設定
-        int laneNum = Random.Range(0, this.subPathList.Count+1);
-        // メインパスに生成する場合
-        if (laneNum == this.subPathList.Count){
+        // メインパスに生成するなら
+        if(this.attackPathList[_pathNum].name == "Path0") {
             // 生成するポジションを計算
-            float pathMaxPos = this.endPos;
             float pathPos = this.startPos + positionCounter + instanceOffset;
             pathPos = Mathf.Clamp(pathPos, 0.0f, this.endPos);
 
@@ -139,20 +149,113 @@ public class BossEnemyBulletGenerator : MonoBehaviour
             obj.GetComponent<CinemachineDollyCart>().m_Path = this.stageMainPass;
             obj.GetComponent<CinemachineDollyCart>().m_Position = pathPos;
         }
+        // サブパスに生成するなら
         else
         {
             // 生成するポジションを計算
-            float pathMaxPos = this.subPathList[laneNum].PathLength - 0.0f;
+            float pathMaxPos = this.attackPathList[_pathNum].PathLength - 0.0f;
             float pathPos = positionCounter + instanceOffset;
-            pathPos = Mathf.Clamp(pathPos, 0.0f, this.subPathList[laneNum].PathLength);
+            pathPos = Mathf.Clamp(pathPos, 0.0f, this.attackPathList[_pathNum].PathLength);
 
             // 弾を生成
             GameObject obj = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
             obj.transform.parent = this.shootBullrtsListTrs;
-            obj.GetComponent<CinemachineDollyCart>().m_Path = this.subPathList[laneNum];
+            obj.GetComponent<CinemachineDollyCart>().m_Path = this.attackPathList[_pathNum];
             obj.GetComponent<CinemachineDollyCart>().m_Position = pathPos;
         }
 
         //obj.transform.parent = this.transform;
     }
+
+    // ボスの攻撃パターンを取得
+    private BossAttackPattern.BossAttackPatternEnum AttackPattern()
+    {
+        BossAttackPattern.BossAttackPatternEnum ret = 0;
+        foreach (var pattern in bossAttackPT)
+        {
+            if (this.myCart.m_Position <= pattern.position)
+            {
+                ret = pattern.pattern;
+                break;
+            }
+        }
+        return ret;
+    }
+
+    private void ShootBullet()
+    {
+        BossAttackPattern.BossAttackPatternEnum currentATKPattern = AttackPattern();
+
+        // パターンに応じて弾を発射
+        switch (currentATKPattern)
+        {
+            // 左から右に発射
+            case BossAttackPattern.BossAttackPatternEnum.LeftToRight:
+                if (currentATKPattern != lastAttackPattern)
+                    shootPathNum = 0;
+
+                InstanceBullet(shootPathNum);
+                shootPathNum++;
+                break;
+
+            // 右から左に発射
+            case BossAttackPattern.BossAttackPatternEnum.RightToLeft:
+                if (currentATKPattern != lastAttackPattern)
+                    shootPathNum = attackPathList.Count-1;
+
+                InstanceBullet(shootPathNum);
+                shootPathNum--;
+                break;
+
+            // 3連続で発射
+            case BossAttackPattern.BossAttackPatternEnum.Consecutive3:
+                if (currentATKPattern != lastAttackPattern)
+                    shootPathNum = Random.Range(0,attackPathList.Count-1);
+
+                InstanceBullet(shootPathNum);
+                break;
+
+            // 左から一つ空けて弾を発射
+            case BossAttackPattern.BossAttackPatternEnum.SkipLeftToRight:
+                if (currentATKPattern != lastAttackPattern)
+                    shootPathNum = 0;
+
+                InstanceBullet(shootPathNum);
+                shootPathNum += 2;
+                break;
+
+            // 左から一つ空けて弾を発射
+            case BossAttackPattern.BossAttackPatternEnum.SkipRightToLeft:
+                if (currentATKPattern != lastAttackPattern)
+                    shootPathNum = attackPathList.Count - 1;
+
+                InstanceBullet(shootPathNum);
+                shootPathNum -= 2;
+                break;
+        }
+
+        shootPathNum = Mathf.Clamp(shootPathNum, 0, attackPathList.Count-1);
+
+        this.lastAttackPattern = currentATKPattern;
+
+    }
+}
+
+
+// ボスの攻撃パターンを設定するクラス
+[System.Serializable]
+public class BossAttackPattern
+{
+    public enum BossAttackPatternEnum{
+        None,
+        LeftToRight,
+        RightToLeft,
+        Consecutive3,
+        SkipLeftToRight,
+        SkipRightToLeft
+    }
+    // ボスの攻撃パターン
+    public BossAttackPatternEnum pattern = BossAttackPatternEnum.None;
+    // 範囲
+    public float position = 0.0f;
 }
