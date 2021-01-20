@@ -93,6 +93,7 @@ public class PlayerParryState : PlayerState
             // 左入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Left;
             isInputMoveButton = true;
+            playerData.GetComponent<Animator>().Play("Jump");
         }
         // Dキーで左のパスに移動
         else
@@ -101,6 +102,7 @@ public class PlayerParryState : PlayerState
             // 右入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Right;
             isInputMoveButton = true;
+            playerData.GetComponent<Animator>().Play("Jump");
         }
 
         PlayerRotation();

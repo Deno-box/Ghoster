@@ -97,7 +97,11 @@ public class PlayerMoveLRState : PlayerState
         }
         // 弾きの先行入力
         if (Input.GetKeyDown(KeyCode.Space))
+        {
             typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Parry;
+            playerData.GetComponent<Animator>().Play("Attack");
+            playerData.GetComponent<Animator>().SetBool("Attack", true);
+        }
         // ジャンプの先行入力
         if(Input.GetKeyDown(KeyCode.Q))
             typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Jump;
