@@ -35,20 +35,10 @@
         return output;
     }
 
-	Varyings vert (Attributes v)
-    {
-        Varyings o;
-		o.positionCS = GetFullScreenTriangleVertexPosition(v.vertexID);
-		o.texcoord = GetFullScreenTriangleTexCoord(v.vertexID);
-
-        //o.vertex = UnityObjectToClipPos(v.vertex);
-        //o.texcoord = v.texcoord;
-        return o;
-    }
     // List of properties to control your post process effect
     float _Intensity;
 	float _Samplecount;
-    TEXTURE2D_X(_InputTexture);
+    TEXTURE2D(_InputTexture);
 
 	//グレースケール
 	/*float4 CustomPostProcess(Varyings input) : SV_Target
@@ -59,27 +49,6 @@
         return float4(lerp(outColor, Luminance(outColor).xxx, _Intensity), 1);
     }
 	*/
-
-	//ここに放射状ブラー
-	float4 CustomPostProcess(Varyings input) : SV_Target
-    {
-        float4 col = 0;
-        // UVを-0.5～0.5に変換
-        float2 symmetryUv = input.texcoord - 0.5;
-        // 外側に行くほどこの値が大きくなる(0～0.707)
-        float distance = length(symmetryUv);
-
-        for(int j = 0; j < _Samplecount; j++) 
-		{
-            // jが大きいほど、画面の外側ほど小さくなる値
-            float uvOffset = 1 - _Intensity * j / _Samplecount * distance;
-            // jが大きくなるにつれてより内側のピクセルをサンプリングしていく
-            // また画面の外側ほどより内側のピクセルをサンプリングする
-            col += LOAD_TEXTURE2D_X(_InputTexture, symmetryUv * uvOffset + 0.5);
-        }
-        col /= _Samplecount;
-        return col;
-    }
 
     ENDHLSL
 

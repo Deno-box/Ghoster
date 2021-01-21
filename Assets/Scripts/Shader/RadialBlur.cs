@@ -39,8 +39,8 @@ public sealed class RadialBlur : CustomPostProcessVolumeComponent, IPostProcessC
         //テクスチャ
         m_Material.SetTexture("_InputTexture", source);
 
-        //HDUtils.DrawFullScreen(cmd, m_Material, destination);
-        Graphics.Blit(source, destination, m_Material);
+        HDUtils.DrawFullScreen(cmd, m_Material, destination);
+        //Graphics.Blit(source, destination, m_Material);
     }
 
     public override void Cleanup()
