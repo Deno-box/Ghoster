@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Path: {fileID: 0}
   m_UpdateMethod: 1
   m_PositionUnits: 1
-  m_Speed: -20
+  m_Speed: -40
   m_Position: 0
 --- !u!135 &5978770667287624151
 SphereCollider:

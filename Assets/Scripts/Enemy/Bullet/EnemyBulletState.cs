@@ -12,7 +12,7 @@ public class EnemyBulletState : BulletState
     // 生存用カウンター
     private float counter = 0;
     // 一定時間経過すると削除されるカウンター
-    private float destroyCounterMax = 5.0f;
+    private float destroyCounterMax = 15.0f;
 
     // 初期化処理
     public override void StateInitialize()

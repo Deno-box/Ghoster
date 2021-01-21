@@ -299,7 +299,7 @@ MonoBehaviour:
   bossAttackPT:
   - pattern: 1
     position: 999999
-  bossSpeed: 35
+  bossSpeed: 25
   instanceOffset: 50
   instanceBulletNum: 1
   bulletPrefab: {fileID: 3861935788498136824, guid: 36815a4f11f61e843b1e7f130c1e6ab6,

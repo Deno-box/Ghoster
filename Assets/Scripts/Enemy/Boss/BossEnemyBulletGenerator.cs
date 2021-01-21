@@ -155,7 +155,7 @@ public class BossEnemyBulletGenerator : MonoBehaviour
             // 生成するポジションを計算
             float pathMaxPos = this.attackPathList[_pathNum].PathLength - 0.0f;
             float pathPos = positionCounter + instanceOffset;
-            pathPos = Mathf.Clamp(pathPos, 0.0f, this.attackPathList[_pathNum].PathLength);
+            pathPos = Mathf.Clamp(pathPos, 0.0f, this.attackPathList[_pathNum].PathLength - 30.0f);
 
             // 弾を生成
             GameObject obj = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
