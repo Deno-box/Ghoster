@@ -120,7 +120,7 @@ LineRenderer:
   - {x: -3, y: -0.05436648, z: 9.999852}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.8
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_UpdateMethod: 0
   m_PositionUnits: 1
   m_Speed: 0
-  m_Position: 9.999999
+  m_Position: 10
 --- !u!114 &7027803867037083270
 MonoBehaviour:
   m_ObjectHideFlags: 0
