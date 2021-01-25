@@ -48,7 +48,6 @@ public class PlayerIdleState : PlayerState
         if (Input.GetKeyDown(KeyCode.Space) || trigger != 0 && this.beforeTrigger == 0)
         {
             this.state = PlayerStateController.PlayerStateEnum.Parry;
-            playerData.GetComponent<Animator>().Play("Attack");
         }
         // Aキーで左のパスに移動
         else
@@ -57,7 +56,6 @@ public class PlayerIdleState : PlayerState
             // 左入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Left;
             this.state = PlayerStateController.PlayerStateEnum.MoveLR;
-            playerData.GetComponent<Animator>().Play("Left_Jump");
         }
         // Dキーで左のパスに移動
         else
@@ -66,13 +64,11 @@ public class PlayerIdleState : PlayerState
             // 右入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Right;
             this.state = PlayerStateController.PlayerStateEnum.MoveLR;
-            playerData.GetComponent<Animator>().Play("Right_Jump");
         }
         // Qキーでジャンプ
         if (Input.GetKeyDown(KeyCode.Q))
         {
             this.state = PlayerStateController.PlayerStateEnum.Jump;
-            playerData.GetComponent<Animator>().Play("Jump");
         }
 
         // レーンの端まで到着すると状態を遷移

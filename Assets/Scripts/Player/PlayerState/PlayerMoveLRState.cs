@@ -78,8 +78,14 @@ public class PlayerMoveLRState : PlayerState
 
         this.jumpVel = this.jumpVelMax;
 
-        //if (isMove)
-        //    playerData.AudioSource.PlayOneShot(playerStatus.moveSE);
+        if (isMove)
+        {
+            //playerData.AudioSource.PlayOneShot(playerStatus.moveSE);
+            if (this.moveDir == PlayerMovePath.MoveDir.Left)
+                this.GetComponent<PlayerData>().GetComponent<Animator>().Play("Left_Jump");
+            else
+                this.GetComponent<PlayerData>().GetComponent<Animator>().Play("Right_Jump");
+        }
     }
 
     // 実行処理

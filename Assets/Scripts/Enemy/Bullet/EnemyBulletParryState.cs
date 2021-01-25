@@ -70,7 +70,7 @@ public class EnemyBulletParryState : BulletState
 
             audioSource.PlayOneShot(SE);
 
-            //this.transform.GetChild(1).transform.parent = null;
+            this.transform.GetChild(1).transform.parent = null;
             //UnityEditor.EditorApplication.isPaused = true;
             //Debug.Log(obj.transform.childCount);
             Destroy(this.gameObject);
