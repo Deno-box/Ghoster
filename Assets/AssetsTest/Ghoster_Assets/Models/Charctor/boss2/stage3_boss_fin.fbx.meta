@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 463fd62efcefba64b93b84b340103b6d
+guid: 350d0cab797fb304581ff9447225bdc5
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 440386ccd470bf041a41eb832a99f5ee, type: 2}
+      name: body.001
+    second: {fileID: 2100000, guid: a655845b895fcd84d8f5a6a02fbab3e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jacket.001
+    second: {fileID: 2100000, guid: 28788adedff4d3e44803ea08806cd86f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -38,20 +43,16 @@ ModelImporter:
     clipAnimations: []
     isReadable: 0
   meshes:
-    lODScreenPercentages:
-    - 0.40924838
-    - 0.2870564
-    - 0.15100127
-    - 0.025252203
+    lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -68,7 +69,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
