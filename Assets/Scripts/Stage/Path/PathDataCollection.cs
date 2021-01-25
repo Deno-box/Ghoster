@@ -34,8 +34,8 @@ public class PathDataCollection : MonoBehaviour
     {
         PlayerMoveData retData = new PlayerMoveData();
         // 移動元の情報を設定
-        if (_branchPT.BeforeBranchPath.name != "MovePath")
-            _branchPT.BeforeBranchPath.name = "Path" + this.pathCount.ToString();
+        if(_branchPT.BeforeBranchPath.name != "MovePath")
+        _branchPT.BeforeBranchPath.name = "Path"+ pathCount.ToString();
         retData.NowPath   = _branchPT.BeforeBranchPath;
         retData.nowPosMin = _branchPT.gameObject.GetComponent<CinemachineDollyCart>().m_Position;
         retData.nowPosMax = _branchPT.EndPoint.GetComponent<CinemachineDollyCart>().m_Position;
@@ -43,16 +43,15 @@ public class PathDataCollection : MonoBehaviour
         // 移動先の情報を設定
         foreach (PathData changePathData in _branchPT.PathList)
         {
+            pathCount++;
             ChangeNextPathData data = new ChangeNextPathData();
             data.changePath = changePathData.Path.GetComponent<CinemachinePathBase>();
             data.changePosMin = 0.0f;
             data.changePosMax = changePathData.Path.GetComponent<CinemachinePathBase>().PathLength;
             data.moveDir = changePathData.MoveDir;
-            pathCount++;
-            changePathData.Path.name = "Path" + this.pathCount.ToString();
+            data.changePath.name = "Path" + pathCount.ToString();
 
             retData.changeNextDataList.Add(data);
-
         }
 
         return retData;

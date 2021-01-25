@@ -5,8 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "MyScriptable/Create PlayerStatusData")]
 public class PlayerStatusData : ScriptableObject
 {
+    // プレイヤーの移動速度
+    public float moveSpeed;
     // 左右の移動時間
-    public float moveTime;
+    public float moveLRTime;
+    // 左右の移動時間
+    public float moveLRSpeed;
+    // 左右移動時のジャンプの高さ
+    public float moveJumpVel;
+    // 左右移動時のジャンプにかかる重力
+    public float moveJumpGravity;
     // パリィの有効時間
     public float parryActiveTime;
     // Good判定の距離

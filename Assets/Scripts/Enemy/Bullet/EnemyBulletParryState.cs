@@ -8,7 +8,7 @@ public class EnemyBulletParryState : BulletState
     // ボスのトランスフォーム
     private Transform bossTrs = null;
     // 跳ね返るときの弾の速度
-    private float moveSpeed = 100.0f;
+    private float moveSpeed = 30.0f;
     private TrailRenderer trailRenderer = null;
 
     // ボスにダメージを与えたときのFX

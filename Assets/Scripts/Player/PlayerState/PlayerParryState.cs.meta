@@ -3,7 +3,12 @@ guid: 529cb7008fa4fcf408789c41ddd1f6eb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - parryObj: {fileID: 2671418936485496231, guid: ccc042d4d8b82154782783735f69d4b8,
+      type: 3}
+  - damageObj: {fileID: 6107682794065728799, guid: a5d8b2712c6aa81468a96803540f6ac1,
+      type: 3}
+  - shakeCamera: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
