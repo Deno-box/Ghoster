@@ -7,26 +7,41 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_red_baloon
-  m_Shader: {fileID: -6465566751694194690, guid: 05fa6217a0de31b44b4efa1036d6907c,
+  m_Name: M_Boss1_Skin
+  m_Shader: {fileID: -6465566751694194690, guid: 2c90d326960f11b4fbb7889558be8ff8,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap:
     MotionVector: User
   disabledShaderPasses:
   - DistortionVectors
   - MOTIONVECTORS
-  - RayTracingPrepass
   - TransparentDepthPrepass
   - TransparentDepthPostpass
   - TransparentBackface
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_5B2ACB20:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_995EC2D4:
+        m_Texture: {fileID: 2800000, guid: 6eb73cf844b1a84488e2c9476ef29a4d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_BA1D1474:
+        m_Texture: {fileID: 2800000, guid: f352ee5aefa2df643a7f8a33b3c8b843, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_F7EF314F:
+        m_Texture: {fileID: 2800000, guid: 12922043e58e8784c93f82ad43933e52, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -112,14 +127,17 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_3A2BB580: 0
-    - Vector1_9ECCAAC: 1.44
-    - Vector1_CCCB6688: 0
-    - Vector1_D6D0F7AA: 1.46
-    - Vector1_EBE48121: 300
-    - Vector1_F8DDB4F1: 0.3
-    - Vector1_a625ebc5fae64b5bb945c7d3d85280d2: 1
-    - Vector1_d3d2da1ebf2f4f8aa8a5462a1b57898e: 1
+    - Vector1_5C8BC183: 1
+    - Vector1_65BC4A0D: 1
+    - Vector1_7F0F121A: 0
+    - Vector1_8D89D6F6: 1
+    - Vector1_A552DD7E: 0
+    - Vector1_AA72C40E: 2
+    - Vector1_CFE7DBA: 2
+    - Vector1_D46722E3: 1
+    - Vector1_E9575760: 1
+    - Vector1_F05E9AA6: 1
+    - Vector1_F2ABA3C3: 1
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -132,11 +150,9 @@ Material:
     - _AlphaCutoffShadow: 0.5
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
-    - _AlphaToMask: 0
-    - _AlphaToMaskInspectorValue: 0
     - _Anisotropy: 0
     - _BlendMode: 0
-    - _CoatMask: 0.259
+    - _CoatMask: 0
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
@@ -189,23 +205,18 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
-    - _Metallic: 0.077
-    - _NormalMapSpace: 1
+    - _Metallic: 0
+    - _NormalMapSpace: 0
     - _NormalScale: 1
-    - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
-    - _RayTracing: 0
     - _ReceivesSSR: 1
-    - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
-    - _RenderQueueType: 1
-    - _RequireSplitLighting: 0
     - _SSRefractionProjectionModel: 0
-    - _Smoothness: 0.705
+    - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SpecularAAScreenSpaceVariance: 0.1
@@ -247,13 +258,12 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_4CD38ED9: {r: 0.24150054, g: 0.21787113, b: 0.3018868, a: 0}
-    - Color_61A6D95A: {r: 0.41943863, g: 0.35978106, b: 0.5188679, a: 0}
-    - Color_d4d3f96ba2fe41faa843ec01fbe01c5e: {r: 1, g: 0.81503886, b: 0.5235849,
-        a: 0}
-    - _BaseColor: {r: 0.9150943, g: 0.28057137, b: 0.42681453, a: 1}
+    - Color_6F07D15F: {r: 1, g: 1, b: 1, a: 0}
+    - Color_BD5BCD00: {r: 0, g: 0, b: 0, a: 0}
+    - Color_EDC12D8: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.9150943, g: 0.28057134, b: 0.4268145, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
@@ -267,7 +277,7 @@ Material:
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
---- !u!114 &6463542089915230334
+--- !u!114 &2736583196035691990
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,4 +289,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 9
+  version: 2

@@ -19,11 +19,10 @@ Material:
     MotionVector: User
   disabledShaderPasses:
   - DistortionVectors
-  - MOTIONVECTORS
+  - TransparentBackface
   - RayTracingPrepass
   - TransparentDepthPrepass
   - TransparentDepthPostpass
-  - TransparentBackface
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -112,7 +111,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_9ECCAAC: 3
+    - Vector1_3A2BB580: 0
+    - Vector1_9ECCAAC: 2.69
+    - Vector1_CCCB6688: 0.425
     - Vector1_D6D0F7AA: 1
     - Vector1_EBE48121: 150
     - Vector1_F8DDB4F1: 0.3
@@ -245,7 +246,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_4CD38ED9: {r: 0.9150943, g: 0.6852249, b: 0.42733178, a: 0}
+    - Color_4CD38ED9: {r: 0.5849056, g: 0.5324848, b: 0.5324848, a: 0}
+    - Color_61A6D95A: {r: 0.4279555, g: 0.30170882, b: 0.5660378, a: 0}
     - Color_d4d3f96ba2fe41faa843ec01fbe01c5e: {r: 1, g: 0.2901961, b: 0, a: 0}
     - _BaseColor: {r: 0.5482937, g: 0.36436453, b: 0.8679245, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}

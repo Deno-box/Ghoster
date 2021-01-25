@@ -12,15 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41072429aa695ee4e8194209b2914b6b, type: 3}
   m_Name: PlayerStatus
   m_EditorClassIdentifier: 
-  moveTime: 0.35
+  moveSpeed: 13
+  moveLRTime: 0.4
+  moveLRSpeed: 8
+  moveJumpVel: 48
+  moveJumpGravity: 0.9
   parryActiveTime: 0.3
   goodJudgeDistance: 0.3
   greatJudgeDistance: 0
   damageInvincibleTime: 1
   fallJudgeRate: 0.99
   alertDistance: 200
-  gravity: 2.5
-  jumpVelMax: 28
+  gravity: 0.8
+  jumpVelMax: 11
   cameraShakeTime: 0.08
   cameraShakeMagnitude: 0.4
   parrySE: {fileID: 8300000, guid: 7c2cd5e697d23074ca4a7e3613ae54e6, type: 3}
