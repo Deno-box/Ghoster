@@ -340,7 +340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPathObj: {fileID: 0}
-  playerMoveSpeed: 50
   playerPosition: 0
   player: {fileID: 8384969719465904765}
   playerCamera: {fileID: 3660766226362132982}
@@ -398,6 +397,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3660766226362132937}
     - target: {fileID: 1351889914415302003, guid: 56e58d2c383c6744886a604a84e931f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561538314111314041, guid: 56e58d2c383c6744886a604a84e931f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561538314111314047, guid: 56e58d2c383c6744886a604a84e931f8,
         type: 3}
       propertyPath: m_Enabled
       value: 1

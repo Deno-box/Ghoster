@@ -8,7 +8,7 @@ public class EnemyBulletParryState : BulletState
     // ボスのトランスフォーム
     private Transform bossTrs = null;
     // 跳ね返るときの弾の速度
-    private float moveSpeed = 100.0f;
+    private float moveSpeed = 30.0f;
     private TrailRenderer trailRenderer = null;
 
     // ボスにダメージを与えたときのFX
@@ -70,7 +70,7 @@ public class EnemyBulletParryState : BulletState
 
             audioSource.PlayOneShot(SE);
 
-            this.transform.GetChild(1).transform.parent = null;
+            //this.transform.GetChild(1).transform.parent = null;
             //UnityEditor.EditorApplication.isPaused = true;
             //Debug.Log(obj.transform.childCount);
             Destroy(this.gameObject);

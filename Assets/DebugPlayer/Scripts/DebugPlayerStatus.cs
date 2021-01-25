@@ -10,8 +10,6 @@ public class DebugPlayerStatus : MonoBehaviour
     [SerializeField,Header("メインパスを設定")]
     private GameObject mainPathObj = null;
 
-    [SerializeField,Header("プレイヤーの移動速度")]
-    private float playerMoveSpeed = 0.0f;
     [SerializeField,Header("プレイヤーの位置")]
     private float playerPosition = 0.0f;
 
@@ -46,7 +44,7 @@ public class DebugPlayerStatus : MonoBehaviour
         this.mainPath = this.mainPathObj.GetComponent<CinemachineSmoothPath>();
         CinemachineDollyCart playerCart = this.player.GetComponent<CinemachineDollyCart>();
         playerCart.m_Path = this.mainPath;
-        playerCart.m_Speed = playerMoveSpeed;
+        playerCart.m_Speed = this.player.GetComponent<PlayerData>().PlayerStatus.moveSpeed;
 
         this.player.GetComponent<PlayerMoveLRState>().pathDataCollection = this.pathDataCollection;
 
@@ -57,7 +55,7 @@ public class DebugPlayerStatus : MonoBehaviour
 
         // ターゲットのオフセットを設定
         this.targetObj.GetComponent<CinemachineDollyCart>().m_Path     = this.mainPath;
-        this.targetObj.GetComponent<CinemachineDollyCart>().m_Speed    = playerMoveSpeed;
+        this.targetObj.GetComponent<CinemachineDollyCart>().m_Speed    = this.player.GetComponent<PlayerData>().PlayerStatus.moveSpeed;
         this.targetObj.GetComponent<CinemachineDollyCart>().m_Position = playerCart.m_Position + this.targetOffset;
 
         this.isPlay = true;

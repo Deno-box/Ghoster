@@ -5,6 +5,9 @@ using Cinemachine;
 
 public class PlayerMoveLRState : PlayerState
 {
+    [SerializeField]
+    private CinemachineDollyCart cameraTargetOffsetCart = null;
+
     // プレイヤーのステータスデータ
     private PlayerStatusData playerStatus = null;
     PlayerData playerData;
@@ -16,6 +19,12 @@ public class PlayerMoveLRState : PlayerState
     public PlayerMovePath.MoveDir moveDir = PlayerMovePath.MoveDir.None;
     // 移動時間
     private float moveTimer    = 0.0f;
+    // ジャンプ時の最大ベクトル
+    private float jumpVelMax = 0.0f;
+    // ジャンプ時に加える力
+    private float jumpVel = 0.0f;
+    // 重力
+    private float gravity = 0.0f;
 
     private GameObject nextPosObj = null;
     private bool isMove = false;
@@ -49,6 +58,9 @@ public class PlayerMoveLRState : PlayerState
         this.gameObject.AddComponent<PlayerMovePath>();
         playerMovePathData = this.GetComponent<PlayerMovePath>();
         playerMovePathData.PlayerMoveDataList = pathDataCollection.playerMoveDatas;
+
+        this.jumpVelMax = playerStatus.jumpVelMax;
+        this.gravity = playerStatus.moveJumpGravity;
     }
 
     // 初期化処理
@@ -64,6 +76,7 @@ public class PlayerMoveLRState : PlayerState
 
         isMove = ChangeMove();
 
+        this.jumpVel = this.jumpVelMax;
 
         //if (isMove)
         //    playerData.AudioSource.PlayOneShot(playerStatus.moveSE);
@@ -73,7 +86,7 @@ public class PlayerMoveLRState : PlayerState
     public override void Execute()
     {
         // 一定時間経過後状態を遷移
-        if (moveTimer >= this.playerStatus.moveTime)
+        if (moveTimer >= this.playerStatus.moveLRTime)
         {
             // 先行入力に応じて次のステートを変更
             switch(typeAheadNextStatus)
@@ -97,11 +110,16 @@ public class PlayerMoveLRState : PlayerState
         }
         // 弾きの先行入力
         if (Input.GetKeyDown(KeyCode.Space))
+        {
             typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Parry;
+            playerData.GetComponent<Animator>().Play("Attack");
+        }
         // ジャンプの先行入力
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
             typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Jump;
-
+            playerData.GetComponent<Animator>().Play("Jump");
+        }
 
         if (!this.isMove)
             this.state = PlayerStateController.PlayerStateEnum.Idle;
@@ -119,9 +137,10 @@ public class PlayerMoveLRState : PlayerState
             // 
 
             this.moveTimer += Time.deltaTime;
-            this.transform.position = Vector3.Lerp(this.transform.position, nextPosObj.transform.position, Time.deltaTime * 8.0f);// (this.playerStatus.moveTime));
-            //float rate = 360.0f / this.playerStatus.moveTime;
-            //playerModel.transform.rotation = Quaternion.Euler(new Vector3(moveTimer * rate * dir - 90.0f, -90.0f, 90.0f));
+            jumpVel -= gravity;
+
+            this.transform.position = Vector3.Lerp(this.transform.position, nextPosObj.transform.position, Time.deltaTime * this.playerStatus.moveLRSpeed);
+            this.transform.position += new Vector3(0.0f, jumpVel * Time.deltaTime, 0.0f);
         }
     }
 
@@ -135,6 +154,10 @@ public class PlayerMoveLRState : PlayerState
             myCart.m_Path = nextPosObj.GetComponent<CinemachineDollyCart>().m_Path;
             myCart.m_Position = nextPosObj.GetComponent<CinemachineDollyCart>().m_Position;
             myCart.enabled = true;
+
+            //メインパスに戻ってきたときに、
+            if (myCart.m_Path.name == "MovePath")
+                cameraTargetOffsetCart.m_Position = myCart.m_Position + 15.0f;
             //playerModel.transform.rotation = Quaternion.Euler(new Vector3(-90.0f, 0.0f, 0.0f));
         }
     }
@@ -174,7 +197,7 @@ public class PlayerMoveLRState : PlayerState
 
                 float speed = this.GetComponent<CinemachineDollyCart>().m_Speed;
                 // TODO : 誤差をマジックナンバーで修正している
-                changePos += this.playerStatus.moveTime * speed + 0.5f;
+                changePos += this.playerStatus.moveLRTime * speed;
 
 
                 // 移動を開始

@@ -11,4 +11,8 @@ public class PlayerData : MonoBehaviour
     [SerializeField]
     AudioSource audioSource = null;
     public AudioSource AudioSource { get { return audioSource; } }
+
+    [SerializeField]
+    private GameObject playerAnim = null;
+    public GameObject PlayerAnim { get { return playerAnim; } }
 }

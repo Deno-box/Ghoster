@@ -138,7 +138,7 @@ public class BossEnemyBulletGenerator : MonoBehaviour
     private void InstanceBullet(int _pathNum)
     {
         // メインパスに生成するなら
-        if(this.attackPathList[_pathNum].name == "Path0") {
+        if(this.attackPathList[_pathNum].name == "MovePath") {
             // 生成するポジションを計算
             float pathPos = this.startPos + positionCounter + instanceOffset;
             pathPos = Mathf.Clamp(pathPos, 0.0f, this.endPos);
