@@ -66,14 +66,14 @@ MonoBehaviour:
     showAlpha: 0
     showEyeDropper: 1
   tint:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   maxFogDistance:
     m_OverrideState: 1
-    m_Value: 5000
+    m_Value: 6000
     min: 0
   mipFogMaxMip:
     m_OverrideState: 0
@@ -90,31 +90,31 @@ MonoBehaviour:
     min: 0
   baseHeight:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1331.8
   maximumHeight:
     m_OverrideState: 1
-    m_Value: 1000
+    m_Value: 1367.2
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.7882353, b: 0.9902185, a: 1}
+    m_Value: {r: 1, g: 0.87387407, b: 0.8156863, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 100
+    m_Value: 133.8
     min: 1
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
   anisotropy:
     m_OverrideState: 1
-    m_Value: 0.61
+    m_Value: -1
     min: -1
     max: 1
   globalLightProbeDimmer:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.04
     min: 0
     max: 1
   depthExtent:
@@ -153,7 +153,7 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: 8.53
+    m_Value: 10.51
   multiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -180,22 +180,22 @@ MonoBehaviour:
     m_Value: 0
   top:
     m_OverrideState: 1
-    m_Value: {r: 0.07036011, g: 0.21952623, b: 0.5520116, a: 1}
+    m_Value: {r: 0.31764707, g: 0.3602914, b: 0.44313726, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   middle:
     m_OverrideState: 1
-    m_Value: {r: 14.857046, g: 7.2340593, b: 1.0112126, a: 1}
+    m_Value: {r: 79.05687, g: 38.67646, b: 30.95151, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   bottom:
     m_OverrideState: 1
-    m_Value: {r: 0.8112535, g: 0.29520002, b: 0.82, a: 1}
+    m_Value: {r: 0.36525455, g: 0.41757298, b: 0.4528302, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   gradientDiffusion:
     m_OverrideState: 1
-    m_Value: 2.6
+    m_Value: 99.8

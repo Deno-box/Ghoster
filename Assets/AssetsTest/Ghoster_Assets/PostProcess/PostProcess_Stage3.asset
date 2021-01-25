@@ -94,7 +94,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 2.16
     min: 0
     max: 4
   directLightingStrength:
@@ -187,17 +187,17 @@ MonoBehaviour:
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.65
+    m_Value: 0.3
     min: 0
     max: 1
   scatter:
     m_OverrideState: 1
-    m_Value: 0.82
+    m_Value: 0.764
     min: 0
     max: 1
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.9716981, g: 0.96428365, b: 0.9212798, a: 1}
+    m_Value: {r: 0.8784314, g: 0.8233466, b: 0.7176471, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -233,10 +233,10 @@ MonoBehaviour:
   m_AdvancedMode: 0
   lift:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.8396497, y: 0.93288034, z: 1, w: -0.105932206}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9682394, z: 0.96823937, w: -0.2527807}
+    m_Value: {x: 0.78311455, y: 0.8649912, z: 1, w: -0.2527807}
   gain:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}
@@ -282,7 +282,7 @@ MonoBehaviour:
     m_Value: {fileID: 0}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.05
+    m_Value: 0.159
     min: 0
     max: 1
   m_MaxSamples:
@@ -318,7 +318,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.304
     min: 0
     max: 1
   smoothness:
