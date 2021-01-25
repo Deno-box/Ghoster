@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e59d454023f4049bab2e08dce1aced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point: 1200
+  point: 1000
   rankingText:
   - {fileID: 416383535}
   - {fileID: 1779529540}
