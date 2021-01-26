@@ -1,0 +1,389 @@
+fileFormatVersion: 2
+guid: 66885dcf9ad9a5e49a3006e6dbce5bdb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4812596867230540847
+    second: Button_Sticks_0
+  - first:
+      213: 7484912073837993072
+    second: Button_Sticks_1
+  - first:
+      213: -476569585469077936
+    second: Button_Sticks_2
+  - first:
+      213: -4582436964286134838
+    second: Button_Sticks_3
+  - first:
+      213: 7605313540515949828
+    second: Button_Sticks_4
+  - first:
+      213: 8116914522848110153
+    second: Button_Sticks_5
+  - first:
+      213: -9044157819962573738
+    second: Button_Sticks_6
+  - first:
+      213: -4887694111151670723
+    second: Button_Sticks_7
+  - first:
+      213: 4706161573508802735
+    second: Button_Sticks_8
+  - first:
+      213: 5106255683958887607
+    second: Button_Sticks_9
+  - first:
+      213: 2810645741826498248
+    second: Button_Sticks_10
+  - first:
+      213: 4460130803849536232
+    second: Button_Sticks_11
+  - first:
+      213: 4416614229849784003
+    second: Button_Sticks_12
+  - first:
+      213: 2220077535968424286
+    second: Button_Sticks_13
+  - first:
+      213: -2710382191918477621
+    second: Button_Sticks_14
+  - first:
+      213: 9057364049837507093
+    second: Button_Sticks_15
+  - first:
+      213: 2342310259489498948
+    second: Button_Sticks_16
+  - first:
+      213: -2536735216554920627
+    second: Button_Sticks_17
+  - first:
+      213: 9105277449817500429
+    second: Button_Sticks_18
+  - first:
+      213: 7831405253417892450
+    second: Button_Sticks_19
+  - first:
+      213: 5272080284191235382
+    second: Button_Sticks_20
+  - first:
+      213: 2327398488566774433
+    second: Button_Sticks_21
+  - first:
+      213: 4437868058351981636
+    second: Button_Sticks_22
+  - first:
+      213: -1399917543968266505
+    second: Button_Sticks_23
+  - first:
+      213: -2581874979354211693
+    second: Button_Sticks_24
+  - first:
+      213: -9087196378842649591
+    second: Button_Sticks_25
+  - first:
+      213: -5874657142710716953
+    second: Button_Sticks_26
+  - first:
+      213: -5698509199895210697
+    second: Button_Sticks_27
+  - first:
+      213: -1518028247456061803
+    second: Button_Sticks_28
+  - first:
+      213: 5671539496608633980
+    second: Button_Sticks_29
+  - first:
+      213: -73224083515784763
+    second: Button_Sticks_30
+  - first:
+      213: -2810288257068527088
+    second: Button_Sticks_31
+  - first:
+      213: 6636763168004593208
+    second: Button_Sticks_32
+  - first:
+      213: -695403060935290340
+    second: Button_Sticks_33
+  - first:
+      213: 6257501156333945933
+    second: Button_Sticks_34
+  - first:
+      213: -2182994334587364400
+    second: Button_Sticks_35
+  - first:
+      213: 3671866346794500982
+    second: Button_Sticks_36
+  - first:
+      213: 2930898324790466464
+    second: Button_Sticks_37
+  - first:
+      213: -4385046156828033247
+    second: Button_Sticks_38
+  - first:
+      213: -314401449526913340
+    second: Button_Sticks_39
+  - first:
+      213: 2799032978937640751
+    second: Button_Sticks_40
+  - first:
+      213: -8750881730648117720
+    second: Button_Sticks_41
+  - first:
+      213: -4469586850604531139
+    second: Button_Sticks_42
+  - first:
+      213: 3968676438608806080
+    second: Button_Sticks_43
+  - first:
+      213: 4457700169568114191
+    second: Button_Sticks_44
+  - first:
+      213: 6045388862450441453
+    second: Button_Sticks_45
+  - first:
+      213: 4131976716840656298
+    second: Button_Sticks_46
+  - first:
+      213: -230732923383409191
+    second: Button_Sticks_47
+  - first:
+      213: -9112753131084575608
+    second: Button_Sticks_48
+  - first:
+      213: 4558526386398003546
+    second: Button_Sticks_49
+  - first:
+      213: -6491629525918445743
+    second: Button_Sticks_50
+  - first:
+      213: 6413259703232805181
+    second: Button_Sticks_51
+  - first:
+      213: 8158193897538621871
+    second: Button_Sticks_52
+  - first:
+      213: 9039236438222086772
+    second: Button_Sticks_53
+  - first:
+      213: 645373882351672120
+    second: Button_Sticks_54
+  - first:
+      213: -2371427804311760978
+    second: Button_Sticks_55
+  - first:
+      213: 1865569099573404008
+    second: Button_Sticks_56
+  - first:
+      213: 1361433831427782897
+    second: Button_Sticks_57
+  - first:
+      213: 5145323838489441517
+    second: Button_Sticks_58
+  - first:
+      213: -5427491122098374627
+    second: Button_Sticks_59
+  - first:
+      213: -6465657552298745112
+    second: Button_Sticks_60
+  - first:
+      213: 7795665676756794702
+    second: Button_Sticks_61
+  - first:
+      213: 229157659399683691
+    second: Button_Sticks_62
+  - first:
+      213: 2389816971666341583
+    second: Button_Sticks_63
+  - first:
+      213: 812216124132841566
+    second: Button_Sticks_64
+  - first:
+      213: -6873546031897788640
+    second: Button_Sticks_65
+  - first:
+      213: -6498122851659656073
+    second: Button_Sticks_66
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Button_Sticks_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 274
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f242f6e3a57c9c240800000000000000
+      internalID: 4812596867230540847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Sticks_1
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 0
+        width: 289
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07c5528dfdfbfd760800000000000000
+      internalID: 7484912073837993072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Sticks_2
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 0
+        width: 315
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0564c5bac72e269f0800000000000000
+      internalID: -476569585469077936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Sticks_3
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 0
+        width: 305
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac50b1a1cd9e760c0800000000000000
+      internalID: -4582436964286134838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

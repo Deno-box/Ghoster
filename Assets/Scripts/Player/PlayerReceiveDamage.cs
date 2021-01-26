@@ -50,6 +50,8 @@ public class PlayerReceiveDamage : MonoBehaviour
         shakeCamera.Shake(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
 
         //playerData.AudioSource.PlayOneShot(playerStatus.receiveDamageSE);
+
+        this.GetComponent<PlayerData>().GetComponent<Animator>().Play("Damage");
     }
 
     // 実行処理
