@@ -341,7 +341,6 @@ GameObject:
   - component: {fileID: 716921876142524565}
   - component: {fileID: 716921876142524566}
   - component: {fileID: 716921876142524567}
-  - component: {fileID: 3946089463818789089}
   - component: {fileID: 4282766601216124987}
   m_Layer: 5
   m_Name: PlaySceneCanvas
@@ -434,19 +433,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3946089463818789089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 716921876142524561}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0ea5f80e0f0b5f4cb46e13c48cee0eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSceneMD: {fileID: 0}
 --- !u!114 &4282766601216124987
 MonoBehaviour:
   m_ObjectHideFlags: 0

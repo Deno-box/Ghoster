@@ -16,7 +16,7 @@ public class FadeTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool flag = playSceneMD.GoalExecute();
+        bool flag = playSceneMD.StartExecute();
         Debug.Log(flag);
         //bool flag = fadeImage.Execute(type, speed);
 
