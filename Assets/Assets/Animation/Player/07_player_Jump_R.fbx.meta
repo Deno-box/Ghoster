@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5784714a96c769f488bd07126b2e3962
+guid: a46a98c786b1e1e42be8597fcda19273
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
@@ -37,36 +37,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: metarig.002|metarig.002Action
-      takeName: metarig.002|metarig.002Action
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 24
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -542,43 +513,43 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: chara_01_Jump_R(Clone)
+    - name: 07_player_Jump_R(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: body.001
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: chuck.001
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: -0, y: -0.0000000018626451, z: 2.3283064e-10}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: face.001
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: -0, y: 0, z: 5.820766e-11}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: hair_01.001
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: hair_02.001
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: -1.3877788e-17, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: katyusha.001
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: -0, y: 0, z: 5.820766e-11}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: metarig.002
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: 0, y: 0.07376997, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
@@ -1120,37 +1091,37 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: pocket.001
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: -1.1641532e-10, y: -0.0000000018626451, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: popcorn01
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: popcorn02
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: -0, y: 4.656613e-10, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: popcorn04
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: -0, y: 9.313226e-10, z: -7.459311e-17}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: popcorn05
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: popcorn06
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: 1.1641532e-10, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: tag.001
-      parentName: chara_01_Jump_R(Clone)
+      parentName: 07_player_Jump_R(Clone)
       position: {x: -0, y: 0, z: 2.3283064e-10}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
