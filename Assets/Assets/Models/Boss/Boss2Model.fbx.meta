@@ -1,0 +1,561 @@
+fileFormatVersion: 2
+guid: a76960419f8d84947b835053ed152595
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: -349461215941095629
+    second: frame.001|beard.001|Take 001|BaseLayer
+  - first:
+      74: -688007691397611723
+    second: frame.001|beard|Take 001|BaseLayer
+  - first:
+      74: 5513347368913265211
+    second: frame.001|body002|Take 001|BaseLayer
+  - first:
+      74: -1993035651569928795
+    second: frame.001|boss|Take 001|BaseLayer
+  - first:
+      74: 4944825512253198670
+    second: frame.001|conect001|Take 001|BaseLayer
+  - first:
+      74: 3621882637034974988
+    second: frame.001|conect002|Take 001|BaseLayer
+  - first:
+      74: -2690102070734630497
+    second: frame.001|conect003|Take 001|BaseLayer
+  - first:
+      74: -3380201330021210421
+    second: frame.001|conect004|Take 001|BaseLayer
+  - first:
+      74: -6926116425100394481
+    second: frame.001|conect_003|Take 001|BaseLayer
+  - first:
+      74: -3681596866868277289
+    second: frame.001|conect|Take 001|BaseLayer
+  - first:
+      74: -8244230740860473003
+    second: frame.001|connect2_"|Take 001|BaseLayer
+  - first:
+      74: -3125230891595902057
+    second: frame.001|Cylinder001|Take 001|BaseLayer
+  - first:
+      74: 1633111155018681579
+    second: frame.001|frame|Take 001|BaseLayer
+  - first:
+      74: -5038571936611108027
+    second: frame.001|hat|Take 001|BaseLayer
+  - first:
+      74: -4200738655473041720
+    second: frame.001|J.head|Take 001|BaseLayer
+  - first:
+      74: -8994410994511695836
+    second: frame.001|jin|Take 001|BaseLayer
+  - first:
+      74: -1468486422642234338
+    second: frame.001|Sphere001|Take 001|BaseLayer
+  - first:
+      74: -649974428823733171
+    second: frame.001|Sphere002|Take 001|BaseLayer
+  - first:
+      74: -4395956215496096535
+    second: frame.001|Sphere003|Take 001|BaseLayer
+  - first:
+      74: 7300802644727234052
+    second: frame.001|Sphere004|Take 001|BaseLayer
+  - first:
+      74: 1315997163284753117
+    second: frame.001|Sphere005|Take 001|BaseLayer
+  - first:
+      74: 7415409617471825699
+    second: frame.001|suit003|Take 001|BaseLayer
+  - first:
+      74: 6766225682151431067
+    second: frame.001|tie|Take 001|BaseLayer
+  - first:
+      74: -586039917640927900
+    second: frame.001|Torus001|Take 001|BaseLayer
+  - first:
+      74: 3026838935165439553
+    second: hat.001|beard.001|Take 001|BaseLayer
+  - first:
+      74: 7416693792834238297
+    second: hat.001|beard|Take 001|BaseLayer
+  - first:
+      74: 6773370062340106842
+    second: hat.001|body002|Take 001|BaseLayer
+  - first:
+      74: -247699151403744409
+    second: hat.001|boss|Take 001|BaseLayer
+  - first:
+      74: -6309242942764046570
+    second: hat.001|conect001|Take 001|BaseLayer
+  - first:
+      74: -2499420006287705792
+    second: hat.001|conect002|Take 001|BaseLayer
+  - first:
+      74: 4091665000752277375
+    second: hat.001|conect003|Take 001|BaseLayer
+  - first:
+      74: 3448909973334796506
+    second: hat.001|conect004|Take 001|BaseLayer
+  - first:
+      74: 4637820157674877425
+    second: hat.001|conect_003|Take 001|BaseLayer
+  - first:
+      74: -1172776218832127944
+    second: hat.001|conect|Take 001|BaseLayer
+  - first:
+      74: 2382465871439931232
+    second: hat.001|connect2_"|Take 001|BaseLayer
+  - first:
+      74: -933343465053818493
+    second: hat.001|Cylinder001|Take 001|BaseLayer
+  - first:
+      74: -3653510433324163440
+    second: hat.001|frame|Take 001|BaseLayer
+  - first:
+      74: 4909987788106777871
+    second: hat.001|hat|Take 001|BaseLayer
+  - first:
+      74: -5517674924958382700
+    second: hat.001|J.head|Take 001|BaseLayer
+  - first:
+      74: -8989607879787491862
+    second: hat.001|jin|Take 001|BaseLayer
+  - first:
+      74: -5424871770975627482
+    second: hat.001|Sphere001|Take 001|BaseLayer
+  - first:
+      74: -8199845637941089349
+    second: hat.001|Sphere002|Take 001|BaseLayer
+  - first:
+      74: -1605718005030051969
+    second: hat.001|Sphere003|Take 001|BaseLayer
+  - first:
+      74: 7873821027404619981
+    second: hat.001|Sphere004|Take 001|BaseLayer
+  - first:
+      74: -7894737985437709515
+    second: hat.001|Sphere005|Take 001|BaseLayer
+  - first:
+      74: 6739897165813523450
+    second: hat.001|suit003|Take 001|BaseLayer
+  - first:
+      74: 4313304598319764973
+    second: hat.001|tie|Take 001|BaseLayer
+  - first:
+      74: 8791956922455500685
+    second: hat.001|Torus001|Take 001|BaseLayer
+  - first:
+      74: 1643846825483783614
+    second: J.head|beard.001|Take 001|BaseLayer
+  - first:
+      74: 5236876442115296792
+    second: J.head|beard|Take 001|BaseLayer
+  - first:
+      74: 8642110414495901167
+    second: J.head|body002|Take 001|BaseLayer
+  - first:
+      74: 7986182411454695311
+    second: J.head|boss|Take 001|BaseLayer
+  - first:
+      74: 3463511788396324850
+    second: J.head|conect001|Take 001|BaseLayer
+  - first:
+      74: -7052391901427487473
+    second: J.head|conect002|Take 001|BaseLayer
+  - first:
+      74: -876154515341379681
+    second: J.head|conect003|Take 001|BaseLayer
+  - first:
+      74: 1613606449485214676
+    second: J.head|conect004|Take 001|BaseLayer
+  - first:
+      74: -6569102354893141731
+    second: J.head|conect_003|Take 001|BaseLayer
+  - first:
+      74: -6827067906402540686
+    second: J.head|conect|Take 001|BaseLayer
+  - first:
+      74: -5498194613294089070
+    second: J.head|connect2_"|Take 001|BaseLayer
+  - first:
+      74: 7875898918531772782
+    second: J.head|Cylinder001|Take 001|BaseLayer
+  - first:
+      74: 5275330737861349488
+    second: J.head|frame|Take 001|BaseLayer
+  - first:
+      74: 5728552482916061677
+    second: J.head|hat|Take 001|BaseLayer
+  - first:
+      74: 953229166253173885
+    second: J.head|J.head|Take 001|BaseLayer
+  - first:
+      74: 2845152742884093131
+    second: J.head|jin|Take 001|BaseLayer
+  - first:
+      74: -614713689766963771
+    second: J.head|Sphere001|Take 001|BaseLayer
+  - first:
+      74: -7807107548181813174
+    second: J.head|Sphere002|Take 001|BaseLayer
+  - first:
+      74: -218542576021566402
+    second: J.head|Sphere003|Take 001|BaseLayer
+  - first:
+      74: -1055647443998892726
+    second: J.head|Sphere004|Take 001|BaseLayer
+  - first:
+      74: -9115592007644705391
+    second: J.head|Sphere005|Take 001|BaseLayer
+  - first:
+      74: 2996916297613089312
+    second: J.head|suit003|Take 001|BaseLayer
+  - first:
+      74: -7936144440167492287
+    second: J.head|tie|Take 001|BaseLayer
+  - first:
+      74: -8013020991651408414
+    second: J.head|Torus001|Take 001|BaseLayer
+  - first:
+      74: -1296379485986293809
+    second: metarig.001|Action
+  - first:
+      74: -5166543265402087357
+    second: metarig.001|beard.001|Take 001|BaseLayer
+  - first:
+      74: -3592580697071871133
+    second: metarig.001|beard|Take 001|BaseLayer
+  - first:
+      74: -6619200391837475471
+    second: metarig.001|body002|Take 001|BaseLayer
+  - first:
+      74: -436420325106681376
+    second: metarig.001|boss|Take 001|BaseLayer
+  - first:
+      74: -6471170569315700180
+    second: metarig.001|conect001|Take 001|BaseLayer
+  - first:
+      74: 3887877442829640094
+    second: metarig.001|conect002|Take 001|BaseLayer
+  - first:
+      74: -403963269940687532
+    second: metarig.001|conect003|Take 001|BaseLayer
+  - first:
+      74: -4766398715098927974
+    second: metarig.001|conect004|Take 001|BaseLayer
+  - first:
+      74: 432998766460866280
+    second: metarig.001|conect_003|Take 001|BaseLayer
+  - first:
+      74: -4324806811560850291
+    second: metarig.001|conect|Take 001|BaseLayer
+  - first:
+      74: -8269602656849810899
+    second: metarig.001|connect2_"|Take 001|BaseLayer
+  - first:
+      74: -6093324304382202330
+    second: metarig.001|Cylinder001|Take 001|BaseLayer
+  - first:
+      74: -248931309272475429
+    second: metarig.001|frame|Take 001|BaseLayer
+  - first:
+      74: 4887807713340707614
+    second: metarig.001|hat|Take 001|BaseLayer
+  - first:
+      74: 1586518067210767425
+    second: metarig.001|J.head|Take 001|BaseLayer
+  - first:
+      74: 2589871367127633737
+    second: metarig.001|jin|Take 001|BaseLayer
+  - first:
+      74: 2086334672150948280
+    second: metarig.001|Sphere001|Take 001|BaseLayer
+  - first:
+      74: -852594604067057300
+    second: metarig.001|Sphere002|Take 001|BaseLayer
+  - first:
+      74: 3054548549672496139
+    second: metarig.001|Sphere003|Take 001|BaseLayer
+  - first:
+      74: 2527509625698617013
+    second: metarig.001|Sphere004|Take 001|BaseLayer
+  - first:
+      74: 3867469284362004111
+    second: metarig.001|Sphere005|Take 001|BaseLayer
+  - first:
+      74: 1532131527507248178
+    second: metarig.001|suit003|Take 001|BaseLayer
+  - first:
+      74: -3701318165803784058
+    second: metarig.001|tie|Take 001|BaseLayer
+  - first:
+      74: 156925469836937724
+    second: metarig.001|Torus001|Take 001|BaseLayer
+  - first:
+      74: -3727642443779646159
+    second: polySurface002|beard.001|Take 001|BaseLayer
+  - first:
+      74: 4897983865113923332
+    second: polySurface002|beard|Take 001|BaseLayer
+  - first:
+      74: -1450607605551180878
+    second: polySurface002|body002|Take 001|BaseLayer
+  - first:
+      74: 622508062457092642
+    second: polySurface002|boss|Take 001|BaseLayer
+  - first:
+      74: 7916016959354748880
+    second: polySurface002|conect001|Take 001|BaseLayer
+  - first:
+      74: -4785524162750368958
+    second: polySurface002|conect002|Take 001|BaseLayer
+  - first:
+      74: 541432943503818222
+    second: polySurface002|conect003|Take 001|BaseLayer
+  - first:
+      74: 8556002576582167020
+    second: polySurface002|conect004|Take 001|BaseLayer
+  - first:
+      74: -8442261848188019965
+    second: polySurface002|conect_003|Take 001|BaseLayer
+  - first:
+      74: -6173922730406351988
+    second: polySurface002|conect|Take 001|BaseLayer
+  - first:
+      74: -1208027372383178629
+    second: polySurface002|connect2_"|Take 001|BaseLayer
+  - first:
+      74: 6476113962055320811
+    second: polySurface002|Cylinder001|Take 001|BaseLayer
+  - first:
+      74: 3638930223568436586
+    second: polySurface002|frame|Take 001|BaseLayer
+  - first:
+      74: 4659621778764805074
+    second: polySurface002|hat|Take 001|BaseLayer
+  - first:
+      74: 8897184503010946714
+    second: polySurface002|J.head|Take 001|BaseLayer
+  - first:
+      74: -8122473713193085975
+    second: polySurface002|jin|Take 001|BaseLayer
+  - first:
+      74: -2952567969126931056
+    second: polySurface002|Sphere001|Take 001|BaseLayer
+  - first:
+      74: -6562181739024097119
+    second: polySurface002|Sphere002|Take 001|BaseLayer
+  - first:
+      74: 4882786985921134575
+    second: polySurface002|Sphere003|Take 001|BaseLayer
+  - first:
+      74: 1171337368660149447
+    second: polySurface002|Sphere004|Take 001|BaseLayer
+  - first:
+      74: -4673010806937785693
+    second: polySurface002|Sphere005|Take 001|BaseLayer
+  - first:
+      74: 3174997108955227151
+    second: polySurface002|suit003|Take 001|BaseLayer
+  - first:
+      74: 311075623525886557
+    second: polySurface002|tie|Take 001|BaseLayer
+  - first:
+      74: -6585137487205276610
+    second: polySurface002|Torus001|Take 001|BaseLayer
+  - first:
+      74: 354531285188917965
+    second: suit003|beard.001|Take 001|BaseLayer
+  - first:
+      74: -225093294336296965
+    second: suit003|beard|Take 001|BaseLayer
+  - first:
+      74: -2659015013620544458
+    second: suit003|body002|Take 001|BaseLayer
+  - first:
+      74: 5665467244805272600
+    second: suit003|boss|Take 001|BaseLayer
+  - first:
+      74: -6378791554968875015
+    second: suit003|conect001|Take 001|BaseLayer
+  - first:
+      74: 1721500429223518511
+    second: suit003|conect002|Take 001|BaseLayer
+  - first:
+      74: 4324123919723635114
+    second: suit003|conect003|Take 001|BaseLayer
+  - first:
+      74: 5613135520100119623
+    second: suit003|conect004|Take 001|BaseLayer
+  - first:
+      74: 3916477952475490564
+    second: suit003|conect_003|Take 001|BaseLayer
+  - first:
+      74: 3969246606032049059
+    second: suit003|conect|Take 001|BaseLayer
+  - first:
+      74: -5777022032524385782
+    second: suit003|connect2_"|Take 001|BaseLayer
+  - first:
+      74: -4328276233972886830
+    second: suit003|Cylinder001|Take 001|BaseLayer
+  - first:
+      74: 6673590117774270267
+    second: suit003|frame|Take 001|BaseLayer
+  - first:
+      74: 2035675665013057515
+    second: suit003|hat|Take 001|BaseLayer
+  - first:
+      74: -3765705786516041363
+    second: suit003|J.head|Take 001|BaseLayer
+  - first:
+      74: -8426155096856079060
+    second: suit003|jin|Take 001|BaseLayer
+  - first:
+      74: 7641164780831367520
+    second: suit003|Sphere001|Take 001|BaseLayer
+  - first:
+      74: -1440269104712723382
+    second: suit003|Sphere002|Take 001|BaseLayer
+  - first:
+      74: 5165499546674509654
+    second: suit003|Sphere003|Take 001|BaseLayer
+  - first:
+      74: 1518634580312131936
+    second: suit003|Sphere004|Take 001|BaseLayer
+  - first:
+      74: -6579004003927661149
+    second: suit003|Sphere005|Take 001|BaseLayer
+  - first:
+      74: 5840925421671740310
+    second: suit003|suit003|Take 001|BaseLayer
+  - first:
+      74: 467769591038087907
+    second: suit003|tie|Take 001|BaseLayer
+  - first:
+      74: -6083329435254681768
+    second: suit003|Torus001|Take 001|BaseLayer
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: metarig.001|Action
+      takeName: metarig.001|Action
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

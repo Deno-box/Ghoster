@@ -260,7 +260,7 @@ Material:
     m_Colors:
     - Color_6F07D15F: {r: 1, g: 1, b: 1, a: 0}
     - Color_BD5BCD00: {r: 0.2910521, g: 0.22490211, b: 0.3584906, a: 0}
-    - Color_EDC12D8: {r: 0.6667968, g: 0.5977661, b: 0.9528302, a: 1}
+    - Color_EDC12D8: {r: 0.6667968, g: 0.5977661, b: 0.95283014, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
