@@ -39,6 +39,8 @@ public class PlayerStatusData : ScriptableObject
 
     // パリィ時のSE
     public AudioClip parrySE;
+    // スピン時のSE(はじきモーション入り時)
+    public AudioClip spinSE;
     // ジャンプ時のSE
     public AudioClip jumpSE;
     // 移動時のSE

@@ -49,7 +49,7 @@ public class PlayerJumpState : PlayerState
 
 
         this.GetComponent<PlayerData>().GetComponent<Animator>().Play("Jump");
-        //playerData.AudioSource.PlayOneShot(playerStatus.jumpSE);
+        playerData.AudioSource.PlayOneShot(playerStatus.jumpSE);
     }
 
     // 実行処理

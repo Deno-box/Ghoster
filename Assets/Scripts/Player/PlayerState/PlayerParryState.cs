@@ -76,6 +76,9 @@ public class PlayerParryState : PlayerState
         isInputMoveButton = false;
 
         this.GetComponent<PlayerData>().GetComponent<Animator>().Play("Attack");
+
+
+        playerData.AudioSource.PlayOneShot(playerStatus.spinSE);
     }
 
     // 実行処理
@@ -154,7 +157,7 @@ public class PlayerParryState : PlayerState
         player.SlowDown(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
         shakeCamera.Shake(playerStatus.cameraShakeTime, playerStatus.cameraShakeMagnitude);
 
-        //playerData.AudioSource.PlayOneShot(playerStatus.parrySE);
+        playerData.AudioSource.PlayOneShot(playerStatus.parrySE);
     }
 
     // great,good判定を取る
