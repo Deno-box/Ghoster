@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using Common;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class StageSelectController : MonoBehaviour
@@ -11,41 +9,33 @@ public class StageSelectController : MonoBehaviour
     // ステージの数
     private const int STAGE_NUM = 3;
 
-    //private float beforeStick = 0.0f;
-    //private float beforeCross = 0.0f;
+    // ボスのシルエット画像
+    [SerializeField]
+    private Image[] BossSilhouetteImage = new Image[STAGE_NUM];
+    // 非選択時のランキングシート画像
+    [SerializeField]
+    private Image[] rankingSheetImage = new Image[STAGE_NUM];
+    // 非選択時のクリアシンボル
+    [SerializeField]
+    private Image[] clearSymbolImage = new Image[STAGE_NUM];
+    // クリアシンボルをオブジェクトとして取得
+    [SerializeField]
+    private GameObject[] clearSymbol = new GameObject[STAGE_NUM];
+
+    // コウモリのスコアテキスト
+    [SerializeField]
+    private Text[] batScoreTexts = new Text[STAGE_NUM];
+    // スカルのスコアテキスト
+    [SerializeField]
+    private Text[] skullScoreTexts = new Text[STAGE_NUM];
+    // かぼちゃのスコアテキスト
+    [SerializeField]
+    private Text[] pumpkinScoreTexts = new Text[STAGE_NUM];
 
     // 選択中
-    private int selecting;
+    public int selecting;
     // ひとつ前の選択
     private int lastSelect;
-    // フェード経過時間
-    float fadeDeltaTime = 0.0f;
-    // フェードインに掛かる時間
-    [SerializeField]
-    float fadeInSeconds = 1.0f;
-
-    // 透明度
-    float alpha = 0;
-
-    // ステージ画像
-    [SerializeField]
-    private Image[] stageImage = new Image[STAGE_NUM];
-
-    // テキスト
-    [SerializeField]
-    private Text[] scoreText = new Text[STAGE_NUM];
-
-    // インフォメーションパネル
-    [SerializeField]
-    private Image informationPanel = null;
-
-    // シンボル
-    [SerializeField]
-    private Image symbol = null;
-
-    // ランキング
-    [SerializeField]
-    private Image rankingPanel = null;
 
     // イベントシステム
     [SerializeField]
@@ -58,7 +48,14 @@ public class StageSelectController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        alpha = 1.0f;
+        ChangeImage();
+        ChangeTextAlpha();
+
+        //クリアフラッグは別の場所で管理する(予定)
+        for(int i = 0;i<STAGE_NUM;i++)
+        {
+            clearSymbol[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -67,65 +64,27 @@ public class StageSelectController : MonoBehaviour
         float stickHori = Input.GetAxisRaw("Horizontal");
         float crossHori = Input.GetAxisRaw("CrossHorizontal");
 
-        // アルファ値が1より小さい間
-        if (alpha < 1.0f)
-        {
-            // アルファ値変更
-            ChengeAlpha();
-        }
-
-
         // ボタンオブジェクト以外をクリックした時
-        if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
         {
             // 選択されているオブジェクトを再選択する(エラー防止のため)
             EventSystem.current.SetSelectedGameObject(selectedObject);
         }
 
         // 何かキーを押したら
-        if(Input.anyKeyDown)
+        if (Input.anyKeyDown)
         {
             // selectingの値を変える
             ChangeSelecting();
             // 1フレーム前と選択しているボタンが違ったら
             if (selecting != lastSelect)
             {
-                // いらない画像は透過する
-                ImageInvisible();
-                alpha = 0.0f;
-                fadeDeltaTime = 0.0f;
+                ChangeImage();
+                ChangeTextAlpha();
             }
         }
         //1フレーム前の選択されていたボタン
         lastSelect = selecting;
-
-        // Escキーが押されたら
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            FadeController.Instance.fadeOutStart(Common.Scene.TITLE_SCENE);
-        }
-    }
-
-    // 表示しない画像を透明化
-    void ImageInvisible()
-    {
-        switch (this.selecting)
-        {
-            case 0:
-                stageImage[1].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-                stageImage[2].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-                break;
-            case 1:
-                stageImage[0].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-                stageImage[2].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-                break;
-            case 2:
-                stageImage[0].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-                stageImage[1].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-                break;
-            default:
-                break;
-        }
     }
 
     // selectingの値を変える
@@ -151,38 +110,89 @@ public class StageSelectController : MonoBehaviour
         }
     }
 
-    void ChengeAlpha()
+    void ChangeImage()
     {
-        // フェードイン
-        FadeIn();
-        //テクスチャの透明度を変更する
-        stageImage[selecting].color = new Color(1.0f, 1.0f, 1.0f, alpha);
-        // インフォメーションパネルの透明度を変更する
-        informationPanel.color = new Color(0.0f, 0.0f, 0.0f, alpha);
-        // ランキングパネルの透明度を変更する
-        rankingPanel.color = new Color(1.0f, 1.0f, 1.0f, alpha);
-        // シンボルの透明度を変更する
-        symbol.color = new Color(1.0f, 1.0f, 0.0f, alpha);
-        // スコアの透明度を変更
-        for (int i = 0; i < STAGE_NUM; i++)
+        // 選択中のステージのシルエットは消す
+        switch (this.selecting)
         {
-            scoreText[i].color = new Color(0.0f, 0.0f, 0.0f, alpha);
+            case 0:
+                BossSilhouetteImage[selecting].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                rankingSheetImage[selecting].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                clearSymbolImage[selecting].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+
+                break;
+            case 1:
+                BossSilhouetteImage[selecting].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                rankingSheetImage[selecting].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                clearSymbolImage[selecting].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+
+                break;
+            case 2:
+                BossSilhouetteImage[selecting].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                rankingSheetImage[selecting].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                clearSymbolImage[selecting].color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+
+                break;
+            default:
+                break;
+        }
+        // 選択中以外のシルエットは非選択状態にする
+        for(int i = 0; i < STAGE_NUM;i++)
+        {
+            if(i != selecting)
+            {
+                BossSilhouetteImage[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                rankingSheetImage[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                clearSymbolImage[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            }
         }
     }
 
-    // alphaの値をフェードイン
-    void FadeIn()
+    void ChangeTextAlpha()
     {
-        fadeDeltaTime += Time.deltaTime;
+        // 選択中のステージのスコアのアルファは1にする
+        switch (this.selecting)
+        {
+            case 0:
+                for(int i = 0;i < STAGE_NUM;i++)
+                {
+                    batScoreTexts[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                    skullScoreTexts[i].color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+                    pumpkinScoreTexts[i].color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+                }
+                break;
+            case 1:
+                for (int i = 0; i < STAGE_NUM; i++)
+                {
+                    batScoreTexts[i].color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+                    skullScoreTexts[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                    pumpkinScoreTexts[i].color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+                }
+                break;
 
-        if (fadeDeltaTime <= fadeInSeconds)
-        {
-            alpha = (fadeDeltaTime / fadeInSeconds);
+            case 2:
+                for (int i = 0; i < STAGE_NUM; i++)
+                {
+                    batScoreTexts[i].color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+                    skullScoreTexts[i].color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+                    pumpkinScoreTexts[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                }
+                break;
+
+            default:
+                break;
         }
-        else
-        {
-            alpha = 1.0f;
-            fadeDeltaTime = 0.0f;
-        }
+    }
+
+    // ステージクリアフラグ
+    public void SetStageClearFlag(int stageNum)
+    {
+        clearSymbol[stageNum].SetActive(true);
+    }
+
+    // 選択中の値を返す
+    public int GetSelecting()
+    {
+        return selecting;
     }
 }
