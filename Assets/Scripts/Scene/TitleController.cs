@@ -10,7 +10,7 @@ using UnityEngine.Video;
 public class TitleController : MonoBehaviour
 {
     // テキストの種類
-    private enum TextType
+    private enum ImageType
     {
         NEW_GAME = 0,   // 始めから
         CONTINUE = 1,   // 続きから
@@ -22,22 +22,18 @@ public class TitleController : MonoBehaviour
     // テキスト
     //[NamedArrayAttribute(new string[] { "New Game", "Continue", "Options" })]
     [SerializeField]
-    Text[] textType = new Text[(int)TextType.ALL_TYPE];
+    Image[] imageType = new Image[(int)ImageType.ALL_TYPE];
 
-    // 矢印画像
-    //[NamedArrayAttribute(new string[] { "Left Arrow", "Right Arrow" })]
     [SerializeField]
-    Image[] arrowImage = new Image[2];
+    GameObject exitImage = null;
 
     // 選択中
-    private int selecting = (int)TextType.NEW_GAME;
-
-    // セレクトガイドのX座標を調整
-    private float selectGuideOffsetXRate = 0.3f;
+    private int selecting = (int)ImageType.NEW_GAME;
 
     private float beforeStick = 0.0f;
     private float beforeCross = 0.0f;
 
+    private bool exitFlag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,98 +43,98 @@ public class TitleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 選択中のテキスト位置を取得
-        RectTransform temp = this.textType[this.selecting].rectTransform;
-
-        // 画像オフセット値設定
-        float offsetX = temp.sizeDelta.x + (temp.sizeDelta.x * selectGuideOffsetXRate);
-
         // モードの選択
-        ChoiceMode(ref temp, offsetX);
-
+        if (!exitFlag)
+        {
+            ChoiceMode();
+        }
         // モードの決定
         ModeSelect();
-
-        // 画像を動かす
-        MoveImage(ref temp, offsetX);
     }
 
     // モードの選択
-    private void ChoiceMode(ref RectTransform _rect, float _offsetX)
+    private void ChoiceMode()
     {
-        float stickHori = Input.GetAxisRaw("Horizontal");
-        float crossHori = Input.GetAxisRaw("CrossHorizontal");
+        float stickVertical = Input.GetAxisRaw("Vertical");
+        float crossVertical = Input.GetAxisRaw("CrossVertical");
 
         if (beforeStick == 0.0f && beforeCross == 0.0f)
         {
-            // 右キーを押下
-            if (Input.GetKeyDown(KeyCode.RightArrow) || stickHori > 0 || crossHori > 0)
-            {
-                if (this.selecting < (int)TextType.ALL_TYPE - 1)
-                {
-                    this.selecting++;
-                }
-                ChangeImagePos(ref _rect, _offsetX);
-            }
-            // 左キーを押下
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 || crossHori < 0)
+            // 上キーを押下
+            if (Input.GetKeyDown(KeyCode.UpArrow) || stickVertical > 0 || crossVertical > 0)
             {
                 if (this.selecting > 0)
                 {
                     this.selecting--;
                 }
-                ChangeImagePos(ref _rect, _offsetX);
+
+            }
+            // 下キーを押下
+            if (Input.GetKeyDown(KeyCode.DownArrow) || stickVertical < 0 || crossVertical < 0)
+            {
+                if (this.selecting < (int)ImageType.ALL_TYPE - 1)
+                {
+                    this.selecting++;
+                }
             }
         }
 
-        beforeStick = stickHori;
-        beforeCross = crossHori;
-    }
+        for (int i = 0; i < (int)ImageType.ALL_TYPE; i++)
+        {
+            if (this.selecting == i)
+            {
+                imageType[i].color = new Color(1.0f,1.0f,1.0f,1.0f);
+            }
+            else
+            {
+                imageType[i].color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+            }
 
-    // 画像位置変更
-    private void ChangeImagePos(ref RectTransform _rect, float _offsetX)
-    {
-        this.arrowImage[0].rectTransform.position = new Vector3(_rect.position.x + _offsetX, _rect.position.y, _rect.position.z);
-        this.arrowImage[1].rectTransform.position = new Vector3(_rect.position.x - _offsetX, _rect.position.y, _rect.position.z);
+        }
+
+        beforeStick = stickVertical;
+        beforeCross = crossVertical;
     }
 
     // モード選択
     private void ModeSelect()
     {
         //　Enterキー（SPACEキー）を押下
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown("joystick button 0"))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0"))
         {
             switch (this.selecting)
             {
                 // ゲームスタート
-                case (int)TextType.NEW_GAME:
+                case (int)ImageType.NEW_GAME:
                     // プレイシーンへ遷移
-                    FadeController.Instance.fadeOutStart(Common.Scene.STAGE_SELECT_SCENE);
+                    if (!exitFlag)
+                        FadeController.Instance.fadeOutStart(Common.Scene.STAGE_SELECT_SCENE);
                     break;
                 // 続きから
-                case (int)TextType.CONTINUE:
+                case (int)ImageType.CONTINUE:
                     // プレイシーンへ遷移
-                    FadeController.Instance.fadeOutStart(Common.Scene.STAGE_SELECT_SCENE);
+                    if (!exitFlag)
+                        FadeController.Instance.fadeOutStart(Common.Scene.STAGE_SELECT_SCENE);
                     break;
                 // オプション
-                case (int)TextType.OPTIONS:
-                    // Quitの代わりにしておく
-                    Application.Quit();
+                case (int)ImageType.OPTIONS:
+                    exitImage.SetActive(true);
+                    exitFlag = true;
                     break;
             }
         }
 
-
-    }
-
-    // 画像を動かす
-    private void MoveImage(ref RectTransform _rect, float _offsetX)
-    {
-        float t = 1.0f;
-        float f = 1.0f / t;
-        float sin = Mathf.Sin(3 * Mathf.PI * f * Time.time);
-
-        this.arrowImage[0].rectTransform.position = new Vector3((_rect.position.x + _offsetX) + sin, _rect.position.y, _rect.position.z);
-        this.arrowImage[1].rectTransform.position = new Vector3((_rect.position.x - _offsetX) - sin, _rect.position.y, _rect.position.z);
+        if(exitFlag)
+        {
+            if(Input.GetKeyDown(KeyCode.Return))
+            {
+                Application.Quit();
+            }
+            if(Input.GetKeyDown(KeyCode.X))
+            {
+                exitImage.SetActive(false);
+                exitFlag = false;
+            }
+        }
     }
 }
