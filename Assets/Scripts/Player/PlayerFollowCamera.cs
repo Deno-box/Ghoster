@@ -42,4 +42,9 @@ public class PlayerFollowCamera : MonoBehaviour
         var newRotate = Quaternion.Lerp(this.transform.rotation, targetRotate, rotSpeed * Time.deltaTime).eulerAngles;
         this.transform.rotation = Quaternion.Euler(newRotate);
     }
+
+    public void SetOldPos(Vector3 _pos)
+    {
+        this.oldPos = _pos;
+    }
 }

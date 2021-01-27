@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class SceneTrs : MonoBehaviour
 {
+    [SerializeField]
+    PlaySceneController playSceneController = null;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            FadeController.Instance.fadeOutStart(Common.Scene.RESULT_SCENE);
+            playSceneController.ChangeState(PlaySceneController.State.Goal);
         }
     }
 }

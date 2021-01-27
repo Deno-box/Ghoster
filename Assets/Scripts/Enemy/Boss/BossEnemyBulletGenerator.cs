@@ -159,6 +159,8 @@ public class BossEnemyBulletGenerator : MonoBehaviour
             ChangeAnim(AnimState.Drawal);
             GameObject obj = Instantiate(drawalFX, this.transform);
             obj.transform.localPosition = new Vector3(0.0f, -1.0f, 0.0f);
+
+            Debug.Log("てったいじゃぁ～");
         }
         else
         if (currentAnimState != AnimState.Drawal && clip.clip.name == "Idle")
