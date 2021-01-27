@@ -159,8 +159,6 @@ public class BossEnemyBulletGenerator : MonoBehaviour
             ChangeAnim(AnimState.Drawal);
             GameObject obj = Instantiate(drawalFX, this.transform);
             obj.transform.localPosition = new Vector3(0.0f, -1.0f, 0.0f);
-
-            Debug.Log("てったいじゃぁ～");
         }
         else
         if (currentAnimState != AnimState.Drawal && clip.clip.name == "Idle")
@@ -171,7 +169,7 @@ public class BossEnemyBulletGenerator : MonoBehaviour
         // 発射インターバルを加算
         shootInterval += Time.deltaTime;
         // インターバルを超えたら && 発射可能範囲を超えたら 弾を生成
-        if (shootInterval >= shootIntervalMax && myCart.m_Position >= shootStartPos)
+        if (shootInterval >= shootIntervalMax && myCart.m_Position >= shootStartPos && this.myCart.m_Position < this.drawlPos)
         {
             // 弾を発射
             ShootBullet();

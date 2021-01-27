@@ -80,7 +80,7 @@ public class PlayerMoveLRState : PlayerState
 
         if (isMove)
         {
-            //playerData.AudioSource.PlayOneShot(playerStatus.moveSE);
+            this.playerData.AudioSource.PlayOneShot(playerStatus.moveSE);
             if (this.moveDir == PlayerMovePath.MoveDir.Left)
                 this.GetComponent<PlayerData>().GetComponent<Animator>().Play("Left_Jump");
             else

@@ -25,8 +25,6 @@ public class PlaySceneUIMediator : MonoBehaviour
 
     private bool isStartImageFadeIn = false;
     private bool isStartImageFadeOut = false;
-    private bool isGoalImageFadeIn = false;
-    private bool isGoalImageFadeOut = false;
 
     private void Start()
     {
@@ -58,15 +56,6 @@ public class PlaySceneUIMediator : MonoBehaviour
     }
     public bool GoalExecute()
     {
-        // StartImageをフェードイン
-        if (!this.isGoalImageFadeIn)
-            this.isGoalImageFadeIn = this.goalImageFade.Execute(FadeImage.FadeType.FadeIn, this.fadeInSpeed);
-        // StartImageをフェードアウト
-        else
-            this.isGoalImageFadeOut = this.goalImageFade.Execute(FadeImage.FadeType.FadeOut, this.fadeOutSpeed);
-        // StartImageを拡大する
-        goalImageSize.Execute(scaleSpeed);
-
-        return isGoalImageFadeOut;
+        return this.goalImageFade.Execute(FadeImage.FadeType.FadeIn, this.fadeInSpeed);
     }
 }
