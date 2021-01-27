@@ -8,14 +8,15 @@ public class ScoreRanking : MonoBehaviour
 {
     [SerializeField, Header("数値")]
     private int point;
+   
 
-    string[] ranking = { "ランキング1位", "ランキング2位", "ランキング3位", "ランキング4位", "ランキング5位" };
-    int[] rankingValue = new int[5];
+    string[] ranking = { "ランキング1位", "ランキング2位", "ランキング3位"};
+    int[] rankingValue = new int[3];
 
     [SerializeField, Header("表示させるテキスト")]
-    Text[] rankingText = new Text[5];
+    Text[] rankingText = new Text[3];
 
-   
+
 
     //獲得スコアの表示
     public Text scoreText;
@@ -36,22 +37,20 @@ public class ScoreRanking : MonoBehaviour
         for (int i = 0; i < rankingText.Length; i++)
         {
             rankingText[i].text = rankingValue[i].ToString();
-
+            
         }
-        
+       scoreText.text= point.ToString();
     }
 
     void Update()
     {
-        //獲得スコア表示
-        scoreText.text = point.ToString();
+        
     }
 
-
-        /// <summary>
-        /// ランキング呼び出し
-        /// </summary>
-        void GetRanking()
+    /// <summary>
+    /// ランキング呼び出し
+    /// </summary>
+    void GetRanking()
     {
         //ランキング呼び出し
         for (int i = 0; i < ranking.Length; i++)
@@ -77,7 +76,7 @@ public class ScoreRanking : MonoBehaviour
                 _value = change;
                 if(!setColorFlag)
                 {
-                    rankingText[i].color = Color.red;
+                  //  rankingText[i].color = Color.white;
                     setColorFlag = true;
                 }
             }
@@ -89,6 +88,8 @@ public class ScoreRanking : MonoBehaviour
         {
             PlayerPrefs.SetInt(ranking[i], rankingValue[i]);
         }
+       
+       // numObj.View(point);
     }
 }
 

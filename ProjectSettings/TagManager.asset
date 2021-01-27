@@ -16,6 +16,7 @@ TagManager:
   - Stage2
   - Stage3
   - MagicCircle
+  - score
   layers:
   - Default
   - TransparentFX
@@ -50,6 +51,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Score
+    uniqueID: 2776592303
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
