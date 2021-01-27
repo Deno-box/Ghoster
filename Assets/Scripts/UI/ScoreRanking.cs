@@ -31,7 +31,7 @@ public class ScoreRanking : MonoBehaviour
 
         GetRanking();
 
-        SetRanking(point);
+        SetRanking(score);
 
 
         for (int i = 0; i < rankingText.Length; i++)
@@ -39,7 +39,7 @@ public class ScoreRanking : MonoBehaviour
             rankingText[i].text = rankingValue[i].ToString();
             
         }
-       scoreText.text= point.ToString();
+       scoreText.text= score.ToString();
     }
 
     void Update()

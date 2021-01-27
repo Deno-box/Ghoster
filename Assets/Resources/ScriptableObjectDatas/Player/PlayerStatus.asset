@@ -28,6 +28,7 @@ MonoBehaviour:
   cameraShakeTime: 0.08
   cameraShakeMagnitude: 0.4
   parrySE: {fileID: 8300000, guid: 7c2cd5e697d23074ca4a7e3613ae54e6, type: 3}
+  spinSE: {fileID: 8300000, guid: a4989bba935694a4b8fd13ebe5551455, type: 3}
   jumpSE: {fileID: 8300000, guid: 1b943bdc16b51a54195354129bffc21d, type: 3}
   moveSE: {fileID: 8300000, guid: 863ac13e23bd8fd4daedc893c9778be3, type: 3}
   receiveDamageSE: {fileID: 8300000, guid: e2a09ed8410e015408d527dc294c7034, type: 3}
