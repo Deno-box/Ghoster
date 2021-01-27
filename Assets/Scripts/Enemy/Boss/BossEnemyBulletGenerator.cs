@@ -34,6 +34,9 @@ public class BossEnemyBulletGenerator : MonoBehaviour
     [SerializeField, Header("弾の発射開始座標"), PropertyBackingField("ShootStartPos")]
     private float shootStartPos = 0.0f;
 
+    [SerializeField, Header("撤退アニメーションを再生する地点"), PropertyBackingField("DrawlPos")]
+    private float drawlPos = 0.0f;
+
     [SerializeField,Header("ボスの攻撃パターン")]
     private List<BossAttackPattern> bossAttackPT = new List<BossAttackPattern>();
 
@@ -71,8 +74,26 @@ public class BossEnemyBulletGenerator : MonoBehaviour
     [SerializeField]
     private GameObject endPosObj   = null;
     [SerializeField]
+    private GameObject drawlPosObj = null;
+    [SerializeField]
     private GameObject shootStartPosObj = null;
 
+    [SerializeField]
+    private Animator animator = null;
+    [SerializeField]
+    private GameObject attackFX = null;
+    [SerializeField]
+    private GameObject drawalFX = null;
+    
+
+    public enum AnimState { 
+        None,
+        Attack,
+        Damage,
+        Idle,
+        Drawal
+    }
+    private AnimState currentAnimState = AnimState.None;
 
     public float StartPos
     {
@@ -90,6 +111,15 @@ public class BossEnemyBulletGenerator : MonoBehaviour
             endPos = value;
             this.endPosObj.GetComponent<CinemachineDollyCart>().m_Path = this.stageMainPass;
             this.endPosObj.GetComponent<CinemachineDollyCart>().m_Position = this.endPos;
+        }
+    }
+    public float DrawlPos
+    {
+        get { return drawlPos; }
+        set {
+            drawlPos = value;
+            this.drawlPosObj.GetComponent<CinemachineDollyCart>().m_Path = this.bossMainPass;
+            this.drawlPosObj.GetComponent<CinemachineDollyCart>().m_Position = this.drawlPos;
         }
     }
     public float ShootStartPos
@@ -113,6 +143,27 @@ public class BossEnemyBulletGenerator : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // TODO : あとで直す
+        var clip = animator.GetCurrentAnimatorClipInfo(0)[0];
+        // 攻撃
+        if (currentAnimState == AnimState.None)
+        {
+            ChangeAnim(AnimState.Attack);
+            GameObject obj = Instantiate(attackFX, this.transform);
+            obj.transform.localPosition = new Vector3(0.0f,-1.0f,0.0f);
+        }
+        else
+        // 撤退
+        if (currentAnimState != AnimState.Drawal && this.myCart.m_Position >= this.drawlPos)
+        {
+            ChangeAnim(AnimState.Drawal);
+            GameObject obj = Instantiate(drawalFX, this.transform);
+            obj.transform.localPosition = new Vector3(0.0f, -1.0f, 0.0f);
+        }
+        else
+        if (currentAnimState != AnimState.Drawal && clip.clip.name == "Idle")
+            currentAnimState = AnimState.Idle;
+
         // 弾生成用カウンターを加算
         positionCounter++;
         // 発射インターバルを加算
@@ -238,6 +289,46 @@ public class BossEnemyBulletGenerator : MonoBehaviour
 
         this.lastAttackPattern = currentATKPattern;
 
+    }
+
+    private void ChangeAnim(AnimState _state)
+    {
+        switch (_state)
+        {
+            case AnimState.Attack:
+                this.animator.Play("Attack");
+                break;
+
+            case AnimState.Damage:
+                this.animator.Play("Damage");
+                break;
+
+            case AnimState.Drawal:
+                this.animator.Play("Drawal");
+                break;
+
+            case AnimState.Idle:
+                this.animator.Play("Idle");
+                break;
+
+            default: break;
+
+        }
+
+        currentAnimState = _state;
+    }
+
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "EnemyBullet")
+        {
+            if (other.GetComponent<EnemyBulletStateController>().LastStateEnum == EnemyBulletStateController.BulletStateEnum.Parry &&
+                currentAnimState != AnimState.Damage && this.myCart.m_Position < this.drawlPos)
+            {
+                ChangeAnim(AnimState.Damage);
+            }
+        }
     }
 }
 
