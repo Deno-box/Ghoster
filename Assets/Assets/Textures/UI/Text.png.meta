@@ -1,0 +1,335 @@
+fileFormatVersion: 2
+guid: e25ce8f5159f8ab4981d075b64362804
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3299580651651147977
+    second: PlaySceneText_0
+  - first:
+      213: 1025713465673976551
+    second: PlaySceneText_1
+  - first:
+      213: 6885361444877228088
+    second: PlaySceneText_2
+  - first:
+      213: 974711238486066535
+    second: PlaySceneText_3
+  - first:
+      213: 7583346681526819837
+    second: PlaySceneText_4
+  - first:
+      213: -1180832627587305568
+    second: PlaySceneText_5
+  - first:
+      213: -1922463022043486058
+    second: PlaySceneText_6
+  - first:
+      213: -4431852721920259494
+    second: PlaySceneText_7
+  - first:
+      213: -8663233238262883593
+    second: PlaySceneText_8
+  - first:
+      213: 7764412798672986138
+    second: PlaySceneText_9
+  - first:
+      213: -1582182407512066284
+    second: PlaySceneText_10
+  - first:
+      213: 6903255211310837681
+    second: PlaySceneText_11
+  - first:
+      213: 4355194389742167082
+    second: PlaySceneText_12
+  - first:
+      213: 8689993935016590829
+    second: PlaySceneText_13
+  - first:
+      213: -4436358756985608730
+    second: PlaySceneText_14
+  - first:
+      213: 1918415924328337772
+    second: PlaySceneText_15
+  - first:
+      213: -2276560495273163338
+    second: PlaySceneText_16
+  - first:
+      213: 203227920722825659
+    second: PlaySceneText_17
+  - first:
+      213: -7853964712426366594
+    second: PlaySceneText_18
+  - first:
+      213: 8998572731432538638
+    second: PlaySceneText_19
+  - first:
+      213: 7757832732371215813
+    second: PlaySceneText_20
+  - first:
+      213: -1414206438980308854
+    second: PlaySceneText_21
+  - first:
+      213: 3412621949413010097
+    second: PlaySceneText_22
+  - first:
+      213: 6762123619287548904
+    second: PlaySceneText_23
+  - first:
+      213: 8715766471443782842
+    second: PlaySceneText_24
+  - first:
+      213: 3341973114739655137
+    second: PlaySceneText_25
+  - first:
+      213: 2185472272444500671
+    second: PlaySceneText_26
+  - first:
+      213: -7182147147714182563
+    second: PlaySceneText_27
+  - first:
+      213: -2209279846430924340
+    second: PlaySceneText_28
+  - first:
+      213: -6935290147981462690
+    second: PlaySceneText_29
+  - first:
+      213: 5786079365167354368
+    second: PlaySceneText_30
+  - first:
+      213: 6328597113001095287
+    second: PlaySceneText_31
+  - first:
+      213: -3183648105550551171
+    second: PlaySceneText_32
+  - first:
+      213: -712393658317114820
+    second: PlaySceneText_33
+  - first:
+      213: -6445983131694917599
+    second: PlaySceneText_34
+  - first:
+      213: -7781751140607389474
+    second: PlaySceneText_35
+  - first:
+      213: -2405343196579587530
+    second: PlaySceneText_36
+  - first:
+      213: -5837338288936632838
+    second: PlaySceneText_37
+  - first:
+      213: 5349930310490882184
+    second: PlaySceneText_38
+  - first:
+      213: -2165144917786480571
+    second: PlaySceneText_39
+  - first:
+      213: 5799136797430865506
+    second: PlaySceneText_40
+  - first:
+      213: 5888644370197391086
+    second: PlaySceneText_41
+  - first:
+      213: 6089044306552832250
+    second: PlaySceneText_42
+  - first:
+      213: 8711673345547368909
+    second: PlaySceneText_43
+  - first:
+      213: 8531258999250654393
+    second: PlaySceneText_44
+  - first:
+      213: 8262678191476453210
+    second: PlaySceneText_45
+  - first:
+      213: -963989383922378899
+    second: PlaySceneText_46
+  - first:
+      213: 4264313351949884057
+    second: PlaySceneText_47
+  - first:
+      213: -5204008968885027825
+    second: PlaySceneText_48
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: 1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlaySceneText_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1045
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c82b69ee177acd20800000000000000
+      internalID: 3299580651651147977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlaySceneText_1
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 0
+        width: 871
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea05da66f01c3e00800000000000000
+      internalID: 1025713465673976551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlaySceneText_2
+      rect:
+        serializedVersion: 2
+        x: 2387
+        y: 0
+        width: 886
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838d31001c7bd8f50800000000000000
+      internalID: 6885361444877228088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlaySceneText_3
+      rect:
+        serializedVersion: 2
+        x: 3476
+        y: 0
+        width: 837
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7650b8805bed68d00800000000000000
+      internalID: 974711238486066535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
