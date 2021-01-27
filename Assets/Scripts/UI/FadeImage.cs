@@ -33,7 +33,8 @@ public class FadeImage : MonoBehaviour
             image.color = new Color(color.r, color.g, color.b, alpha);
 
             // フェードが完了したらtrueを返す
-            if (alpha > 1.0f || alpha < 0.0f)
+            if ((_type == FadeType.FadeIn && alpha > 1.0f) || 
+                (_type == FadeType.FadeOut && alpha < 0.0f))
                 ret = true;
             else
                 ret = false;

@@ -252,6 +252,16 @@ PrefabInstance:
       propertyPath: stopAction
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
+        type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5180729303181866827, guid: 3b6374cfd8f07b348a1fdc63922881e0,
         type: 3}
       propertyPath: m_Name
