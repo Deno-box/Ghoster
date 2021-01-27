@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2aaf2f894c2396542bca81536dda2dc9
+guid: 161912be15b1a404a946b2e1f3520d9f
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
@@ -7,77 +7,8 @@ ModelImporter:
       74: -3584619823844665163
     second: metarig|Action
   - first:
-      74: 1783908760500391851
-    second: metarig|beard.001|Take 001|BaseLayer
-  - first:
-      74: -6559543918828116854
-    second: metarig|beard|Take 001|BaseLayer
-  - first:
-      74: 940121764985259376
-    second: metarig|body002|Take 001|BaseLayer
-  - first:
-      74: -7280655133662224692
-    second: metarig|boss|Take 001|BaseLayer
-  - first:
-      74: -67921953844428209
-    second: metarig|conect001|Take 001|BaseLayer
-  - first:
-      74: 1741177501160423123
-    second: metarig|conect002|Take 001|BaseLayer
-  - first:
-      74: -3973756262016854007
-    second: metarig|conect003|Take 001|BaseLayer
-  - first:
-      74: 3179427010926223947
-    second: metarig|conect004|Take 001|BaseLayer
-  - first:
-      74: 3782380055384347177
-    second: metarig|conect_003|Take 001|BaseLayer
-  - first:
-      74: 4166341759833400738
-    second: metarig|conect|Take 001|BaseLayer
-  - first:
-      74: 3636178461451396444
-    second: metarig|connect2_"|Take 001|BaseLayer
-  - first:
-      74: -8282263732660796311
-    second: metarig|Cylinder001|Take 001|BaseLayer
-  - first:
-      74: 8359595839309699256
-    second: metarig|frame|Take 001|BaseLayer
-  - first:
-      74: -731551889477742254
-    second: metarig|hat|Take 001|BaseLayer
-  - first:
-      74: -860922982100489995
-    second: metarig|J.head|Take 001|BaseLayer
-  - first:
-      74: -4544061096318348834
-    second: metarig|jin|Take 001|BaseLayer
-  - first:
-      74: 7897794048955521602
-    second: metarig|Sphere001|Take 001|BaseLayer
-  - first:
-      74: -2149021060376544316
-    second: metarig|Sphere002|Take 001|BaseLayer
-  - first:
-      74: 743569111841118759
-    second: metarig|Sphere003|Take 001|BaseLayer
-  - first:
-      74: -3489514067492821846
-    second: metarig|Sphere004|Take 001|BaseLayer
-  - first:
-      74: 825099308073244491
-    second: metarig|Sphere005|Take 001|BaseLayer
-  - first:
-      74: -6128021352506582649
-    second: metarig|suit003|Take 001|BaseLayer
-  - first:
-      74: -6799639490733133848
-    second: metarig|tie|Take 001|BaseLayer
-  - first:
-      74: -7885591350097760940
-    second: metarig|Torus001|Take 001|BaseLayer
+      74: -887982601649841707
+    second: metarig|metarigAction
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -105,36 +36,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: metarig|Action
-      takeName: metarig|Action
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 99
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
