@@ -14,14 +14,14 @@ public class PlayerFallState : PlayerState
         // 移動を無効化
         this.GetComponent<CinemachineDollyCart>().enabled = false;
         // カメラの追尾を無効化
-        Camera.main.GetComponent<PlayerFollowCamera>().enabled = false;
+        //Camera.main.GetComponent<PlayerFollowCamera>().enabled = false;
 
         // 重力を追加
-        this.gameObject.AddComponent<Rigidbody>();
-        this.rb = this.GetComponent<Rigidbody>();
+        //this.gameObject.AddComponent<Rigidbody>();
+        //this.rb = this.GetComponent<Rigidbody>();
 
-        Vector3 torqueVec = this.transform.forward * 40.0f;
-        this.rb.AddForce(torqueVec,ForceMode.Impulse);
+        //Vector3 torqueVec = this.transform.forward * 40.0f;
+        //this.rb.AddForce(torqueVec,ForceMode.Impulse);
 
         FadeController fadeController = GameObject.Find("FadeCanvas").GetComponent<FadeController>();
         fadeController.fadeOutStart(Common.Scene.RESULT_SCENE);
