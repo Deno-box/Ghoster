@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryObj: {fileID: 577983833424830492}
-  damageObj: {fileID: 0}
+  damageObj: {fileID: 1939042687719508698}
   shakeCamera: {fileID: 0}
 --- !u!114 &729450102841215909
 MonoBehaviour:
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerModel: {fileID: 6110154544192287954}
-  damageCollider: {fileID: 0}
+  damageCollider: {fileID: 1939042687719508698}
   shakeCamera: {fileID: 0}
 --- !u!114 &1877840681783024172
 MonoBehaviour:
@@ -722,7 +722,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8520535652610030507}
-  m_LocalRotation: {x: -0.000000024912879, y: -0.98550546, z: 0.16964407, w: -0.00000014400575}
+  m_LocalRotation: {x: 0.000000004976755, y: -0.98550546, z: 0.16964409, w: 0.000000029336661}
   m_LocalPosition: {x: -0.000000026077032, y: 0.7089329, z: 1.9981678}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1025,6 +1025,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5d8b2712c6aa81468a96803540f6ac1, type: 3}
+--- !u!1 &1939042687719508698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6107682794065728799, guid: a5d8b2712c6aa81468a96803540f6ac1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5632318858671595461}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6344104021528988035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1124,15 +1130,15 @@ PrefabInstance:
       objectReference: {fileID: 9000000, guid: 0af0f8bdd2dbb654e941cb0e59b4811e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af0f8bdd2dbb654e941cb0e59b4811e, type: 3}
---- !u!1 &6110154544192287954 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0af0f8bdd2dbb654e941cb0e59b4811e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6344104021528988035}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6881625041363119720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0af0f8bdd2dbb654e941cb0e59b4811e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6344104021528988035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6110154544192287954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0af0f8bdd2dbb654e941cb0e59b4811e,
     type: 3}
   m_PrefabInstance: {fileID: 6344104021528988035}
   m_PrefabAsset: {fileID: 0}
