@@ -9,7 +9,7 @@ public class PlayerReceiveDamageObj : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "EnemyBullet")
+        if (other.tag == "EnemyBullet")
         {
             receiveDamage.Initialize();
         }

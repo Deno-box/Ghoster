@@ -51,7 +51,7 @@ public class BossEnemyBulletGenerator : MonoBehaviour
     private int instanceBulletNum = 0;
     // 弾のプレハブ
     [SerializeField]
-    private GameObject bulletPrefab = null;
+    private List<GameObject> bulletPrefabList = new List<GameObject>();
     // 弾を生成するポジション
     private int positionCounter = 0;
     // 弾の発射間隔
@@ -195,7 +195,7 @@ public class BossEnemyBulletGenerator : MonoBehaviour
             pathPos = Mathf.Clamp(pathPos, 0.0f, this.endPos);
 
             // 弾を生成
-            GameObject obj = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
+            GameObject obj = InstanceBulletPrefab();
             obj.transform.parent = this.shootBullrtsListTrs;
             obj.GetComponent<CinemachineDollyCart>().m_Path = this.stageMainPass;
             obj.GetComponent<CinemachineDollyCart>().m_Position = pathPos;
@@ -209,7 +209,7 @@ public class BossEnemyBulletGenerator : MonoBehaviour
             pathPos = Mathf.Clamp(pathPos, 0.0f, this.attackPathList[_pathNum].PathLength);
 
             // 弾を生成
-            GameObject obj = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
+            GameObject obj = InstanceBulletPrefab();
             obj.transform.parent = this.shootBullrtsListTrs;
             obj.GetComponent<CinemachineDollyCart>().m_Path = this.attackPathList[_pathNum];
             obj.GetComponent<CinemachineDollyCart>().m_Position = pathPos;
@@ -329,6 +329,14 @@ public class BossEnemyBulletGenerator : MonoBehaviour
                 ChangeAnim(AnimState.Damage);
             }
         }
+    }
+
+    private GameObject InstanceBulletPrefab()
+    {
+        int rand = Random.Range(0, this.bulletPrefabList.Count);
+        GameObject instanceBullet = Instantiate(bulletPrefabList[rand], Vector3.zero, Quaternion.identity);
+
+        return instanceBullet;
     }
 }
 

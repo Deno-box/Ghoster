@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2893229106692170488}
   - component: {fileID: 8057233416570358762}
   m_Layer: 0
-  m_Name: EnemyBullet
+  m_Name: EnemyBulletAllways
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe5d2c53069d2e44a128d16c7fe802b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dir: 0
+  Dir: 0
 --- !u!1 &6604289009605614717
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +258,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.3254717, b: 0.3254717, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 512
   m_Range: 10
   m_SpotAngle: 30
@@ -428,32 +428,32 @@ PrefabInstance:
     - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.9137255
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.011764725
+      value: 0.995283
       objectReference: {fileID: 0}
     - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.03101032
+      value: 0.9999795
       objectReference: {fileID: 0}
     - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
         type: 3}
       propertyPath: InitialModule.startColor.minColor.r
-      value: 0.9716981
+      value: 0.5188679
       objectReference: {fileID: 0}
     - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
         type: 3}
       propertyPath: InitialModule.startColor.minColor.b
-      value: 0.8025629
+      value: 0.5188679
       objectReference: {fileID: 0}
     - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
         type: 3}
       propertyPath: InitialModule.startColor.minColor.g
-      value: 0.6004361
+      value: 0.5188679
       objectReference: {fileID: 0}
     - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
         type: 3}

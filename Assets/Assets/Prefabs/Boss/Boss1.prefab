@@ -395,8 +395,10 @@ MonoBehaviour:
   bossSpeed: 12.9
   instanceOffset: 50
   instanceBulletNum: 1
-  bulletPrefab: {fileID: 3861935788498136824, guid: 36815a4f11f61e843b1e7f130c1e6ab6,
-    type: 3}
+  bulletPrefabList:
+  - {fileID: 3861935788498136824, guid: d08d183ec7dd80847853c7dd87060907, type: 3}
+  - {fileID: 3861935788498136824, guid: 5a929cd1235888e43803b56eb63e67f8, type: 3}
+  - {fileID: 3861935788498136824, guid: 36815a4f11f61e843b1e7f130c1e6ab6, type: 3}
   shootIntervalMax: 1
   startPosObj: {fileID: 8954925149945582052}
   endPosObj: {fileID: 1152371776841313460}

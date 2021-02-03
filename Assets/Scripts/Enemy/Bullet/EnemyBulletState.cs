@@ -6,13 +6,18 @@ public class EnemyBulletState : BulletState
 {
     //// パリィ用エフェクト
     //private GameObject parryFX = null;
-    //// ダメージ用エフェクト
-    //private GameObject damageFX = null;
 
     // 生存用カウンター
     private float counter = 0;
     // 一定時間経過すると削除されるカウンター
     private float destroyCounterMax = 20.0f;
+    //// ダメージ用エフェクト
+    private GameObject damageFX;
+
+    private void Start()
+    {
+        this.damageFX = Resources.Load("Effect/Enemy/Bullet/BossBulletCollision") as GameObject;
+    }
 
     // 初期化処理
     public override void StateInitialize()
@@ -28,21 +33,21 @@ public class EnemyBulletState : BulletState
         if (counter >= destroyCounterMax)
             Destroy(this.gameObject);
     }
-    
+
     // OnTrigger時の処理
     public override void StateOnTriggerEnter(Collider _other)
     {
-        // 敵の弾の状態でプレイヤーのパリィ範囲内に入ったらはじかれた後の状態に遷移
-        if (_other.tag == "PlayerParry")
-        {
-            //Instantiate(damageFX, this.transform.position, Quaternion.identity);
-            state = EnemyBulletStateController.BulletStateEnum.Parry;
-        }
-        else if(_other.tag == "PlayerBody")
-        {
-            //Instantiate(damageFX, this.transform.position, Quaternion.identity);
+        if (_other.tag == "PlayerBody")
             Destroy(this.gameObject);
-        }
     }
 
+    public void ChangeParryBulletState()
+    {
+        state = EnemyBulletStateController.BulletStateEnum.Parry;
+    }
+    public void DestroyBullet()
+    {
+        Instantiate(damageFX, this.transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
+    }
 }

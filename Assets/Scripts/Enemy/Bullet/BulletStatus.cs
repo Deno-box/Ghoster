@@ -4,12 +4,5 @@ using UnityEngine;
 
 public class BulletStatus : MonoBehaviour
 {
-    public enum Dir
-    {
-        None,
-        Right,
-        Left
-    }
-
-    public Dir dir = Dir.None;
+    public PlayerData.ParryDirection Dir = PlayerData.ParryDirection.Allways;
 }
