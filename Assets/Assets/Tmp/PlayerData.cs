@@ -15,4 +15,14 @@ public class PlayerData : MonoBehaviour
     [SerializeField]
     private GameObject playerAnim = null;
     public GameObject PlayerAnim { get { return playerAnim; } }
+
+    // はじく方向
+    public enum ParryDirection
+    {
+        None = -2,
+        Right,
+        Allways,
+        Left
+    }
+    public ParryDirection ParryDir = PlayerData.ParryDirection.None;
 }

@@ -25,11 +25,6 @@ public class PlayerParryState : PlayerState
     // パリィ成功時のエフェクト
     private GameObject parrysuccessFx;
 
-
-    // アニメーション用タイマー
-    private float aniamtionTimer;
-    private int rotDir = 1;
-
     //[SerializeField]
     //private GameObject playerModel = null;
     private bool isInputMoveButton = false;
@@ -60,13 +55,21 @@ public class PlayerParryState : PlayerState
         parryJudgeTime = 0.0f;
         this.state = PlayerStateController.PlayerStateEnum.Parry;
 
-        // TODO: 変えておく
-        if (this.rotDir == 1)
-            this.rotDir = -1;
-        else
-            this.rotDir = 1;
+        PlayerData.ParryDirection parryDir = this.playerData.ParryDir;
+        // はじいた方向に応じてアニメーションを変更
+        switch (parryDir)
+        {
+            case PlayerData.ParryDirection.Right:
+                this.GetComponent<PlayerData>().GetComponent<Animator>().Play("Right_Attack");
+                break;
 
-        aniamtionTimer = 0.0f;
+            case PlayerData.ParryDirection.Left:
+                this.GetComponent<PlayerData>().GetComponent<Animator>().Play("Left_Attack");
+                break;
+
+            default:break;
+        }
+
 
         // パリィ判定用オブジェクトをアクティブにする
         parryObj.SetActive(true);
@@ -75,7 +78,6 @@ public class PlayerParryState : PlayerState
 
         isInputMoveButton = false;
 
-        this.GetComponent<PlayerData>().GetComponent<Animator>().Play("Attack");
 
 
         playerData.AudioSource.PlayOneShot(playerStatus.spinSE);
@@ -108,8 +110,6 @@ public class PlayerParryState : PlayerState
             isInputMoveButton = true;
         }
 
-        PlayerRotation();
-
         beforeStick = stickHori;
         beforeCross = crossHori;
     }
@@ -126,9 +126,6 @@ public class PlayerParryState : PlayerState
         // 一定時間経過後パリィ判定用オブジェクトを非アクティブにする
         parryObj.SetActive(false);
         damageObj.SetActive(true);
-
-        //GameObject obj =  this.transform.GetChild(3).gameObject;
-        //obj.transform.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
     }
 
 
@@ -168,13 +165,5 @@ public class PlayerParryState : PlayerState
         else
         if (parryJudgeTime <= this.playerStatus.greatJudgeDistance)
             GameDataManager.AddDecisionNum((int)GameDataManager.SCORE_TYPE.GREAT);
-    }
-
-    // 回転させる
-    void PlayerRotation()
-    {
-        float rate = 360.0f / this.playerStatus.parryActiveTime;
-        aniamtionTimer += Time.deltaTime;
-        //playerModel.transform.localRotation = Quaternion.Euler(-90.0f, 0.0f, aniamtionTimer * rate * rotDir);
     }
 }
