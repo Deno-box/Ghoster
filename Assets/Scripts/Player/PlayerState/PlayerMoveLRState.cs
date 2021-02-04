@@ -39,7 +39,9 @@ public class PlayerMoveLRState : PlayerState
 
     [SerializeField]
     PlayerMovePath playerMovePathData;
-
+    private float beforeStick = 0.0f;
+    private float beforeCross = 0.0f;
+    private float beforeTrigger = 0.0f;
 
     private void Start()
     {
@@ -115,22 +117,34 @@ public class PlayerMoveLRState : PlayerState
             }
         }
         // 弾きの先行入力
-        if (Input.GetKeyDown(KeyCode.Space))
+        float trigger = Input.GetAxis("LRTrigger");
+        // Qキーで左パリィ状態に遷移
+        if (Input.GetKeyDown(KeyCode.Q) || trigger != 0 && this.beforeTrigger < 0)
         {
-            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Parry;
-            playerData.GetComponent<Animator>().Play("Attack");
+            this.typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Parry;
+            this.playerData.ParryDir = PlayerData.ParryDirection.Left;
+        }
+        // Eキーで右パリィ状態に遷移
+        else
+        if (Input.GetKeyDown(KeyCode.E) || trigger != 0 && this.beforeTrigger > 0)
+        {
+            this.typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Parry;
+            this.playerData.ParryDir = PlayerData.ParryDirection.Right;
         }
         // ジャンプの先行入力
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown("joystick button 0"))
         {
-            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Jump;
+            this.typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Jump;
             playerData.GetComponent<Animator>().Play("Jump");
         }
 
         if (!this.isMove)
             this.state = PlayerStateController.PlayerStateEnum.Idle;
-    }   
-    
+
+        this.beforeTrigger = trigger;
+
+    }
+
     // 移動実行処理
     public override void ExecuteMove()
     {

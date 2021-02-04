@@ -7,6 +7,8 @@ public class PlayerParryState : PlayerState
     // プレイヤーのステータスデータ
     private PlayerStatusData playerStatus = null;
     PlayerData playerData;
+    // 先行入力したステート
+    private PlayerStateController.PlayerStateEnum typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Idle;
 
     // パリィ判定を行うオブジェクト
     [SerializeField]
@@ -25,10 +27,6 @@ public class PlayerParryState : PlayerState
     // パリィ成功時のエフェクト
     private GameObject parrysuccessFx;
 
-    //[SerializeField]
-    //private GameObject playerModel = null;
-    private bool isInputMoveButton = false;
-
     private float beforeStick = 0.0f;
     private float beforeCross = 0.0f;
 
@@ -44,7 +42,6 @@ public class PlayerParryState : PlayerState
         //this.parryObj.transform.localPosition = parryObjOffset;
 
         player = this.GetComponent<PlayerHitStop>();
-
     }
 
     // 初期化処理
@@ -76,10 +73,8 @@ public class PlayerParryState : PlayerState
         // 判定用のタイマーをリセット
         parryJudgeTime = 0.0f;
 
-        isInputMoveButton = false;
 
-
-
+        typeAheadNextStatus = this.state;
         playerData.AudioSource.PlayOneShot(playerStatus.spinSE);
     }
 
@@ -99,7 +94,7 @@ public class PlayerParryState : PlayerState
         {
             // 左入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Left;
-            isInputMoveButton = true;
+            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.MoveLR;
         }
         // Dキーで左のパスに移動
         else
@@ -107,7 +102,12 @@ public class PlayerParryState : PlayerState
         {
             // 右入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Right;
-            isInputMoveButton = true;
+            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.MoveLR;
+        }
+        // スペースキーでジャンプ
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0"))
+        {
+            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Jump;
         }
 
         beforeStick = stickHori;
@@ -135,10 +135,18 @@ public class PlayerParryState : PlayerState
         // 生成してから一定時間経過していたらアイドル状態に遷移
         if (this.playerStatus.parryActiveTime <= parryJudgeTime)
         {
-            if (isInputMoveButton)
-                this.state = PlayerStateController.PlayerStateEnum.MoveLR;
-            else
-                this.state = PlayerStateController.PlayerStateEnum.Idle;
+            switch(typeAheadNextStatus)
+            {
+                case PlayerStateController.PlayerStateEnum.MoveLR:
+                    this.state = PlayerStateController.PlayerStateEnum.MoveLR;
+                    break;
+                case PlayerStateController.PlayerStateEnum.Jump:
+                    this.state = PlayerStateController.PlayerStateEnum.Jump;
+                    break;
+                default:
+                    this.state = PlayerStateController.PlayerStateEnum.Idle;
+                    break;
+            }
         }
     }
 

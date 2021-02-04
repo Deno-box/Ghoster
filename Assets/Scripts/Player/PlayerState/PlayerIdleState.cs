@@ -43,16 +43,15 @@ public class PlayerIdleState : PlayerState
         float stickHori = Input.GetAxisRaw("Horizontal");
         float crossHori = Input.GetAxisRaw("CrossHorizontal");
         float trigger = Input.GetAxis("LRTrigger");
-        // TODO : 左右キー判定やマウスの左右判定はこのクラスで判定しているため、後で変更しておく
         // Qキーで左パリィ状態に遷移
-        if (Input.GetKeyDown(KeyCode.Q) || trigger != 0 && this.beforeTrigger == 0)
+        if (Input.GetKeyDown(KeyCode.Q) || trigger != 0 && this.beforeTrigger < 0)
         {
             this.state = PlayerStateController.PlayerStateEnum.Parry;
             this.playerData.ParryDir = PlayerData.ParryDirection.Left;
         }
         // Eキーで右パリィ状態に遷移
         else
-        if (Input.GetKeyDown(KeyCode.E) || trigger != 0 && this.beforeTrigger == 0)
+        if (Input.GetKeyDown(KeyCode.E) || trigger != 0 && this.beforeTrigger > 0)
         {
             this.state = PlayerStateController.PlayerStateEnum.Parry;
             this.playerData.ParryDir = PlayerData.ParryDirection.Right;
@@ -73,8 +72,8 @@ public class PlayerIdleState : PlayerState
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Right;
             this.state = PlayerStateController.PlayerStateEnum.MoveLR;
         }
-        // Qキーでジャンプ
-        if (Input.GetKeyDown(KeyCode.Space))
+        // スペースキーでジャンプ
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0"))
         {
             this.state = PlayerStateController.PlayerStateEnum.Jump;
         }

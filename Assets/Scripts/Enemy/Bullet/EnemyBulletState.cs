@@ -16,6 +16,8 @@ public class EnemyBulletState : BulletState
     // 生成演出
     float timeScale = 0.0f;
 
+    [SerializeField]
+    private GameObject satelliteObj = null;
 
     private void Start()
     {
@@ -47,6 +49,9 @@ public class EnemyBulletState : BulletState
     public void ChangeParryBulletState()
     {
         state = EnemyBulletStateController.BulletStateEnum.Parry;
+
+        if (satelliteObj)
+            Destroy(this.satelliteObj);
     }
     public void DestroyBullet()
     {

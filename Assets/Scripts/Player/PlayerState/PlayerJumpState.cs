@@ -24,6 +24,10 @@ public class PlayerJumpState : PlayerState
     PlayerStatusData playerStatus;
     PlayerData playerData;
 
+    private float beforeStick = 0.0f;
+    private float beforeCross = 0.0f;
+    private float beforeTrigger = 0.0f;
+
     // 先行入力したステート
     private PlayerStateController.PlayerStateEnum typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Idle;
 
@@ -55,6 +59,10 @@ public class PlayerJumpState : PlayerState
     // 実行処理
     public override void Execute()
     {
+        float stickHori = Input.GetAxisRaw("Horizontal");
+        float crossHori = Input.GetAxisRaw("CrossHorizontal");
+        float trigger = Input.GetAxis("LRTrigger");
+
         if (isChangeState)
         {
             // 先行入力に応じて次のステートを変更
@@ -78,24 +86,39 @@ public class PlayerJumpState : PlayerState
             }
         }
         // 弾きの先行入力
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Qキーで左パリィ状態に遷移
+        if (Input.GetKeyDown(KeyCode.Q) || trigger != 0 && this.beforeTrigger < 0)
         {
-            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Parry;
+            this.typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Parry;
+            this.playerData.ParryDir = PlayerData.ParryDirection.Left;
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        // Eキーで右パリィ状態に遷移
+        else
+        if (Input.GetKeyDown(KeyCode.E) || trigger != 0 && this.beforeTrigger > 0)
+        {
+            this.typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Parry;
+            this.playerData.ParryDir = PlayerData.ParryDirection.Right;
+        } 
+        // Aキーで左のパスに移動
+        else
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 && this.beforeStick == 0 || crossHori < 0 && this.beforeCross == 0)
         {
             // 左入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Left;
-            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.MoveLR;
+            this.typeAheadNextStatus = PlayerStateController.PlayerStateEnum.MoveLR;
         }
         // Dキーで左のパスに移動
         else
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || stickHori > 0 && this.beforeStick == 0 || crossHori > 0 && this.beforeCross == 0)
         {
             // 右入力キーを設定
             this.GetComponent<PlayerMoveLRState>().moveDir = PlayerMovePath.MoveDir.Right;
-            typeAheadNextStatus = PlayerStateController.PlayerStateEnum.MoveLR;
+            this.typeAheadNextStatus = PlayerStateController.PlayerStateEnum.MoveLR;
         }
+
+        this.beforeStick = stickHori;
+        this.beforeCross = crossHori;
+        this.beforeTrigger = trigger;
 
     }
 
