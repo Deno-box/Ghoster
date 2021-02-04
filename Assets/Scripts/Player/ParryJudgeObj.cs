@@ -26,7 +26,6 @@ public class ParryJudgeObj : MonoBehaviour
                 (bulletDir == PlayerData.ParryDirection.Right && parryDir <= bulletDir) ||
                 (bulletDir == PlayerData.ParryDirection.Left && parryDir >= bulletDir))
             {
-                Debug.Log("はじいたぁああああ");
                 player.ParryJudge();
                 _other.GetComponent<EnemyBulletState>().ChangeParryBulletState();
             }

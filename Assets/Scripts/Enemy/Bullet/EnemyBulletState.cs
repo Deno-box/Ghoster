@@ -11,8 +11,11 @@ public class EnemyBulletState : BulletState
     private float counter = 0;
     // 一定時間経過すると削除されるカウンター
     private float destroyCounterMax = 20.0f;
-    //// ダメージ用エフェクト
+    // ダメージ用エフェクト
     private GameObject damageFX;
+    // 生成演出
+    float timeScale = 0.0f;
+
 
     private void Start()
     {
