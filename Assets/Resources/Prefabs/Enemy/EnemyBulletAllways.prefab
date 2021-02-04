@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5584cd8059a2b4347b26e9b5d4f4c08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  satelliteObj: {fileID: 0}
 --- !u!114 &2893229106692170488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,17 +444,17 @@ PrefabInstance:
     - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
         type: 3}
       propertyPath: InitialModule.startColor.minColor.r
-      value: 0.5188679
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
         type: 3}
       propertyPath: InitialModule.startColor.minColor.b
-      value: 0.5188679
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
         type: 3}
       propertyPath: InitialModule.startColor.minColor.g
-      value: 0.5188679
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5180729303181866825, guid: 3b6374cfd8f07b348a1fdc63922881e0,
         type: 3}
