@@ -34,6 +34,9 @@ public class PlaySceneUIMediator : MonoBehaviour
         this.startImageSize = this.startImage.GetComponent<ResizeImage>();
         this.goalImageFade  = this.goalImage.GetComponent<FadeImage>();
         this.goalImageSize  = this.goalImage.GetComponent<ResizeImage>();
+        this.playerHLUI.SetActive(false);
+
+
     }
 
 
@@ -50,7 +53,7 @@ public class PlaySceneUIMediator : MonoBehaviour
 
         // 操作ボタンをフェードイン
         bool isPlayButtonFade = this.playButtonImage.Execute(FadeImage.FadeType.FadeIn,this.fadeInSpeed);
-        if (this.playerHLUI)
+        if (this.playerHLUI!=null)
             this.playerHLUI.SetActive(true);
 
         if (this.isStartImageFadeOut && isPlayButtonFade)
