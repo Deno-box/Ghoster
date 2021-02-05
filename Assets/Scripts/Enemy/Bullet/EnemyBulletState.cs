@@ -19,9 +19,15 @@ public class EnemyBulletState : BulletState
     [SerializeField]
     private GameObject satelliteObj = null;
 
+    private float scaleSize = 0.1f;
+    private float scaleSpeed = 0.05f;
+    private float scaleMax = 0.5f;
+    private bool isInitScaleDec = false;
+
     private void Start()
     {
         this.damageFX = Resources.Load("Effect/Enemy/Bullet/BossBulletCollision") as GameObject;
+        this.transform.localScale = new Vector3(this.scaleSize, this.scaleSize, this.scaleSize);
     }
 
     // 初期化処理
@@ -37,6 +43,17 @@ public class EnemyBulletState : BulletState
         counter += Time.deltaTime;
         if (counter >= destroyCounterMax)
             Destroy(this.gameObject);
+
+        if(!this.isInitScaleDec && scaleSize <= this.scaleMax)
+        {
+            this.scaleSize += this.scaleSpeed;
+            this.transform.localScale = new Vector3(this.scaleSize, this.scaleSize, this.scaleSize);
+            if (this.scaleSize >= this.scaleMax)
+            {
+                this.scaleSize = this.scaleMax;
+                this.isInitScaleDec = true;
+            }
+        }
     }
 
     // OnTrigger時の処理
