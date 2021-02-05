@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class ScoreRanking : MonoBehaviour
 {
     [SerializeField, Header("数値")]
-    private int point;
+   // private int point;
 
     //ステージ1
     string[] ranking1 = { "1-1ランキング1位", "1-2ランキング2位", "1-3ランキング3位" };

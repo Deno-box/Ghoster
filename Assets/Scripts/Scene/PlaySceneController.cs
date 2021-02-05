@@ -99,10 +99,12 @@ public class PlaySceneController : MonoBehaviour
         // UIを表示
         if (this.UIMediator.GoalExecute())
             ChangeState(State.ExitScene);
-
+        
     }
     private void UpdateExitScene()
     {
         FadeController.Instance.fadeOutStart(Common.Scene.RESULT_SCENE);
+        PlayerPrefs.SetInt("clearStageNum", 1);
+        
     }
 }
