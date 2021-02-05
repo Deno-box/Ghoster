@@ -8,9 +8,11 @@ namespace Common
     {
         public enum SceneNum
         {
-            TITLE_SCENE,
+            TITLE_SCENE = 0,
             STAGE_SELECT_SCENE,
-            PLAY_SCENE,
+            PLAY_SCENE_1,
+            PLAY_SCENE_2,
+            PLAY_SCENE_3,
             RESULT_SCENE
         }
         public const int TITLE_SCENE        = 0;

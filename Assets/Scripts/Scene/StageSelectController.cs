@@ -97,6 +97,11 @@ public class StageSelectController : MonoBehaviour
                 }
             }
         }
+
+        if(Input.GetKeyDown("joystick button 0"))
+        {
+            FadeController.Instance.fadeOutStart(selecting+2);
+        }
         
         ChangePanelSize(selecting);
 
