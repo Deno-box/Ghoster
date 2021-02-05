@@ -13,12 +13,12 @@ public class PlayerFallState : PlayerState
     private GameObject damageFX;
 
     //bool型の変数を作る
-    private bool clearflag = true;
+    private static bool clearflag = true;
 
     //boolのプロパティゲッターを作る
-    public bool ClearFlag
+    public static bool ClearFlag
     {
-        get { return this.clearflag; }
+        get { return clearflag; }
     }
 
     private void Start()

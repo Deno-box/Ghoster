@@ -12,7 +12,7 @@ public class Test : MonoBehaviour
 
 
     //aaaa
-    public string aaaaaaaaStagenumber;
+    private string aaaaaaaaStagenumber;
 
     //boolのプロパティゲッターを作る
     public bool aaaClearFlag

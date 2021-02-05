@@ -774,7 +774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &859025572
 RectTransform:
   m_ObjectHideFlags: 0
@@ -869,6 +869,8 @@ MonoBehaviour:
   scoreText: {fileID: 249427196}
   PlayerFallState: {fileID: 0}
   PlaySceneController: {fileID: 0}
+  GetPlaySceneController: {fileID: 0}
+  test: {fileID: 0}
   ImageStage:
   - {fileID: 21300000, guid: 46f34e135db8d81438a84c15bb54c590, type: 3}
   - {fileID: 21300000, guid: 173bf7a99615afb40bd29dce0ef54c4c, type: 3}
@@ -1150,7 +1152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1684912270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1579,7 +1581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1881846609
 RectTransform:
   m_ObjectHideFlags: 0

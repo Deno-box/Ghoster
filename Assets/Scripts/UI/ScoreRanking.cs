@@ -29,68 +29,37 @@ public class ScoreRanking : MonoBehaviour
 
     private int score = 0;
 
-    public PlayerFallState PlayerFallState;
-
-    public PlaySceneController PlaySceneController;
-
-    public PlaySceneController GetPlaySceneController;
-
     //ビルド用
     public Test test;
 
-
-    string number;
-
+    string stageNumber;
 
     //ビルド用
     bool sssss;
-
 
     //ステージ画像
     int clearStage; 
     public Sprite[] ImageStage;
     public GameObject StageImge;
 
-
     public GameObject[] ClearImageStampt = new GameObject[3]; 
  
-
-   
-
-
-
-
     // Use this for initialization
     void Start()
     {
 
-        PlayerFallState = FindObjectOfType<PlayerFallState>(); // インスタンス化
-
         test = FindObjectOfType<Test>(); // インスタンス化
-
-        PlaySceneController = FindObjectOfType<PlaySceneController>();
-        
-
-
         clearStage = PlayerPrefs.GetInt("clearStageNum");
 
-        
-        
-
-       // StageImge.SetActive(PlayerFallState.ClearFlag/*ゲッターで受け取ったboolをいれる*/);
-
+        // StageImge.SetActive(PlayerFallState.ClearFlag/*ゲッターで受け取ったboolをいれる*/);
 
         //ビルド用
-       // StageImge.SetActive(test.aaaClearFlag/*ゲッターで受け取ったboolをいれる*/);
+        // StageImge.SetActive(test.aaaClearFlag/*ゲッターで受け取ったboolをいれる*/);
 
-
-        number = PlaySceneController.Stagenumber;
-
+        stageNumber = PlaySceneController.Stagenumber;
 
         //ビルド用
-        sssss = test.aaaClearFlag;
-
-
+        //sssss = test.aaaClearFlag;
 
         //スコアを入れる
         score = Score.GetScore;
@@ -107,7 +76,7 @@ public class ScoreRanking : MonoBehaviour
             rankingText[i].text = rankingValue[i].ToString();
 
         }
-        scoreText.text = point.ToString();
+        scoreText.text = score.ToString();
     }
 
     void Update()
@@ -229,35 +198,48 @@ public class ScoreRanking : MonoBehaviour
            
         }
 
-        switch (number)
+        switch (stageNumber)
         {
             case "Stage1Scene":
                 {
-                    if (test.aaaClearFlag)
+                    if (!PlayerFallState.ClearFlag)
                     {
                         ClearImageStampt[0].SetActive(false);
-                        
-
+                    }
+                    else
+                    {
+                        ClearImageStampt[0].SetActive(true);
                     }
                 }
                 break;
             case "Stage2Scene":
                 {
 
-                    if (PlayerFallState.ClearFlag)
+                    if (!PlayerFallState.ClearFlag)
                     {
                         ClearImageStampt[1].SetActive(false);
+                    }
+                    else
+                    {
+                        ClearImageStampt[1].SetActive(true);
                     }
                 }
                 break;
             case "Stage3Scene":
                 {
 
-                    if (PlayerFallState.ClearFlag)
+                    if (!PlayerFallState.ClearFlag)
                     {
                         ClearImageStampt[3].SetActive(false);
                     }
+                    else
+                    {
+                        ClearImageStampt[3].SetActive(true);
+                    }
+
                 }
+                break;
+            default:
                 break;
 
         }

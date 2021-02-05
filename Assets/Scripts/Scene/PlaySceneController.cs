@@ -8,7 +8,7 @@ public class PlaySceneController : MonoBehaviour
 
     public PlayerFallState PlayerFallState;
 
-    public string Stagenumber;
+    public static string Stagenumber;
 
     public enum State
     {
