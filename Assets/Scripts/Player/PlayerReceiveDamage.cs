@@ -51,7 +51,7 @@ public class PlayerReceiveDamage : MonoBehaviour
 
         playerData.AudioSource.PlayOneShot(playerStatus.receiveDamageSE);
 
-        this.GetComponent<PlayerData>().GetComponent<Animator>().Play("Damage");
+        this.playerData.GetComponent<Animator>().Play("Damage");
     }
 
     // 実行処理
