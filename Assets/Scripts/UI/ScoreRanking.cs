@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class ScoreRanking : MonoBehaviour
 {
     [SerializeField, Header("数値")]
-    private int point;
+   // private int point;
 
     //ステージ1
     string[] ranking1 = { "1-1ランキング1位", "1-2ランキング2位", "1-3ランキング3位" };
@@ -29,15 +29,38 @@ public class ScoreRanking : MonoBehaviour
 
     private int score = 0;
 
+    //ビルド用
+    public Test test;
 
+    string stageNumber;
+
+    //ビルド用
+    bool sssss;
+
+    //ステージ画像
     int clearStage; 
     public Sprite[] ImageStage;
     public GameObject StageImge;
 
+    public GameObject[] ClearImageStampt = new GameObject[3]; 
+ 
     // Use this for initialization
     void Start()
     {
+
+        test = FindObjectOfType<Test>(); // インスタンス化
         clearStage = PlayerPrefs.GetInt("clearStageNum");
+
+        // StageImge.SetActive(PlayerFallState.ClearFlag/*ゲッターで受け取ったboolをいれる*/);
+
+        //ビルド用
+        // StageImge.SetActive(test.aaaClearFlag/*ゲッターで受け取ったboolをいれる*/);
+
+        stageNumber = PlaySceneController.Stagenumber;
+
+        //ビルド用
+        //sssss = test.aaaClearFlag;
+
         //スコアを入れる
         score = Score.GetScore;
 
@@ -47,12 +70,13 @@ public class ScoreRanking : MonoBehaviour
 
         StageImge.GetComponent<Image>().sprite=ImageStage[clearStage-1];
 
+        
         for (int i = 0; i < rankingText.Length; i++)
         {
             rankingText[i].text = rankingValue[i].ToString();
 
         }
-        scoreText.text = point.ToString();
+        scoreText.text = score.ToString();
     }
 
     void Update()
@@ -174,8 +198,52 @@ public class ScoreRanking : MonoBehaviour
            
         }
 
+        switch (stageNumber)
+        {
+            case "Stage1Scene":
+                {
+                    if (!PlayerFallState.ClearFlag)
+                    {
+                        ClearImageStampt[0].SetActive(false);
+                    }
+                    else
+                    {
+                        ClearImageStampt[0].SetActive(true);
+                    }
+                }
+                break;
+            case "Stage2Scene":
+                {
 
-        
+                    if (!PlayerFallState.ClearFlag)
+                    {
+                        ClearImageStampt[1].SetActive(false);
+                    }
+                    else
+                    {
+                        ClearImageStampt[1].SetActive(true);
+                    }
+                }
+                break;
+            case "Stage3Scene":
+                {
+
+                    if (!PlayerFallState.ClearFlag)
+                    {
+                        ClearImageStampt[3].SetActive(false);
+                    }
+                    else
+                    {
+                        ClearImageStampt[3].SetActive(true);
+                    }
+
+                }
+                break;
+            default:
+                break;
+
+        }
+
         switch (clearStage)
         {
             case 1:

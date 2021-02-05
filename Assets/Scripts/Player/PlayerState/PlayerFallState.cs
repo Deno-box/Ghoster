@@ -12,9 +12,20 @@ public class PlayerFallState : PlayerState
     int stageNum;
     private GameObject damageFX;
 
+    //bool型の変数を作る
+    private static bool clearflag = true;
+
+    //boolのプロパティゲッターを作る
+    public static bool ClearFlag
+    {
+        get { return clearflag; }
+    }
+
     private void Start()
     {
         this.damageFX = Resources.Load("Effect/Enemy/Bullet/BossBulletCollision") as GameObject;
+
+       
     }
 
     // 初期化処理
@@ -36,10 +47,14 @@ public class PlayerFallState : PlayerState
         }
 
         GameObject.Find("Director").GetComponent<PlaySceneController>().ChangeState(PlaySceneController.State.ExitScene);
-    }
+        //フラグをフォルスに変える
+         clearflag = false;
 
-    // 実行処理
-    public override void Execute()
+
+}
+
+// 実行処理
+public override void Execute()
     {
         switch (stageNum)
         {

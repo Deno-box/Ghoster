@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.SceneManagement;
 public class PlaySceneController : MonoBehaviour
 {
+
+    public PlayerFallState PlayerFallState;
+
+    public static string Stagenumber;
+
     public enum State
     {
         None,
@@ -27,7 +32,7 @@ public class PlaySceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       Stagenumber= SceneManager.GetActiveScene().name;
     }
     //CameraMove
     // Update is called once per frame
@@ -94,9 +99,12 @@ public class PlaySceneController : MonoBehaviour
         // UIを表示
         if (this.UIMediator.GoalExecute())
             ChangeState(State.ExitScene);
+        
     }
     private void UpdateExitScene()
     {
         FadeController.Instance.fadeOutStart(Common.Scene.RESULT_SCENE);
+        PlayerPrefs.SetInt("clearStageNum", 1);
+        
     }
 }
