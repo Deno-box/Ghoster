@@ -21,6 +21,10 @@ public class StageSelectController : MonoBehaviour
     // クリアシンボルをオブジェクトとして取得
     [SerializeField]
     private GameObject[] clearSymbol = new GameObject[STAGE_NUM];
+    // 拡大縮小させるパネル
+    [SerializeField]
+    private GameObject[] stagePanel = new GameObject[STAGE_NUM];
+    private Vector3[] stagePanelScale = new Vector3[STAGE_NUM];
 
     // コウモリのスコアテキスト
     [SerializeField]
@@ -45,6 +49,10 @@ public class StageSelectController : MonoBehaviour
     [SerializeField]
     private GameObject selectedObject = null;
 
+    private float beforeStick = 0.0f;
+    private float beforeCross = 0.0f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,9 +60,10 @@ public class StageSelectController : MonoBehaviour
         ChangeTextAlpha();
 
         //クリアフラッグは別の場所で管理する(予定)
-        for(int i = 0;i<STAGE_NUM;i++)
+        for (int i = 0; i < STAGE_NUM; i++)
         {
             clearSymbol[i].SetActive(false);
+            stagePanelScale[i] = stagePanel[i].transform.localScale;
         }
     }
 
@@ -64,49 +73,70 @@ public class StageSelectController : MonoBehaviour
         float stickHori = Input.GetAxisRaw("Horizontal");
         float crossHori = Input.GetAxisRaw("CrossHorizontal");
 
-        // ボタンオブジェクト以外をクリックした時
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+        if (beforeStick == 0.0f && beforeCross == 0.0f)
         {
-            // 選択されているオブジェクトを再選択する(エラー防止のため)
-            EventSystem.current.SetSelectedGameObject(selectedObject);
-        }
-
-        // 何かキーを押したら
-        if (Input.anyKeyDown)
-        {
-            // selectingの値を変える
-            ChangeSelecting();
-            // 1フレーム前と選択しているボタンが違ったら
-            if (selecting != lastSelect)
+            // 右キーを押下
+            if (Input.GetKeyDown(KeyCode.RightArrow) || stickHori > 0 || crossHori > 0)
             {
-                ChangeImage();
-                ChangeTextAlpha();
+                if (this.selecting < 2)
+                {
+                    this.selecting++;
+                    ChangeImage();
+                    ChangeTextAlpha();
+                }
+
+            }
+            // 左キーを押下
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || stickHori < 0 || crossHori < 0)
+            {
+                if (this.selecting > 0)
+                {
+                    this.selecting--;
+                    ChangeImage();
+                    ChangeTextAlpha();
+                }
             }
         }
-        //1フレーム前の選択されていたボタン
-        lastSelect = selecting;
+        
+        ChangePanelSize(selecting);
+
+
+
+        beforeStick = stickHori;
+        beforeCross = crossHori;
     }
 
-    // selectingの値を変える
-    void ChangeSelecting()
+    void ChangePanelSize(int num)
     {
-        // 選択しているオブジェクト(ボタン)を更新
-        selectedObject = eventSystem.currentSelectedGameObject.gameObject;
+        switch (num)
+        {
+            case 0:
+                stagePanel[selecting].transform.localScale = new Vector3(stagePanelScale[selecting].x + Mathf.PingPong(Time.time / 10, 0.05f), 
+                    stagePanelScale[selecting].y + Mathf.PingPong(Time.time/10, 0.05f),
+                    stagePanelScale[selecting].z + Mathf.PingPong(Time.time/10, 0.05f));
 
-        // 選択しているオブジェクトのタグがStage1
-        if (selectedObject.tag == "Stage1")
-        {
-            this.selecting = 0;
-        }
-        // 選択しているオブジェクトのタグがStage2
-        else if (selectedObject.tag == "Stage2")
-        {
-            this.selecting = 1;
-        }
-        // 選択しているオブジェクトのタグがStage3
-        else if (selectedObject.tag == "Stage3")
-        {
-            this.selecting = 2;
+                stagePanel[1].transform.localScale = stagePanelScale[1];
+                stagePanel[2].transform.localScale = stagePanelScale[2];
+                break;
+            case 1:
+                stagePanel[selecting].transform.localScale = new Vector3(stagePanelScale[selecting].x + Mathf.PingPong(Time.time / 10, 0.05f),
+                    stagePanelScale[selecting].y + Mathf.PingPong(Time.time / 10, 0.05f),
+                    stagePanelScale[selecting].z + Mathf.PingPong(Time.time / 10, 0.05f));
+
+                stagePanel[0].transform.localScale = stagePanelScale[0];
+                stagePanel[2].transform.localScale = stagePanelScale[2];
+                break;
+            case 2:
+                stagePanel[selecting].transform.localScale = new Vector3(stagePanelScale[selecting].x + Mathf.PingPong(Time.time / 10, 0.05f),
+                    stagePanelScale[selecting].y + Mathf.PingPong(Time.time / 10, 0.05f),
+                    stagePanelScale[selecting].z + Mathf.PingPong(Time.time / 10, 0.05f));
+
+                stagePanel[1].transform.localScale = stagePanelScale[1];
+                stagePanel[0].transform.localScale = stagePanelScale[0];
+
+                break;
+            default:
+                break;
         }
     }
 
@@ -137,9 +167,9 @@ public class StageSelectController : MonoBehaviour
                 break;
         }
         // 選択中以外のシルエットは非選択状態にする
-        for(int i = 0; i < STAGE_NUM;i++)
+        for (int i = 0; i < STAGE_NUM; i++)
         {
-            if(i != selecting)
+            if (i != selecting)
             {
                 BossSilhouetteImage[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                 rankingSheetImage[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
@@ -154,7 +184,7 @@ public class StageSelectController : MonoBehaviour
         switch (this.selecting)
         {
             case 0:
-                for(int i = 0;i < STAGE_NUM;i++)
+                for (int i = 0; i < STAGE_NUM; i++)
                 {
                     batScoreTexts[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                     skullScoreTexts[i].color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
