@@ -21,10 +21,10 @@ public class TutorialTaskController : MonoBehaviour
         tutorialTaskList = new List<ITutorialTask>()
         {
             new MovementTask(),
-            new GameoverConditionTask(),
             new JumpTask(),
             new ParryTask(),
-            new EnemyBulletTask(),
+            //new EnemyBulletTask(),
+            new GameoverConditionTask(),
             new GameClearConditionTask()
         };
         currentTutorialTask = this.tutorialTaskList[0];
@@ -39,7 +39,10 @@ public class TutorialTaskController : MonoBehaviour
         if(currentTutorialTask.CheckTast())
         {
             if (tutorialTaskList.Count > 1)
+            {
+                tutorialTaskList[0].ExitTaskSetting();
                 tutorialTaskList.RemoveAt(0);
+            }
             currentTutorialTask = this.tutorialTaskList[0];
         }
         // タスクが切り替わったら

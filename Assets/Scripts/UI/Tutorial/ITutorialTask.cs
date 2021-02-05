@@ -8,4 +8,5 @@ public interface ITutorialTask
     string GetText();
     void OnTaskSetting();
     bool CheckTast();
+    void ExitTaskSetting();
 }

@@ -15,7 +15,7 @@ public class ParryTask : ITutorialTask
     }
     public string GetText()
     {
-        return "[LT] [RT] で弾をはじけるよ";
+        return "弾を跳ね返してみよう!\n青色の弾 : [LT]\n赤色の弾 : [RT]\n白色の弾 : [LT] or [RT]";
     }
     public void OnTaskSetting()
     {
@@ -33,5 +33,9 @@ public class ParryTask : ITutorialTask
         lastTrigger = trigger;
 
         return false;
+    }
+    public void ExitTaskSetting()
+    {
+
     }
 }

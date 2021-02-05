@@ -17,7 +17,6 @@ public class JumpTask : ITutorialTask
     }
     public void OnTaskSetting()
     {
-        Time.timeScale = 1.0f;
     }
     public bool CheckTast()
     {
@@ -28,5 +27,9 @@ public class JumpTask : ITutorialTask
             return true;
 
         return false;
+    }
+    public void ExitTaskSetting()
+    {
+
     }
 }

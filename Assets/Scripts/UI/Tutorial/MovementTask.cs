@@ -34,4 +34,9 @@ public class MovementTask : ITutorialTask
 
         return false;
     }
+
+    public void ExitTaskSetting()
+    {
+
+    }
 }

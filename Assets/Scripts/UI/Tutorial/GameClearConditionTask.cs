@@ -19,4 +19,8 @@ public class GameClearConditionTask : ITutorialTask
     {
         return false;
     }
+    public void ExitTaskSetting()
+    {
+
+    }
 }

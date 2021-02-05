@@ -32,4 +32,8 @@ public class EnemyBulletTask : ITutorialTask
 
         return false;
     }
+    public void ExitTaskSetting()
+    {
+
+    }
 }

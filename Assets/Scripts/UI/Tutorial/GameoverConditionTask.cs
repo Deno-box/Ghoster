@@ -23,4 +23,8 @@ public class GameoverConditionTask : ITutorialTask
 
         return false;
     }
+    public void ExitTaskSetting()
+    {
+        Time.timeScale = 1.0f;
+    }
 }
