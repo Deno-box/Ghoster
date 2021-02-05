@@ -37,6 +37,7 @@ public class BossEnemyBulletGenerator : MonoBehaviour
     [SerializeField, Header("撤退アニメーションを再生する地点"), PropertyBackingField("DrawlPos")]
     private float drawlPos = 0.0f;
 
+
     [SerializeField,Header("ボスの攻撃パターン")]
     private List<BossAttackPattern> bossAttackPT = new List<BossAttackPattern>();
 
