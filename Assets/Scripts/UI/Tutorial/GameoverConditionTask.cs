@@ -2,19 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameoverConditionTask : MonoBehaviour
+public class GameoverConditionTask : ITutorialTask
 {
-    // Start is called before the first frame update
-    void Start()
+    public string GetTitle()
     {
-        
+        return "基本情報　ゲームオーバー";
     }
-
-    // Update is called once per frame
-    void Update()
+    public string GetText()
     {
-        // ゲーム尾＾バー条件を提示
+        return "コーヒーカップに当たらないようにレーンを移動しよう!\n\n　　　　　　　　　　　　Bキーで次へ";
+    }
+    public void OnTaskSetting()
+    {
+        Time.timeScale = 0.0f;
+    }
+    public bool CheckTast()
+    {
+        if (Input.GetKeyDown("joystick button 1"))
+            return true;
 
-        // 最後のタスクも追加
+        return false;
     }
 }

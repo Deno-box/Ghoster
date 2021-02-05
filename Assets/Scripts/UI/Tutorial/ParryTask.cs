@@ -7,7 +7,7 @@ public class ParryTask : ITutorialTask
     int inputCounter = 0;
     int inputCounterMax = 3;
 
-    float lastTrigget = 0.0f;
+    float lastTrigger = 0.0f;
 
     public string GetTitle()
     {
@@ -24,13 +24,13 @@ public class ParryTask : ITutorialTask
     public bool CheckTast()
     {
         float trigger = Input.GetAxis("LRTrigger");
-        if (trigger != 0.0f && lastTrigget == 0.0f)
+        if (trigger != 0.0f && lastTrigger == 0.0f)
             inputCounter++;
 
         if (inputCounter >= inputCounterMax)
             return true;
 
-        lastTrigget = trigger;
+        lastTrigger = trigger;
 
         return false;
     }

@@ -5,6 +5,8 @@ public class EnemyBulletTask : ITutorialTask
     int inputCounter = 0;
     int inputCounterMax = 3;
 
+    float lastTrigger = 0.0f;
+
     public string GetTitle()
     {
         return "基本情報　弾の種類" + inputCounter + "/" + inputCounterMax;
@@ -20,11 +22,13 @@ public class EnemyBulletTask : ITutorialTask
     public bool CheckTast()
     {
         float trigger = Input.GetAxis("LRTrigger");
-        if (trigger != 0.0f)
+        if (trigger != 0.0f && lastTrigger == 0.0f)
             inputCounter++;
 
         if (inputCounter >= inputCounterMax)
             return true;
+
+        lastTrigger = trigger;
 
         return false;
     }
