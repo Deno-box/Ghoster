@@ -9,7 +9,7 @@ public class JumpTask : ITutorialTask
 
     public string GetTitle()
     {
-        return "基本動作　ジャンプ";
+        return "基本動作　ジャンプ" + inputCounter + "/" + inputCounterMax; ;
     }
     public string GetText()
     {
@@ -24,7 +24,7 @@ public class JumpTask : ITutorialTask
         if (Input.GetKeyDown("joystick button 0"))
             inputCounter++;
 
-        if (inputCounter > inputCounterMax)
+        if (inputCounter >= inputCounterMax)
             return true;
 
         return false;

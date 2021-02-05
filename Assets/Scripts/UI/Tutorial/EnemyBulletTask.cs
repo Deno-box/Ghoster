@@ -7,7 +7,7 @@ public class EnemyBulletTask : ITutorialTask
 
     public string GetTitle()
     {
-        return "基本情報　弾の種類";
+        return "基本情報　弾の種類" + inputCounter + "/" + inputCounterMax;
     }
     public string GetText()
     {
@@ -23,7 +23,7 @@ public class EnemyBulletTask : ITutorialTask
         if (trigger != 0.0f)
             inputCounter++;
 
-        if (inputCounter > inputCounterMax)
+        if (inputCounter >= inputCounterMax)
             return true;
 
         return false;

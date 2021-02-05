@@ -38,13 +38,14 @@ public class TutorialTaskController : MonoBehaviour
         if(currentTutorialTask.CheckTast())
         {
             tutorialTaskList.RemoveAt(0);
-            ChangeTaskText();
+            currentTutorialTask = this.tutorialTaskList[0];
         }
+        ChangeTaskText();
     }
 
     void ChangeTaskText()
     {
-        tutorialTitleText.text = tutorialTaskList[0].GetTitle();
-        tutorialText.text = tutorialTaskList[0].GetText();
+        tutorialTitleText.text = currentTutorialTask.GetTitle();
+        tutorialText.text = currentTutorialTask.GetText();
     }
 }

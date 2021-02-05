@@ -7,9 +7,11 @@ public class MovementTask : ITutorialTask
     int inputCounter = 0;
     int inputCounterMax = 3;
 
+    float lastStickHori = 0.0f;
+
     public string GetTitle()
     {
-        return "基本動作 移動";
+        return "基本動作　移動 " + inputCounter + "/" + inputCounterMax;
     }
     public string GetText()
     {
@@ -22,11 +24,13 @@ public class MovementTask : ITutorialTask
     public bool CheckTast()
     {
         float stickHori = Input.GetAxisRaw("Horizontal");
-        if (stickHori != 0.0f)
+        if (stickHori != 0.0f && lastStickHori == 0.0f)
             inputCounter++;
 
-        if(inputCounter > inputCounterMax)
+        if(inputCounter >= inputCounterMax)
             return true;
+
+        lastStickHori = stickHori;
 
         return false;
     }
