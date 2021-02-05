@@ -31,6 +31,7 @@ public class PlayerFallState : PlayerState
         {
             case 1:  InitGroundStage(); break;
             case 2:  InitAirStage();    break;
+            case 3:  InitAirStage();    break;
             default: break;
         }
 
@@ -44,6 +45,7 @@ public class PlayerFallState : PlayerState
         {
             case 1: ExecuteGroundStage(); break;
             case 2: ExecuteAirStage();    break;
+            case 3: ExecuteAirStage();    break;
             default: break;
         }
     }
