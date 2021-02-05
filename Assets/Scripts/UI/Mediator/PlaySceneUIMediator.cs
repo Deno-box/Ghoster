@@ -21,6 +21,8 @@ public class PlaySceneUIMediator : MonoBehaviour
     private float fadeOutSpeed = 0.0f;
     [SerializeField]
     private float scaleSpeed = 0.0f;
+    [SerializeField]
+    private GameObject playerHLUI = null;
 
 
     private bool isStartImageFadeIn = false;
@@ -48,6 +50,8 @@ public class PlaySceneUIMediator : MonoBehaviour
 
         // 操作ボタンをフェードイン
         bool isPlayButtonFade = this.playButtonImage.Execute(FadeImage.FadeType.FadeIn,this.fadeInSpeed);
+        if (this.playerHLUI)
+            this.playerHLUI.SetActive(true);
 
         if (this.isStartImageFadeOut && isPlayButtonFade)
             return true;
