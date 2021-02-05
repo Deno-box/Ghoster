@@ -283,6 +283,11 @@ public class BossEnemyBulletGenerator : MonoBehaviour
                 InstanceBullet(shootPathNum);
                 shootPathNum -= 2;
                 break;
+
+            case BossAttackPattern.BossAttackPatternEnum.All:
+                for(int i=0;i<attackPathList.Count;i++)
+                    InstanceBullet(i);
+                break;
         }
 
         shootPathNum = Mathf.Clamp(shootPathNum, 0, attackPathList.Count-1);
@@ -324,7 +329,7 @@ public class BossEnemyBulletGenerator : MonoBehaviour
         if(other.tag == "EnemyBullet")
         {
             if (other.GetComponent<EnemyBulletStateController>().LastStateEnum == EnemyBulletStateController.BulletStateEnum.Parry &&
-                currentAnimState != AnimState.Damage && this.myCart.m_Position < this.drawlPos)
+                this.myCart.m_Position < this.drawlPos)
             {
                 ChangeAnim(AnimState.Damage);
             }
@@ -351,7 +356,8 @@ public class BossAttackPattern
         RightToLeft,
         Consecutive3,
         SkipLeftToRight,
-        SkipRightToLeft
+        SkipRightToLeft,
+        All
     }
     // ボスの攻撃パターン
     public BossAttackPatternEnum pattern = BossAttackPatternEnum.None;

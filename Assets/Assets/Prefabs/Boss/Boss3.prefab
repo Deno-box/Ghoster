@@ -182,8 +182,10 @@ MonoBehaviour:
   drawlPosObj: {fileID: 3850479639623670338}
   shootStartPosObj: {fileID: 4049992402947245480}
   animator: {fileID: 2481672894264644909}
-  attackFX: {fileID: 0}
-  drawalFX: {fileID: 0}
+  attackFX: {fileID: 8962663647538090121, guid: fe4868bc4c815a14997f928076be6940,
+    type: 3}
+  drawalFX: {fileID: 5020140848790209704, guid: 6af845e6a91af2e46b8b01ca37d6b063,
+    type: 3}
 --- !u!33 &3416494446063356946
 MeshFilter:
   m_ObjectHideFlags: 0
