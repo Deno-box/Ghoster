@@ -97,15 +97,25 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: -5}
+  - {x: 0, y: 0, z: -4.5000043}
   - {x: 0, y: 0, z: -4.000009}
+  - {x: 0, y: 0, z: -3.500015}
   - {x: 0, y: 0, z: -3.0000193}
+  - {x: 0, y: 0, z: -2.5000234}
   - {x: 0, y: 0, z: -2.0000272}
+  - {x: 0, y: 0, z: -1.5000304}
   - {x: 0, y: 0, z: -1.0000336}
+  - {x: 0, y: 0, z: -0.50003535}
   - {x: 0, y: 0, z: -0.000037372112}
+  - {x: 0, y: 0, z: 0.49996185}
   - {x: 0, y: 0, z: 0.9999619}
+  - {x: 0, y: 0, z: 1.4999628}
   - {x: 0, y: 0, z: 1.9999642}
+  - {x: 0, y: 0, z: 2.4999673}
   - {x: 0, y: 0, z: 2.9999714}
+  - {x: 0, y: 0, z: 3.4999766}
   - {x: 0, y: 0, z: 3.9999833}
+  - {x: 0, y: 0, z: 4.4999905}
   - {x: 0, y: 0, z: 5}
   m_Parameters:
     serializedVersion: 3
@@ -174,4 +184,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee682a16ba78d4ea8ed42cb2127f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tessellation: 10
+  tessellation: 20
