@@ -29,15 +29,69 @@ public class ScoreRanking : MonoBehaviour
 
     private int score = 0;
 
+    public PlayerFallState PlayerFallState;
 
+    public PlaySceneController PlaySceneController;
+
+    public PlaySceneController GetPlaySceneController;
+
+    //ビルド用
+    public Test test;
+
+
+    string number;
+
+
+    //ビルド用
+    bool sssss;
+
+
+    //ステージ画像
     int clearStage; 
     public Sprite[] ImageStage;
     public GameObject StageImge;
 
+
+    public GameObject[] ClearImageStampt = new GameObject[3]; 
+ 
+
+   
+
+
+
+
     // Use this for initialization
     void Start()
     {
+
+        PlayerFallState = FindObjectOfType<PlayerFallState>(); // インスタンス化
+
+        test = FindObjectOfType<Test>(); // インスタンス化
+
+        PlaySceneController = FindObjectOfType<PlaySceneController>();
+        
+
+
         clearStage = PlayerPrefs.GetInt("clearStageNum");
+
+        
+        
+
+       // StageImge.SetActive(PlayerFallState.ClearFlag/*ゲッターで受け取ったboolをいれる*/);
+
+
+        //ビルド用
+       // StageImge.SetActive(test.aaaClearFlag/*ゲッターで受け取ったboolをいれる*/);
+
+
+        number = PlaySceneController.Stagenumber;
+
+
+        //ビルド用
+        sssss = test.aaaClearFlag;
+
+
+
         //スコアを入れる
         score = Score.GetScore;
 
@@ -47,6 +101,7 @@ public class ScoreRanking : MonoBehaviour
 
         StageImge.GetComponent<Image>().sprite=ImageStage[clearStage-1];
 
+        
         for (int i = 0; i < rankingText.Length; i++)
         {
             rankingText[i].text = rankingValue[i].ToString();
@@ -174,8 +229,39 @@ public class ScoreRanking : MonoBehaviour
            
         }
 
+        switch (number)
+        {
+            case "Stage1Scene":
+                {
+                    if (test.aaaClearFlag)
+                    {
+                        ClearImageStampt[0].SetActive(false);
+                        
 
-        
+                    }
+                }
+                break;
+            case "Stage2Scene":
+                {
+
+                    if (PlayerFallState.ClearFlag)
+                    {
+                        ClearImageStampt[1].SetActive(false);
+                    }
+                }
+                break;
+            case "Stage3Scene":
+                {
+
+                    if (PlayerFallState.ClearFlag)
+                    {
+                        ClearImageStampt[3].SetActive(false);
+                    }
+                }
+                break;
+
+        }
+
         switch (clearStage)
         {
             case 1:

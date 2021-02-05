@@ -15,24 +15,18 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScene/Stage1Test.unity
     guid: a7d64bcf9ca036248ba4620876caa545
   - enabled: 0
-    path: Assets/Scenes/BuildScenes/ResultScene.unity
-    guid: 63813fd6875c85440bc2b053504dfc16
-  - enabled: 0
     path: Assets/Scenes/BuildScenes/DemoPlayScene.unity
     guid: 62fe3348338be2b47a67c6bf57c9c219
-  - enabled: 0
-    path: Assets/Scenes/BuildScenes/ResultScene.unity
-    guid: 63813fd6875c85440bc2b053504dfc16
   - enabled: 0
     path: Assets/AssetsTest/Scenes/Ghoster_Designer_Stage1.unity
     guid: 5d6814ee167cd1c42979c144676439ba
   - enabled: 0
     path: Assets/Scenes/TestScene/TestClearScene.unity
     guid: 1dbdbc38aea121d448be239b67f760ad
-  - enabled: 0
-    path: Assets/Scenes/TestScene/TestRanking2.unity
-    guid: cc6efa349d03d424bb31fef35a709b6e
   - enabled: 1
     path: Assets/Scenes/BuildScenes/Stage1Scene.unity
     guid: 70f75db3a661d75499f32a2da515c390
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/ResultScene.unity
+    guid: 63813fd6875c85440bc2b053504dfc16
   m_configObjects: {}

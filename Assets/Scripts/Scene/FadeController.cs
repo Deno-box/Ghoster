@@ -102,7 +102,9 @@ public class FadeController : Singleton<FadeController>
             if (this.color.a >= 1)
             {
                 this.isFadeOut = false;
-                SceneManager.LoadScene(this.nextScene);
+                //SceneManager.LoadScene(this.nextScene);
+                //SceneManager.LoadScene("ResultScene");
+                SceneManager.LoadScene("TestRanking2");
             }
         }
     }
