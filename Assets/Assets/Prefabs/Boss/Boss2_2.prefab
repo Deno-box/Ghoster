@@ -124,8 +124,9 @@ GameObject:
   - component: {fileID: 884546149293085188}
   - component: {fileID: 3416494446063356959}
   - component: {fileID: 2944282339184382748}
+  - component: {fileID: 8359426561418721884}
   m_Layer: 0
-  m_Name: Boss4
+  m_Name: Boss2_2
   m_TagString: BossEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,9 +184,9 @@ MonoBehaviour:
   drawlPosObj: {fileID: 3850479639623670338}
   shootStartPosObj: {fileID: 4049992402947245480}
   animator: {fileID: 6171468257099667780}
-  attackFX: {fileID: 8962663647538090121, guid: fe4868bc4c815a14997f928076be6940,
+  attackFX: {fileID: 1057736442776693344, guid: 1e8ee9acfd91f714ab0f4bdb9be43f32,
     type: 3}
-  drawalFX: {fileID: 5020140848790209704, guid: 6af845e6a91af2e46b8b01ca37d6b063,
+  drawalFX: {fileID: 6807711582167320836, guid: 739bd269be4996243aa0b1efd73facf1,
     type: 3}
 --- !u!33 &3416494446063356946
 MeshFilter:
@@ -241,6 +242,19 @@ MonoBehaviour:
   m_PositionUnits: 1
   m_Speed: 13
   m_Position: 0
+--- !u!114 &8359426561418721884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3416494446063356945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552b463ff08c0754eafd428cdf4f67cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &3850479639623670338
 GameObject:
   m_ObjectHideFlags: 0
