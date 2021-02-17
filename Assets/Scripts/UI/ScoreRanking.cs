@@ -200,27 +200,29 @@ public class ScoreRanking : MonoBehaviour
 
         // ステージをクリアしていたら
         int isStageClear = PlayerPrefs.GetInt("isStageClear");
-        if(isStageClear == 1)
-        switch (stageNumber)
+        if (isStageClear == 1)
         {
-            case "Stage1Scene":
-                {
+            switch (stageNumber)
+            {
+                case "Stage1Scene":
+                    {
                         ClearImageStampt[0].SetActive(true);
-                }
-                break;
-            case "Stage2Scene":
-                {
+                    }
+                    break;
+                case "Stage2Scene":
+                    {
                         ClearImageStampt[1].SetActive(true);
-                }
-                break;
-            case "Stage3Scene":
-                {
+                    }
+                    break;
+                case "Stage3Scene":
+                    {
                         ClearImageStampt[3].SetActive(true);
-                }
-                break;
-            default:
-                break;
+                    }
+                    break;
+                default:
+                    break;
 
+            }
         }
 
         switch (clearStage)

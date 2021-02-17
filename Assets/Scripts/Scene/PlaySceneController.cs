@@ -110,8 +110,8 @@ public class PlaySceneController : MonoBehaviour
     }
     private void UpdateExitScene()
     {
-        FadeController.Instance.fadeOutStart((int)Common.Scene.SceneNum.RESULT_SCENE);
         int stageNum = int.Parse(Regex.Replace(SceneManager.GetActiveScene().name, @"[^0-9]", ""));
         PlayerPrefs.SetInt("clearStageNum", stageNum);
+        FadeController.Instance.fadeOutStart((int)Common.Scene.SceneNum.RESULT_SCENE);
     }
 }
