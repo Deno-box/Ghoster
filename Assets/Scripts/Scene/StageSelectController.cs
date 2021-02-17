@@ -98,7 +98,7 @@ public class StageSelectController : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown("joystick button 0"))
+        if(Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.Space))
         {
             int num = selecting + 2;
             FadeController.Instance.fadeOutStart(num);
