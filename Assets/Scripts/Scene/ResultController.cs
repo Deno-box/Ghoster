@@ -12,6 +12,7 @@ public class ResultController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FadeController.Instance.fadeOutStart(Common.Scene.TITLE_SCENE);
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0"))
+            FadeController.Instance.fadeOutStart((int)Common.Scene.SceneNum.TITLE_SCENE);
     }
 }

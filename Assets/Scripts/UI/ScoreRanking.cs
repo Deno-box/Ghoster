@@ -82,10 +82,10 @@ public class ScoreRanking : MonoBehaviour
     void Update()
     {
         //デバッグ用
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-          SceneManager.LoadScene("TestClearScene");
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //  SceneManager.LoadScene("TestClearScene");
+        //}
     }
 
     /// <summary>
@@ -198,50 +198,31 @@ public class ScoreRanking : MonoBehaviour
            
         }
 
-        switch (stageNumber)
+        // ステージをクリアしていたら
+        int isStageClear = PlayerPrefs.GetInt("isStageClear");
+        if (isStageClear == 1)
         {
-            case "Stage1Scene":
-                {
-                    if (!PlayerFallState.ClearFlag)
-                    {
-                        ClearImageStampt[0].SetActive(false);
-                    }
-                    else
+            switch (stageNumber)
+            {
+                case "Stage1Scene":
                     {
                         ClearImageStampt[0].SetActive(true);
                     }
-                }
-                break;
-            case "Stage2Scene":
-                {
-
-                    if (!PlayerFallState.ClearFlag)
-                    {
-                        ClearImageStampt[1].SetActive(false);
-                    }
-                    else
+                    break;
+                case "Stage2Scene":
                     {
                         ClearImageStampt[1].SetActive(true);
                     }
-                }
-                break;
-            case "Stage3Scene":
-                {
-
-                    if (!PlayerFallState.ClearFlag)
-                    {
-                        ClearImageStampt[3].SetActive(false);
-                    }
-                    else
+                    break;
+                case "Stage3Scene":
                     {
                         ClearImageStampt[3].SetActive(true);
                     }
+                    break;
+                default:
+                    break;
 
-                }
-                break;
-            default:
-                break;
-
+            }
         }
 
         switch (clearStage)

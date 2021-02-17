@@ -100,7 +100,8 @@ public class StageSelectController : MonoBehaviour
 
         if(Input.GetKeyDown("joystick button 0"))
         {
-            FadeController.Instance.fadeOutStart(selecting+2);
+            int num = selecting + 2;
+            FadeController.Instance.fadeOutStart(num);
         }
         
         ChangePanelSize(selecting);

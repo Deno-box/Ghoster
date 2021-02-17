@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
+using System.Text.RegularExpressions;
+
 public class PlaySceneController : MonoBehaviour
 {
 
@@ -33,6 +35,8 @@ public class PlaySceneController : MonoBehaviour
     void Start()
     {
        Stagenumber= SceneManager.GetActiveScene().name;
+
+        PlayerPrefs.SetInt("isStageClear", 0);
     }
     //CameraMove
     // Update is called once per frame
@@ -98,13 +102,16 @@ public class PlaySceneController : MonoBehaviour
     {
         // UIを表示
         if (this.UIMediator.GoalExecute())
+        {
+            PlayerPrefs.SetInt("isStageClear", 1);
             ChangeState(State.ExitScene);
+        }
         
     }
     private void UpdateExitScene()
     {
-        FadeController.Instance.fadeOutStart(Common.Scene.RESULT_SCENE);
-        PlayerPrefs.SetInt("clearStageNum", 1);
-        
+        int stageNum = int.Parse(Regex.Replace(SceneManager.GetActiveScene().name, @"[^0-9]", ""));
+        PlayerPrefs.SetInt("clearStageNum", stageNum);
+        FadeController.Instance.fadeOutStart((int)Common.Scene.SceneNum.RESULT_SCENE);
     }
 }
