@@ -168,10 +168,10 @@ public class PlayerParryState : PlayerState
     // great,good判定を取る
     private void ParryJudgement()
     {
-        if (parryJudgeTime <= this.playerStatus.goodJudgeDistance)
-            GameDataManager.AddDecisionNum((int)GameDataManager.SCORE_TYPE.GOOD);
-        else
         if (parryJudgeTime <= this.playerStatus.greatJudgeDistance)
             GameDataManager.AddDecisionNum((int)GameDataManager.SCORE_TYPE.GREAT);
+        else
+        if (parryJudgeTime <= this.playerStatus.goodJudgeDistance)
+            GameDataManager.AddDecisionNum((int)GameDataManager.SCORE_TYPE.GOOD);
     }
 }
