@@ -126,11 +126,11 @@ public class TitleController : MonoBehaviour
 
         if(exitFlag)
         {
-            if(Input.GetKeyDown(KeyCode.Return))
+            if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 0"))
             {
                 Application.Quit();
             }
-            if(Input.GetKeyDown(KeyCode.X))
+            if(Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown("joystick button 1"))
             {
                 exitImage.SetActive(false);
                 exitFlag = false;

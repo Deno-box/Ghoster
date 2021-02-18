@@ -30,7 +30,7 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        score = 0;
     }
 
     // Update is called once per frame
@@ -42,11 +42,9 @@ public class Score : MonoBehaviour
 
     // スコアの計算
     public void CalcScore(int[] _score, int[] _decisionNum)
-    {
-
-
+    {
         for (int i = 0; i < (int)GameDataManager.SCORE_TYPE.ALL_TYPE; i++)
-        {
+        {
             total += _score[i] * _decisionNum[i];
 
             if (total < 0)
@@ -62,18 +60,18 @@ public class Score : MonoBehaviour
 
     // テキストを変動させる
     private void FluctuationText(int _total)
-    {
+    {
         if(score != _total)
-        {
-            // スコア増加
+        {
+            // スコア増加
             if (score < _total)
             {
                 score += FLUC_SPEED;
             }
-            // スコア減少
+            // スコア減少
             else if (score > _total && score != 0)
-            {
-                score -= FLUC_SPEED;
+            {
+                score -= FLUC_SPEED;
             }
         }
     }
