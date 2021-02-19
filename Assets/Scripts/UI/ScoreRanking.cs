@@ -216,7 +216,7 @@ public class ScoreRanking : MonoBehaviour
                     break;
                 case "Stage3Scene":
                     {
-                        ClearImageStampt[3].SetActive(true);
+                        ClearImageStampt[2].SetActive(true);
                     }
                     break;
                 default:
