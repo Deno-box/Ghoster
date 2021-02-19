@@ -132,7 +132,7 @@ public class PlayerMoveLRState : PlayerState
             this.playerData.ParryDir = PlayerData.ParryDirection.Right;
         }
         // ジャンプの先行入力
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown("joystick button 0"))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0"))
         {
             this.typeAheadNextStatus = PlayerStateController.PlayerStateEnum.Jump;
             playerData.GetComponent<Animator>().Play("Jump");
