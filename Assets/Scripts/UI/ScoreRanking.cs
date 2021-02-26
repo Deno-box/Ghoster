@@ -10,16 +10,16 @@ public class ScoreRanking : MonoBehaviour
    // private int point;
 
     //ステージ1
-    string[] ranking1 = { "1-1ランキング1位", "1-2ランキング2位", "1-3ランキング3位" };
+    public string[] ranking1 = { "1-1ランキング1位", "1-2ランキング2位", "1-3ランキング3位" };
 
     //ステージ2
-    string[] ranking2 = { "2-1ランキング1位", "2-2ランキング2位", "2-3ランキング3位" };
+    public string[] ranking2 = { "2-1ランキング1位", "2-2ランキング2位", "2-3ランキング3位" };
 
     //ステージ3
-    string[] ranking3 = { "3-1ランキング1位", "3-2ランキング2位", "3-3ランキング3位" };
+    public string[] ranking3 = { "3-1ランキング1位", "3-2ランキング2位", "3-3ランキング3位" };
 
 
-    int[] rankingValue = new int[3];
+    public int[] rankingValue = new int[3];
 
     [SerializeField, Header("表示させるテキスト")]
     Text[] rankingText = new Text[3];
@@ -34,8 +34,7 @@ public class ScoreRanking : MonoBehaviour
 
     string stageNumber;
 
-    //ビルド用
-    bool sssss;
+    
 
     //ステージ画像
     int clearStage; 
@@ -51,15 +50,11 @@ public class ScoreRanking : MonoBehaviour
         test = FindObjectOfType<Test>(); // インスタンス化
         clearStage = PlayerPrefs.GetInt("clearStageNum");
 
-        // StageImge.SetActive(PlayerFallState.ClearFlag/*ゲッターで受け取ったboolをいれる*/);
-
-        //ビルド用
-        // StageImge.SetActive(test.aaaClearFlag/*ゲッターで受け取ったboolをいれる*/);
+        
 
         stageNumber = PlaySceneController.Stagenumber;
 
-        //ビルド用
-        //sssss = test.aaaClearFlag;
+       
 
         //スコアを入れる
         score = Score.GetScore;
@@ -81,11 +76,7 @@ public class ScoreRanking : MonoBehaviour
 
     void Update()
     {
-        //デバッグ用
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //  SceneManager.LoadScene("TestClearScene");
-        //}
+        
     }
 
     /// <summary>
@@ -104,7 +95,6 @@ public class ScoreRanking : MonoBehaviour
                 for (int i = 0; i < ranking1.Length; i++)
                 {
                     rankingValue[i] = PlayerPrefs.GetInt(ranking1[i]);
-                    Debug.Log("1 : " + rankingValue[i]);
                 }
                 break;
 
@@ -112,10 +102,8 @@ public class ScoreRanking : MonoBehaviour
                 for (int i = 0; i < ranking2.Length; i++)
                 {
                     rankingValue[i] = PlayerPrefs.GetInt(ranking2[i]);
-                    Debug.Log("2 : " + rankingValue[i]);
                 }
                 break;
-
 
             case 3:
                 for (int i = 0; i < ranking3.Length; i++)
@@ -167,8 +155,6 @@ public class ScoreRanking : MonoBehaviour
                 _value = change;
                 if (!setColorFlag)
                 {
-                   
-                    
                     //獲得した自分のスコアの色を変える
                     rankingText[i].color = new Color32(127, 255, 212, 255);
                     setColorFlag = true;
@@ -188,8 +174,6 @@ public class ScoreRanking : MonoBehaviour
                 _value = change;
                 if (!setColorFlag)
                 {
-                   
-                    
                     //獲得した自分のスコアの色を変える
                     rankingText[i].color = new Color32(127, 255, 212, 255);
                     setColorFlag = true;

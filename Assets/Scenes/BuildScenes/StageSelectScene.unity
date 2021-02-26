@@ -1361,6 +1361,7 @@ GameObject:
   - component: {fileID: 480313373}
   - component: {fileID: 480313374}
   - component: {fileID: 480313375}
+  - component: {fileID: 480313376}
   m_Layer: 5
   m_Name: ScoreText1
   m_TagString: Stage3
@@ -1430,6 +1431,36 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: score
+--- !u!114 &480313376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480313372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716b027760e2ce54793d8adf6cdf7d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rankingText:
+  - {fileID: 480313375}
+  - {fileID: 505187049}
+  - {fileID: 1712380015}
+  ranking1:
+  - "1-1\u30E9\u30F3\u30AD\u30F3\u30B01\u4F4D"
+  - "1-2\u30E9\u30F3\u30AD\u30F3\u30B02\u4F4D"
+  - "1-3\u30E9\u30F3\u30AD\u30F3\u30B03\u4F4D"
+  ranking2:
+  - "2-1\u30E9\u30F3\u30AD\u30F3\u30B01\u4F4D"
+  - "2-2\u30E9\u30F3\u30AD\u30F3\u30B02\u4F4D"
+  - "2-3\u30E9\u30F3\u30AD\u30F3\u30B03\u4F4D"
+  ranking3:
+  - "3-1\u30E9\u30F3\u30AD\u30F3\u30B01\u4F4D"
+  - "3-2\u30E9\u30F3\u30AD\u30F3\u30B02\u4F4D"
+  - "3-3\u30E9\u30F3\u30AD\u30F3\u30B03\u4F4D"
+  rankingValue: 000000000000000000000000
+  stageNum: 3
 --- !u!1 &505187046
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,6 +2909,7 @@ GameObject:
   - component: {fileID: 1543039182}
   - component: {fileID: 1543039183}
   - component: {fileID: 1543039184}
+  - component: {fileID: 1543039185}
   m_Layer: 5
   m_Name: ScoreText1
   m_TagString: Stage1
@@ -2947,6 +2979,36 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: score
+--- !u!114 &1543039185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543039181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716b027760e2ce54793d8adf6cdf7d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rankingText:
+  - {fileID: 1543039184}
+  - {fileID: 211227723}
+  - {fileID: 908636423}
+  ranking1:
+  - "1-1\u30E9\u30F3\u30AD\u30F3\u30B01\u4F4D"
+  - "1-2\u30E9\u30F3\u30AD\u30F3\u30B02\u4F4D"
+  - "1-3\u30E9\u30F3\u30AD\u30F3\u30B03\u4F4D"
+  ranking2:
+  - "2-1\u30E9\u30F3\u30AD\u30F3\u30B01\u4F4D"
+  - "2-2\u30E9\u30F3\u30AD\u30F3\u30B02\u4F4D"
+  - "2-3\u30E9\u30F3\u30AD\u30F3\u30B03\u4F4D"
+  ranking3:
+  - "3-1\u30E9\u30F3\u30AD\u30F3\u30B01\u4F4D"
+  - "3-2\u30E9\u30F3\u30AD\u30F3\u30B02\u4F4D"
+  - "3-3\u30E9\u30F3\u30AD\u30F3\u30B03\u4F4D"
+  rankingValue: 000000000000000000000000
+  stageNum: 1
 --- !u!1 &1600449921
 GameObject:
   m_ObjectHideFlags: 0
@@ -3184,6 +3246,7 @@ GameObject:
   - component: {fileID: 1751767739}
   - component: {fileID: 1751767740}
   - component: {fileID: 1751767741}
+  - component: {fileID: 1751767742}
   m_Layer: 5
   m_Name: ScoreText1
   m_TagString: Stage2
@@ -3253,6 +3316,36 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: score
+--- !u!114 &1751767742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751767738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716b027760e2ce54793d8adf6cdf7d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rankingText:
+  - {fileID: 1751767741}
+  - {fileID: 609291975}
+  - {fileID: 1895833409}
+  ranking1:
+  - "1-1\u30E9\u30F3\u30AD\u30F3\u30B01\u4F4D"
+  - "1-2\u30E9\u30F3\u30AD\u30F3\u30B02\u4F4D"
+  - "1-3\u30E9\u30F3\u30AD\u30F3\u30B03\u4F4D"
+  ranking2:
+  - "2-1\u30E9\u30F3\u30AD\u30F3\u30B01\u4F4D"
+  - "2-2\u30E9\u30F3\u30AD\u30F3\u30B02\u4F4D"
+  - "2-3\u30E9\u30F3\u30AD\u30F3\u30B03\u4F4D"
+  ranking3:
+  - "3-1\u30E9\u30F3\u30AD\u30F3\u30B01\u4F4D"
+  - "3-2\u30E9\u30F3\u30AD\u30F3\u30B02\u4F4D"
+  - "3-3\u30E9\u30F3\u30AD\u30F3\u30B03\u4F4D"
+  rankingValue: 000000000000000000000000
+  stageNum: 2
 --- !u!1 &1895833406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3629,6 +3722,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086751366}
   m_CullTransparentMesh: 0
+--- !u!1 &2110815415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2110815417}
+  - component: {fileID: 2110815416}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2110815416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110815415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716b027760e2ce54793d8adf6cdf7d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rankingText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ranking1:
+  - "1-1\u30E9\u30F3\u30AD\u30F3\u30B01\u4F4D"
+  - "1-2\u30E9\u30F3\u30AD\u30F3\u30B02\u4F4D"
+  - "1-3\u30E9\u30F3\u30AD\u30F3\u30B03\u4F4D"
+  ranking2:
+  - "2-1\u30E9\u30F3\u30AD\u30F3\u30B01\u4F4D"
+  - "2-2\u30E9\u30F3\u30AD\u30F3\u30B02\u4F4D"
+  - "2-3\u30E9\u30F3\u30AD\u30F3\u30B03\u4F4D"
+  ranking3:
+  - "3-1\u30E9\u30F3\u30AD\u30F3\u30B01\u4F4D"
+  - "3-2\u30E9\u30F3\u30AD\u30F3\u30B02\u4F4D"
+  - "3-3\u30E9\u30F3\u30AD\u30F3\u30B03\u4F4D"
+  rankingValue: 000000000000000000000000
+  stageNum: 1
+--- !u!4 &2110815417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110815415}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 515.75757, y: 223.48453, z: 23.21363}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2140902493
 GameObject:
   m_ObjectHideFlags: 0
